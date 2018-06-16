@@ -24,7 +24,10 @@ function lsbytesum() {
 PS1=$'\[\033[01;32m\][\[\033[01;31m\]$?\[\033[01;32m\]]-[\[\033[01;94m\]\w\[\033[01;31m\]`parse_git_branch` `lsbytesum`MB\[\033[01;32m\]]-[\[\033[01;94m\]\!\[\033[01;32m\]]-λ\[\033[0;0m\] '
 
 # Custom script are kept in this folder
-PATH=$PATH:/home/nilesh/njk/bin/
+PATH=$PATH:/home/nilesh/xfce-dotFiles/scripts
+
+# Alias
+alias todo="vim /home/nilesh/.TODO"
 
 # Never delete history
 HISTSIZE= 
