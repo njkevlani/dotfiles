@@ -1,6 +1,6 @@
-Command=/home/nilesh/njk/bin/bandwidth
+Command=/home/nilesh/xfce-dotFiles/scripts/bandwidth
 UseLabel=0
 Text=
 UpdatePeriod=2000
-Font=Roboto Medium 13
+Font=Roboto Medium 14
 
