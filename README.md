@@ -1,6 +1,9 @@
 # xfce-dotFiles
 XFCE Dot Files
 
+## Screenshot
+![Screenshot](https://raw.githubusercontent.com/njkevlani/xfce-dotFiles/master/Scrot.png)
+
 ## How to set this at local machine?
 - Cloen this repo.
 
