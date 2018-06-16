@@ -1,0 +1,10 @@
+
+#!/bin/bash
+#     lsbytesum - sum the number of bytes in a directory listing
+TotalBytes=0
+for Bytes in $(ls -l | grep "^-" | awk '{ print $5 }')
+do
+    let TotalBytes=$TotalBytes+$Bytes
+done
+TotalMeg=$(echo -e "scale=3 \n$TotalBytes/1048576 \nquit" | bc)
+echo -n "$TotalMeg"

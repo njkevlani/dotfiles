@@ -1,0 +1,6 @@
+#!/bin/bash
+mkdir -p out || { echo 'j: Can not make directory out/' ; exit 1; }
+javac -d out $1 || { echo 'j: Compilation failed' ; exit 1; }
+echo "j: Compilation done."
+java -cp out ${1%.java} || { echo 'jc: Exception while running' ; exit 1; }
+
