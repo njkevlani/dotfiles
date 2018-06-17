@@ -1,6 +1,6 @@
 Command=/home/nilesh/xfce-dotFiles/scripts/memory
 UseLabel=1
-Text=\ \
+Text=\ \ 
 UpdatePeriod=2000
 Font=Roboto Medium 14
 

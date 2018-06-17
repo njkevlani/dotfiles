@@ -16,6 +16,7 @@ Usage: ${0##*/} OPTION
     -v          set vimrc
     -x          set settings for xfce4 and xfwm4
     -m          set xmodemap key mapping
+    -e          set everything
     -l          list the files that will be deleted
 EOF
 }
@@ -87,7 +88,7 @@ set_vscode() {
 }
 
 # Set IntelliJ settings
-set_intllij() {
+set_intellij() {
   echo "Yet remaining."
 }
 
@@ -109,7 +110,7 @@ set_xfce() {
   echo "Created force link at $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
 }
 
-set_xmodemap() {
+set_xmodmap() {
   ln -sf $dotDrectory/.Xmodmap $HOME/.Xmodmap
   echo "Created force link ar $HOME/.Xmodmap"
 }
@@ -119,13 +120,25 @@ then
     show_help
     exit 0
 else
-  while getopts hbgfptcikvxml opt; do
+  while getopts hbgfptcikvxmel opt; do
       case $opt in
           h)
               show_help
               exit 0
               ;;
 
+          e)  set_bash
+              set_gtk
+              set_font_config
+              set_panel
+              set_terminal
+              set_vim
+              set_vscode
+              set_intellij
+              set_keybinding
+              set_xmodmap
+              set_xfce
+              ;;
           b)  set_bash
               ;;
 
@@ -147,13 +160,13 @@ else
           c)  set_vscode
               ;;
 
-          i)  set_intllij
+          i)  set_intellij
               ;;
 
           k)  set_keybinding
               ;;
 
-          m)  set_xmodemap
+          m)  set_xmodmap
               ;;
 
           x)  set_xfce

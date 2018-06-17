@@ -1,6 +1,6 @@
 Command=/home/nilesh/xfce-dotFiles/scripts/cpu_usage
 UseLabel=1
-Text=\ \
+Text=\ \ 
 UpdatePeriod=2000
 Font=Roboto Medium 14
 
