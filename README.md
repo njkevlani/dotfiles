@@ -23,4 +23,4 @@ XFCE Dot Files
 
 - Set eveything. **This will delete all corresponding files.**
 
-`./set.sh -bgfptcikvxm`
+`./set.sh -e`
