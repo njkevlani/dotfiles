@@ -21,7 +21,7 @@ sub help {
     print "Usage: cpu_usage [-w <warning>] [-c <critical>] [-d <decimals>]\n";
     print "-w <percent>: warning threshold to become yellow\n";
     print "-c <percent>: critical threshold to become red\n";
-    print "-d <decimals>:  Use <decimals> decimals for percentage (default is $decimals) \n"; 
+    print "-d <decimals>:  Use <decimals> decimals for percentage (default is $decimals) \n";
     exit 0;
 }
 
@@ -45,10 +45,27 @@ close(MPSTAT);
 $cpu_usage eq -1 and die 'Can\'t find CPU information';
 
 # Print short_text, full_text
-
+printf "<txt> ";
 if ($cpu_usage <10){
 	print "0";
 }
-printf "%.${decimals}f% %\n", $cpu_usage;
+
+printf "%.${decimals}f% %</txt>", $cpu_usage;
+if ($cpu_usage <25){
+	printf "<img>/usr/share/icons/Papirus/16x16/panel/indicator-cpufreq-25.svg</img>";
+}
+elsif ($cpu_usage <50){
+	printf "<img>/usr/share/icons/Papirus/16x16/panel/indicator-cpufreq-50.svg</img>";
+}
+
+elsif ($cpu_usage <75){
+	printf "<img>/usr/share/icons/Papirus/16x16/panel/indicator-cpufreq-75.svg</img>";
+}
+else {
+    printf "<img>/usr/share/icons/Papirus/16x16/panel/indicator-cpufreq-100.svg</img>";
+}
+
+printf "<tool>Current CPU Usage:%.${decimals}f% %</tool>", $cpu_usage;
+
 
 exit 0;

@@ -35,6 +35,8 @@ END {
 	pct=used/total*100
 
 	# short text
-	printf("%.f%%\n", pct)
+	printf("<txt> %.f%%</txt>", pct)
+	printf("<img>/usr/share/icons/Papirus/16x16/panel/indicator-sensors-chip.svg</img>")
+	printf("<tool>Used Memory: %.f%%</tool>", pct)
 }
 ' /proc/meminfo
