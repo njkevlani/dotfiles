@@ -7,3 +7,4 @@ add Panel:
   - vlc genmon
   - workspace genmon
 
+Put constant things in root directory and config (that changes) in a sub folder like `config/`
