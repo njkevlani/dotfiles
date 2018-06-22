@@ -2,7 +2,7 @@
 function parse_git_branch() {
     BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
     if [ ! "${BRANCH}" == "" ]
-    then        
+    then
         echo "(${BRANCH})"
     else
         echo ""
@@ -28,7 +28,8 @@ PATH=$PATH:/home/nilesh/xfce-dotFiles/scripts
 
 # Alias
 alias todo="vim /home/nilesh/.TODO"
+alias ls="ls -A --group-directories-first --color=auto"
 
 # Never delete history
-HISTSIZE= 
+HISTSIZE=
 HISTFILESIZE=
