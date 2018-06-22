@@ -65,7 +65,7 @@ else {
     printf "<img>/usr/share/icons/Papirus/16x16/panel/indicator-cpufreq-100.svg</img>";
 }
 
-printf "<tool>Current CPU Usage:%.${decimals}f% %</tool>", $cpu_usage;
+printf "<tool>Current CPU Usage: %.${decimals}f% %</tool>", $cpu_usage;
 
 
 exit 0;

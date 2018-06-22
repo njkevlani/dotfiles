@@ -65,6 +65,7 @@ rx_kib=$(( $rx_rate >> 10 ))
 tx_kib=$(( $tx_rate >> 10 ))
 
 total_kib=`expr $rx_kib + $tx_kib`
+echo -n "<txt>"
 if [ $total_kib -lt 100 ]
 then	
 	echo -n " "
@@ -74,4 +75,5 @@ if [ $total_kib -lt 10 ]
 then
 	echo -n " "
 fi
-echo ""
+echo "</txt>"
+echo "<tool>Down: $rx_kib KB | UP: $tx_kib KB </tool>"
