@@ -1,8 +1,4 @@
 [Configuration]
-ColorForeground=#f8f8f8f8f2f2
-ColorBackground=#272728282222
-ColorCursor=#f8f8f8f8f2f2
-ColorPalette=#272728282222;#f9f926267272;#a6a6e2e22e2e;#f4f4bfbf7575;#6666d9d9efef;#aeae8181ffff;#a1a1efefe4e4;#f8f8f8f8f2f2;#757571715e5e;#f9f926267272;#a6a6e2e22e2e;#f4f4bfbf7575;#6666d9d9efef;#aeae8181ffff;#a1a1efefe4e4;#f9f9f8f8f5f5
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
@@ -29,5 +25,9 @@ MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=FALSE
 MiscNewTabAdjacent=FALSE
 FontName=Roboto Mono Medium 12
-TabActivityColor=#a6a6e2e22e2e
+ColorPalette=#01011d1d0000;#e9e91f1f3434;#acacd5d50000;#e9e9a4a40000;#8d8d1f1f8787;#e9e91f1f8585;#3333bebe8787;#cbcbccccc5c5;#474771714f4f;#fafa68684242;#bcbce6e61c1c;#fafac0c01a1a;#9c9c68689898;#d5d568689898;#7c7ce6e67070;#ffffffffffff
+ColorForeground=#fffffefefcfc
+ColorBackground=#0f0f1d1d1919
+ColorCursor=#fffffefefcfc
+ScrollingBar=TERMINAL_SCROLLBAR_NONE
 
