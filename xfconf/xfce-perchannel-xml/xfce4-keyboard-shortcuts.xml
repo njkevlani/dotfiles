@@ -38,6 +38,7 @@
       <property name="&lt;Super&gt;Return" type="string" value="xfce4-terminal --maximize"/>
       <property name="XF86Display" type="string" value="xfce4-display-settings"/>
       <property name="&lt;Super&gt;v" type="string" value="vlc -Z /home/nilesh/Music/"/>
+      <property name="&lt;Super&gt;p" type="string" value="firefox"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

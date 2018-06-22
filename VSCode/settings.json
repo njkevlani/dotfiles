@@ -9,5 +9,6 @@
     "workbench.activityBar.visible": true,
     "window.menuBarVisibility": "toggle",
     "editor.tabSize": 2,
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "editor.multiCursorModifier": "ctrlCmd"
 }
