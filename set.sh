@@ -58,11 +58,11 @@ set_gtk() {
 }
 
 # Set font config
-set_font_config() {
-  mkdir -p .config/fontconfig/conf.d
-  ln -sf $dotDirectory/01-emoji.conf $HOME/.config/fontconfig/conf.d/01-emoji.conf
-  echo "Created force link at $HOME/.config/fontconfig/conf.d/01-emoji.conf"
-}
+# set_font_config() {
+#   mkdir -p .config/fontconfig/conf.d
+#   ln -sf $dotDirectory/01-emoji.conf $HOME/.config/fontconfig/conf.d/01-emoji.conf
+#   echo "Created force link at $HOME/.config/fontconfig/conf.d/01-emoji.conf"
+# }
 
 # Set xfce4-panel
 set_panel() {

@@ -57,10 +57,10 @@ get_gtk() {
 }
 
 # Get font config
-get_font_config() {
-  cp $HOME/.config/fontconfig/conf.d $dotDirectory/fontconfig -r
-  echo "Copied $HOME/.config/fontconfig/conf.d/ to $dotDirectory/fontconfig/"
-}
+# get_font_config() {
+#   cp $HOME/.config/fontconfig/conf.d $dotDirectory/fontconfig -r
+#   echo "Copied $HOME/.config/fontconfig/conf.d/ to $dotDirectory/fontconfig/"
+# }
 
 # Get xfce4-panel
 get_panel() {
@@ -108,10 +108,10 @@ get_vim() {
 }
 
 get_xfce() {
-  mkdir -p $HOME/xfconf/xfce-perchannel-xml
-  cp $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml $HOME/xfconf/xfce-perchannel-xml/xfwm4.xml
+  mkdir -p $dotDirectory/xfconf/xfce-perchannel-xml
+  cp $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml $dotDirectory/xfconf/xfce-perchannel-xml/xfwm4.xml
   echo "Cpoied $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml to $dotDirectory/xfconf/xfce-perchannel-xml/xfwm4.xml"
-  cp $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml $HOME/xfconf/xfce-perchannel-xml/xsettings.xml
+  cp $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml $dotDirectory/xfconf/xfce-perchannel-xml/xsettings.xml
   echo "Cpoied $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml to $dotDirectory/xfconf/xfce-perchannel-xml/xsettings.xml"
 }
 
