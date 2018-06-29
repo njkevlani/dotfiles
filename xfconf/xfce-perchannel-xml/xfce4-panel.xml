@@ -19,7 +19,6 @@
         <value type="int" value="8"/>
         <value type="int" value="6"/>
         <value type="int" value="10"/>
-        <value type="int" value="2"/>
         <value type="int" value="12"/>
         <value type="int" value="11"/>
         <value type="int" value="5"/>
@@ -38,7 +37,8 @@
       <property name="miniature-view" type="bool" value="false"/>
     </property>
     <property name="plugin-5" type="string" value="clock">
-      <property name="digital-format" type="string" value="%I:%M %p"/>
+      <property name="digital-format" type="string" value="%R"/>
+      <property name="tooltip-format" type="string" value="%I:%M %p %A %d %B %Y"/>
     </property>
     <property name="plugin-6" type="string" value="systray">
       <property name="names-visible" type="array">
@@ -62,13 +62,10 @@
     <property name="plugin-11" type="string" value="power-manager-plugin"/>
     <property name="plugin-12" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="vlc;vlc.instance13981;vlc.instance1956"/>
+      <property name="mpris-players" type="string" value="vlc;vlc.instance10417;vlc.instance13981;vlc.instance1956"/>
     </property>
     <property name="plugin-1" type="string" value="genmon"/>
     <property name="plugin-3" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
-    </property>
-    <property name="plugin-2" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-7" type="string" value="separator">

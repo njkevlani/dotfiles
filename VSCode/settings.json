@@ -6,9 +6,13 @@
         "nilesh",
         "njkevlani"
     ],
-    "workbench.activityBar.visible": true,
     "window.menuBarVisibility": "toggle",
     "editor.tabSize": 2,
     "files.trimTrailingWhitespace": true,
-    "editor.multiCursorModifier": "ctrlCmd"
+    "editor.multiCursorModifier": "ctrlCmd",
+    "workbench.colorTheme": "Dark (Molokai)",
+    "editor.glyphMargin": false,
+    "workbench.activityBar.visible": true,
+    "materialTheme.fixIconsRunning": false,
+    "workbench.iconTheme": "eq-material-theme-icons-palenight"
 }
