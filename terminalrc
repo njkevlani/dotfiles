@@ -24,10 +24,10 @@ MiscRewrapOnResize=TRUE
 MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=FALSE
 MiscNewTabAdjacent=FALSE
-FontName=Roboto Mono Medium 12
-ColorPalette=#01011d1d0000;#e9e91f1f3434;#acacd5d50000;#e9e9a4a40000;#8d8d1f1f8787;#e9e91f1f8585;#3333bebe8787;#cbcbccccc5c5;#474771714f4f;#fafa68684242;#bcbce6e61c1c;#fafac0c01a1a;#9c9c68689898;#d5d568689898;#7c7ce6e67070;#ffffffffffff
-ColorForeground=#fffffefefcfc
-ColorBackground=#0f0f1d1d1919
-ColorCursor=#fffffefefcfc
+FontName=Iosevka Term Medium 13
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
+ColorCursor=#fec309
+ColorPalette=#4a505d;#f81141;#23974a;#fd7e57;#285bff;#8c62fd;#366f9a;#ccd5e5;#61697a;#fc4a6d;#37bd58;#f6be48;#199ffd;#fc58f6;#50acae;#ffffff
+ColorBackground=#1e2127
+ColorForeground=#abb2bf
 
