@@ -2,7 +2,7 @@
 XFCE Dot Files
 
 ## Screenshot
-![Screenshot](https://raw.githubusercontent.com/njkevlani/xfce-dotFiles/master/Scrot.png)
+![Screenshot](https://raw.githubusercontent.com/njkevlani/xfce-dotFiles/master/images/Scrot.png)
 
 ## Introduction
 This are my configuration files for Xfce. `set.sh` script is used to set configuration on local machine. `get.sh` is used to copy configuration from local machine to this repository. Basically `set.sh` creates soft links(`ln`) of files in this repository to the configuration directory on local machine.
