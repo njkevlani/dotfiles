@@ -53,6 +53,7 @@ This are my configuration files for Xfce. `set.sh` script is used to set configu
 - [`/scripts`](https://github.com/njkevlani/xfce-dotFiles/tree/master/scripts) contains some cool scripts to ease day to day tasks and some eye candy as well!
 - Following config files are included in this repository:
   - Bash profile
+  - vimrc
   - gtk configs
   - VSCode settings and keybindings
   - Xmodmap config
