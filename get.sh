@@ -4,7 +4,7 @@ dotDirectory=$(pwd)
 
 # Usage info
 show_help() {
-cat << EOF
+  cat << EOF
 Usage: ${0##*/} OPTION
     -h          display this help and exit
     -b          get bash profile
@@ -25,7 +25,7 @@ EOF
 
 # list delete file
 list_delete_file() {
-cat << EOF
+  cat << EOF
 Following files will be deleted with respective options:
     -b          ./.bashrc and ./.bash_profile
     -g          ./.gtkrc-2.0 and ./.config/gtk-3.0/settings.ini
@@ -66,8 +66,8 @@ get_gtk() {
 get_panel() {
   mkdir -p $dotDirectory/genmon_xfce4_panel
   for f in $HOME/.config/xfce4/panel/*; do
-      cp $f $dotDirectory/genmon_xfce4_panel/
-      echo "Copied $f to $dotDirectory/genmon_xfce4_panel/"
+    cp $f $dotDirectory/genmon_xfce4_panel/
+    echo "Copied $f to $dotDirectory/genmon_xfce4_panel/"
   done
 
   mkdir -p $dotDirectory/xfconf/xfce-perchannel-xml
@@ -122,69 +122,69 @@ get_xmodmap() {
 
 if [ $# -eq 0 ];
 then
-    show_help
-    exit 0
+  show_help
+  exit 0
 else
   while getopts hbgfptcikvxmel opt; do
-      case $opt in
-          h)
-              show_help
-              exit 0
-              ;;
+    case $opt in
+      h)
+        show_help
+        exit 0
+        ;;
 
-           l)  list_delete_file
-              ;;
+      l)  list_delete_file
+        ;;
 
-          e)  get_bash
-              get_gtk
-              get_font_config
-              get_panel
-              get_terminal
-              get_vim
-              get_vscode
-              get_intellij
-              get_keybinding
-              get_xmodmap
-              get_xfce
-              ;;
+      e)  get_bash
+        get_gtk
+        get_font_config
+        get_panel
+        get_terminal
+        get_vim
+        get_vscode
+        get_intellij
+        get_keybinding
+        get_xmodmap
+        get_xfce
+        ;;
 
-          b)  get_bash
-              ;;
+      b)  get_bash
+        ;;
 
-          g)  get_gtk
-              ;;
+      g)  get_gtk
+        ;;
 
-          f)  get_font_config
-              ;;
+      f)  get_font_config
+        ;;
 
-          p)  get_panel
-              ;;
+      p)  get_panel
+        ;;
 
-          t)  get_terminal
-              ;;
+      t)  get_terminal
+        ;;
 
-          v)  get_vim
-              ;;
+      v)  get_vim
+        ;;
 
-          c)  get_vscode
-              ;;
+      c)  get_vscode
+        ;;
 
-          i)  get_intellij
-              ;;
+      i)  get_intellij
+        ;;
 
-          k)  get_keybinding
-              ;;
+      k)  get_keybinding
+        ;;
 
-          m)  get_xmodmap
-              ;;
+      m)  get_xmodmap
+        ;;
 
-          x)  get_xfce
-              ;;
+      x)  get_xfce
+        ;;
 
-          *)
-              show_help >&2
-              exit 1
-              ;;
-      esac
+      *)
+        show_help >&2
+        exit 1
+        ;;
+    esac
   done
 fi

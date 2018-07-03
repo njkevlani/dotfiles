@@ -1,6 +1,12 @@
 call plug#begin('~/.vim/plugged')
 Plug 'Yggdroot/indentLine'
+Plug 'scrooloose/nerdtree'
 call plug#end()
+" NerdTree
+map <C-b> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
 " Mappings
 "TODO
 "  - Add mapping for auto indent

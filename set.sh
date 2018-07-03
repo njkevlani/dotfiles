@@ -4,7 +4,7 @@ dotDirectory=$(pwd)
 
 # Usage info
 show_help() {
-cat << EOF
+  cat << EOF
 Usage: ${0##*/} OPTION
     -h          display this help and exit
     -b          set bash profile
@@ -25,7 +25,7 @@ EOF
 
 # list delete file
 list_delete_file() {
-cat << EOF
+  cat << EOF
 Following files will be deleted with respective options:
     -b          $HOME/.bashrc and $HOME/.bash_profile
     -g          $HOME/.gtkrc-2.0 and $HOME/.config/gtk-3.0/settings.ini
@@ -68,8 +68,8 @@ set_gtk() {
 set_panel() {
   mkdir -p $HOME/.config/xfce4/panel
   for f in $dotDirectory/genmon_xfce4_panel/genmon-*; do
-      ln -sf $f $HOME/.config/xfce4/panel/
-      echo "Created force link at $HOME/.config/xfce4/panel/"
+    ln -sf $f $HOME/.config/xfce4/panel/
+    echo "Created force link at $HOME/.config/xfce4/panel/"
   done
 
   mkdir -p $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
@@ -125,69 +125,69 @@ set_xmodmap() {
 
 if [ $# -eq 0 ];
 then
-    show_help
-    exit 0
+  show_help
+  exit 0
 else
   while getopts hbgfptcikvxmel opt; do
-      case $opt in
-          h)
-              show_help
-              exit 0
-              ;;
+    case $opt in
+      h)
+        show_help
+        exit 0
+        ;;
 
-          l)  list_delete_file
-              ;;
+      l)  list_delete_file
+        ;;
 
-          e)  set_bash
-              set_gtk
-              set_font_config
-              set_panel
-              set_terminal
-              set_vim
-              set_vscode
-              set_intellij
-              set_keybinding
-              set_xmodmap
-              set_xfce
-              ;;
+      e)  set_bash
+        set_gtk
+        set_font_config
+        set_panel
+        set_terminal
+        set_vim
+        set_vscode
+        set_intellij
+        set_keybinding
+        set_xmodmap
+        set_xfce
+        ;;
 
-          b)  set_bash
-              ;;
+      b)  set_bash
+        ;;
 
-          g)  set_gtk
-              ;;
+      g)  set_gtk
+        ;;
 
-          f)  set_font_config
-              ;;
+      f)  set_font_config
+        ;;
 
-          p)  set_panel
-              ;;
+      p)  set_panel
+        ;;
 
-          t)  set_terminal
-              ;;
+      t)  set_terminal
+        ;;
 
-          v)  set_vim
-              ;;
+      v)  set_vim
+        ;;
 
-          c)  set_vscode
-              ;;
+      c)  set_vscode
+        ;;
 
-          i)  set_intellij
-              ;;
+      i)  set_intellij
+        ;;
 
-          k)  set_keybinding
-              ;;
+      k)  set_keybinding
+        ;;
 
-          m)  set_xmodmap
-              ;;
+      m)  set_xmodmap
+        ;;
 
-          x)  set_xfce
-              ;;
+      x)  set_xfce
+        ;;
 
-          *)
-              show_help >&2
-              exit 1
-              ;;
-      esac
+      *)
+        show_help >&2
+        exit 1
+        ;;
+    esac
   done
 fi
