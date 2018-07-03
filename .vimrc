@@ -1,3 +1,6 @@
+call plug#begin('~/.vim/plugged')
+Plug 'Yggdroot/indentLine'
+call plug#end()
 " Mappings
 "TODO
 "  - Add mapping for auto indent
