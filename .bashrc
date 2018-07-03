@@ -1,23 +1,23 @@
 # get current branch in git repository
 function parse_git_branch() {
-    BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-    if [ ! "${BRANCH}" == "" ]
-    then
-        echo "(${BRANCH})"
-    else
-        echo ""
-    fi
+  BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+  if [ ! "${BRANCH}" == "" ]
+  then
+    echo "(${BRANCH})"
+  else
+    echo ""
+  fi
 }
 
 # Print sum size of current folder files.
 function lsbytesum() {
-    TotalBytes=0
-    for Bytes in $(ls -l | grep "^-" | awk '{ print $5 }')
-    do
-        let TotalBytes=$TotalBytes+$Bytes
-    done
-    TotalMeg=$(echo -e "scale=3 \n$TotalBytes/1048576 \nquit" | bc)
-    echo -n "$TotalMeg"
+  TotalBytes=0
+  for Bytes in $(ls -l | grep "^-" | awk '{ print $5 }')
+  do
+    let TotalBytes=$TotalBytes+$Bytes
+  done
+  TotalMeg=$(echo -e "scale=3 \n$TotalBytes/1048576 \nquit" | bc)
+  echo -n "$TotalMeg"
 }
 
 # PS1 time !!
@@ -33,6 +33,9 @@ alias todo="vim /home/nilesh/.TODO"
 alias ls="ls --group-directories-first --color=auto"
 alias grep="grep --color"
 alias :q="exit"
+alias global_ip="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
+alias local_ip="ip addr | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+alias topRAM="ps aux --no-headers | awk '{print \$4 \"% \"  \$11}' | sort -rn | head -n 10"
 
 # Never delete history
 HISTSIZE=

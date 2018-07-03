@@ -14,5 +14,7 @@
     "editor.glyphMargin": false,
     "workbench.activityBar.visible": true,
     "materialTheme.fixIconsRunning": false,
-    "workbench.iconTheme": "eq-material-theme-icons-palenight"
+    "workbench.iconTheme": "eq-material-theme-icons-palenight",
+    "workbench.startupEditor": "none"
+    // "workbench.settings.openDefaultSettings": false
 }
