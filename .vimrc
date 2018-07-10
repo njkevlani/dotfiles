@@ -1,12 +1,19 @@
 call plug#begin('~/.vim/plugged')
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
+Plug 'maralla/completor.vim'
 call plug#end()
 " NerdTree
 map <C-b> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
+" IndentLine
+let g:indentLine_char = '┆'
+
+
+" Completer
+let g:completor_python_binary = '/home/nilesh/code/opensource/venv_python3/bin/python'
 " Mappings
 "TODO
 "  - Add mapping for auto indent
@@ -17,7 +24,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " Auto complete bracket
 "imap {<cr> {<cr><cr>}<esc>ki
 "imap ( () {<cr><esc>ki
-
+map <C-f> :FZF<CR>
 " Options
 set number
 set cursorline
