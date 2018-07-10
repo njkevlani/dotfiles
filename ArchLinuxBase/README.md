@@ -10,6 +10,13 @@ This is a set of basic stuff to setup Arch Linux with Xfce Desktop Environment. 
 - **install.sh**: Basic system stuff and calling both of above
 
 ## What settings are included?
+- Basic stuff from Arch Wiki regarding installing Arch Linux
+- A Desktop Environment, Lock screen manager
+- Time zone, setting locale
+- Adding user
+- tlp
+- Enabling some services
+- installing grub
 
 ## What packages are installed?
 - Xordg Server
