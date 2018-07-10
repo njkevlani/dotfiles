@@ -36,8 +36,6 @@ slock
 gnome-keyring
 neofetch
 yaourt
-xfce4
-xfce4-goodies
 noto-fonts
 ttf-dejavu
 ttf-liberation
