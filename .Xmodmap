@@ -4,4 +4,6 @@ keycode 110 = Prior
 keycode 115 = Next
 keycode 108 = Menu
 keycode 118 = XF86AudioPlay
+clear lock
+keycode 66 = Escape
 
