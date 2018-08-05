@@ -56,6 +56,12 @@ set wildmenu
 set cmdheight=1
 set backspace=eol,start,indent
 
+
+" hange cursor shape
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[2 q"
+
+
 " Configure backspace so it acts as it should act
 set whichwrap+=<,>,h,l
 
@@ -114,7 +120,11 @@ endif
 "" " " " " " " " " " " " " " " " " " " " " " " ""
 
 map <C-f> :FZF<CR>
-
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-w> :tabn<CR>
+imap <S-c> <Esc>V"+yi
+vmap <S-c> "+yi
+imap <S-v> <Esc>"+pi
 
 " " " " " " " " " " " " " " " " " " " "
 " " " " " " " " " " " " " " " " " " " "
