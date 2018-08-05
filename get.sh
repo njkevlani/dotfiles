@@ -18,6 +18,7 @@ Usage: ${0##*/} OPTION
     -v          get vimrc
     -x          get settings for xfce4 and xfwm4
     -m          get xmodemap key mapping
+    -T          get Thunar User Custom Actions
     -e          get everything
     -l          list the files that will be deleted
 EOF
@@ -38,6 +39,7 @@ Following files will be deleted with respective options:
     -v          ./.vimrc
     -x          ./.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml and ./.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
     -m          ./.Xmodmap
+    -T          ./uca.xml
 EOF
 }
 
@@ -107,6 +109,11 @@ get_vim() {
   echo "Cpoied $HOME/.vimrc to $dotDirectory/.vimrc"
 }
 
+get_thunar_usa() {
+  cp $HOME/.config/Thunar/uca.xml $dotDirectory/uca.xml
+  echo "Cpoied $HOME/.config/Thunar/uca.xml to $dotDirectory/uca.xml"
+}
+
 get_xfce() {
   mkdir -p $dotDirectory/xfconf/xfce-perchannel-xml
   cp $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml $dotDirectory/xfconf/xfce-perchannel-xml/xfwm4.xml
@@ -146,6 +153,7 @@ else
         get_keybinding
         get_xmodmap
         get_xfce
+        get_thunar_usa
         ;;
 
       b)  get_bash
@@ -173,6 +181,9 @@ else
         ;;
 
       k)  get_keybinding
+        ;;
+
+      T)  get_thunar_usa
         ;;
 
       m)  get_xmodmap

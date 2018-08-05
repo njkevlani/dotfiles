@@ -1,0 +1,40 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1526030671652036-1</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>vlc-panel</icon>
+	<name>Open VLC Here</name>
+	<unique-id>1529744817695650-1</unique-id>
+	<command>vlc %f</command>
+	<description>Open this folder with VLC</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>visual-studio-code</icon>
+	<name>VS Code</name>
+	<unique-id>1532182954220304-1</unique-id>
+	<command>code %f</command>
+	<description>Open VS Code Here</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>search</icon>
+	<name>Search files</name>
+	<unique-id>1533476985678385-1</unique-id>
+	<command>catfish --hidden --large-icons --path=%f</command>
+	<description>Search using catfish</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+</actions>

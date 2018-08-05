@@ -18,6 +18,7 @@ Usage: ${0##*/} OPTION
     -v          set vimrc
     -x          set settings for xfce4 and xfwm4
     -m          set xmodemap key mapping
+    -T          set Thunat User Custom Actions
     -e          set everything
     -l          list the files that will be deleted
 EOF
@@ -38,6 +39,7 @@ Following files will be deleted with respective options:
     -v          $HOME/.vimrc
     -x          $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml and $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
     -m          $HOME/.Xmodmap
+    -T          $Home/.config/Thunar/uca.xml
 EOF
 }
 
@@ -110,6 +112,11 @@ set_vim() {
   echo "Created force link at $HOME/.vimrc"
 }
 
+set_thunar_usa() {
+  ln -sf $dotDirectory/uca.xml $HOME/.config/Thunar/uca.xml
+  echo "Created force link at $HOME/.config/Thunar/uca.xml"
+}
+
 set_xfce() {
   mkdir -p $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
   ln -sf $dotDirectory/xfconf/xfce-perchannel-xml/xfwm4.xml $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
@@ -149,6 +156,7 @@ else
         set_keybinding
         set_xmodmap
         set_xfce
+        set_thunar_usa
         ;;
 
       b)  set_bash
@@ -176,6 +184,9 @@ else
         ;;
 
       k)  set_keybinding
+        ;;
+
+      T)  set_thunar_usa
         ;;
 
       m)  set_xmodmap
