@@ -57,7 +57,7 @@ set cmdheight=1
 set backspace=eol,start,indent
 
 
-" hange cursor shape
+" Change cursor shape
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
 
@@ -122,9 +122,11 @@ endif
 map <C-f> :FZF<CR>
 nnoremap <C-t> :tabnew<CR>
 nnoremap <C-w> :tabn<CR>
-imap <S-c> <Esc>V"+yi
-vmap <S-c> "+yi
-imap <S-v> <Esc>"+pi
+imap <C-c> <Esc>V"+yi
+vmap <C-c> "+yi
+imap <C-v> <Esc>"+pi
+nmap <F6> :setlocal spell! spelllang=en_us<CR>
+imap <F6> <Esc><F6>i
 
 " " " " " " " " " " " " " " " " " " " "
 " " " " " " " " " " " " " " " " " " " "
@@ -157,3 +159,4 @@ let g:indentLine_char = '┆'
 " Completer
 let g:completor_python_binary = '/home/nilesh/code/opensource/venv_python3/bin/python'
 
+set conceallevel=0
