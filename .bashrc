@@ -25,6 +25,10 @@ function lsbytesum() {
 
 PS1=$'\[\033[01;32m\][\[\033[01;31m\]$?\[\033[01;32m\]]-[\[\033[01;94m\]\w\[\033[01;31m\]`parse_git_branch` `lsbytesum`MB\[\033[01;32m\]]-[\[\033[01;94m\]\!\[\033[01;32m\]]➜\[\033[0;0m\] '
 
+# Try this
+# PS1="\[\033[0;31m\]\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[\[\033[0;31m\]\342\234\227\[\033[0;37m\]]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]root\[\033[01;33m\]@\[\033[01;96m\]\h'; else echo '\[\033[0;39m\]\u\[\033[01;33m\]@\[\033[01;96m\]\h'; fi)\[\033[0;31m\]]\342\224\200[\[\033[0;32m\]\w\[\033[0;31m\]]\n\[\033[0;31m\]\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$\[\e[0m\] "
+
+
 # Custom script are kept in this folder
 PATH=$PATH:/home/nilesh/xfce-dotFiles/scripts:/home/nilesh/xfce-dotFiles/scripts/colorScripts
 
@@ -41,6 +45,8 @@ alias historyStat="history | tr -s ' ' | cut -d ' ' -f3 | sort | uniq -c | sort 
 alias historyStatBasic="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a; }' | grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl | head -n10"
 alias ytMusic="youtube-dl --extract-audio --audio-format mp3"
 alias pyEvn="source ~/code/opensource/venv_python3/bin/activate"
+alias vi="vim"
+alias pkgByDate="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort"
 
 # Never delete history
 HISTSIZE=
