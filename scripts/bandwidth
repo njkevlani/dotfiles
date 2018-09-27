@@ -65,12 +65,19 @@ rx_kib=$(( $rx_rate >> 10 ))
 tx_kib=$(( $tx_rate >> 10 ))
 
 total_kib=`expr $rx_kib + $tx_kib`
+unit="K"
+if [ $total_kib -gt 1000 ]
+then
+  total_kib=$(( $total_kib >> 10 ))
+  unit="M"
+fi
+
 echo -n "<txt>"
 if [ $total_kib -lt 100 ]
-then	
+then
 	echo -n " "
 fi
-echo -n "${total_kib}K"
+echo -n "${total_kib}${unit}"
 if [ $total_kib -lt 10 ]
 then
 	echo -n " "

@@ -52,17 +52,17 @@ if ($cpu_usage <10){
 
 printf "%.${decimals}f% %</txt>", $cpu_usage;
 if ($cpu_usage <25){
-  printf "<img>/usr/share/icons/Papirus/16x16/panel/indicator-cpufreq-25.svg</img>";
+  printf "<img>/usr/share/icons/Papirus-Light/16x16/panel/indicator-cpufreq-25.svg</img>";
 }
 elsif ($cpu_usage <50){
-  printf "<img>/usr/share/icons/Papirus/16x16/panel/indicator-cpufreq-50.svg</img>";
+  printf "<img>/usr/share/icons/Papirus-Light/16x16/panel/indicator-cpufreq-50.svg</img>";
 }
 
 elsif ($cpu_usage <75){
-  printf "<img>/usr/share/icons/Papirus/16x16/panel/indicator-cpufreq-75.svg</img>";
+  printf "<img>/usr/share/icons/Papirus-Light/16x16/panel/indicator-cpufreq-75.svg</img>";
 }
 else {
-  printf "<img>/usr/share/icons/Papirus/16x16/panel/indicator-cpufreq-100.svg</img>";
+  printf "<img>/usr/share/icons/Papirus-Light/16x16/panel/indicator-cpufreq-100.svg</img>";
 }
 
 printf "<tool>Current CPU Usage: %.${decimals}f% %</tool>", $cpu_usage;

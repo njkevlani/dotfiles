@@ -32,7 +32,7 @@ gnome-system-monitor
 jdk10-openjdk
 zip
 unzip
-slock
+i3lock
 gnome-keyring
 neofetch
 yaourt
@@ -62,3 +62,13 @@ xfce4-genmon-plugin
 xfce4-notifyd
 xfce4-pulseaudio-plugin
 xfce4-screenshooter
+vlc
+archlinux-keyring
+pacman-contrib
+xdotool
+imagemagick
+acpi_call
+ethtool
+smartmontools
+catfish
+

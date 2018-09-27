@@ -6,23 +6,6 @@ This is a set of basic stuff to setup Arch Linux with Xfce Desktop Environment. 
 - `arch-chroot`ed
 
 ## What this repository contains?
-- **pkgList.txt**: List of base packages to be included
-- **addYaourat**: Install yaourat and install needed packages
-- **install.sh**: Basic system stuff and calling both of above
+- **pkgList.txt**: List of base packages to be installed
+- pkgList-aur.txt: List of AUR packages to be installed
 
-## What settings are included?
-- Basic stuff from Arch Wiki regarding installing Arch Linux
-- A Desktop Environment, Lock screen manager
-- Time zone, setting locale
-- Adding user
-- tlp
-- Enabling some services
-- installing grub
-
-## What packages are installed?
-- Xordg Server
-- Intel Video Drivers
-- Xfce Desktop Environment
-- Fonts
-- Basic utilities
-Read `pkgList.txt` and `addYaourat` for full detail.

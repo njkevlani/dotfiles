@@ -30,7 +30,7 @@ set showmatch
 set mat=2
 colorscheme default
 syntax enable
-set background=light
+set background=dark
 set encoding=utf8
 set ffs=unix,dos,mac
 set nobackup

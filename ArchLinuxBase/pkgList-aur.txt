@@ -1,0 +1,4 @@
+xfwm4-git
+vim-plug
+google-chrome-stable
+
