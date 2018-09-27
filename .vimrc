@@ -146,6 +146,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
 Plug 'maralla/completor.vim'
 Plug 'RRethy/vim-illuminate'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 " NerdTree
@@ -158,5 +159,8 @@ let g:indentLine_char = '┆'
 
 " Completer
 let g:completor_python_binary = '/home/nilesh/code/opensource/venv_python3/bin/python'
+
+" vim-commentary
+imap <C-_> <Esc>gcci
 
 set conceallevel=0
