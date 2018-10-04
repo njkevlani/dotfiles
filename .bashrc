@@ -47,6 +47,10 @@ alias pyEvn="source ~/code/opensource/venv_python3/bin/activate"
 alias vi="vim"
 alias pkgByDate="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort"
 
+
+# Disable Ctrl+s and Ctrl+q
+stty -ixon
+
 # Never delete history
 HISTSIZE=
 HISTFILESIZE=
