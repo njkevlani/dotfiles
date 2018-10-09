@@ -35,7 +35,6 @@ unzip
 i3lock
 gnome-keyring
 neofetch
-yaourt
 noto-fonts
 ttf-dejavu
 ttf-liberation
@@ -63,7 +62,6 @@ xfce4-notifyd
 xfce4-pulseaudio-plugin
 xfce4-screenshooter
 vlc
-archlinux-keyring
 pacman-contrib
 xdotool
 imagemagick
