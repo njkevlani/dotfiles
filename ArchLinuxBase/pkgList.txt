@@ -71,4 +71,5 @@ acpi_call
 ethtool
 smartmontools
 catfish
-
+tranmission-gtk
+expac
