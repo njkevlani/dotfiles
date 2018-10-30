@@ -43,7 +43,8 @@ alias pyServer="local_ip && python -m http.server"
 alias historyStat="history | tr -s ' ' | cut -d ' ' -f3 | sort | uniq -c | sort -n | tail | perl -lane 'print \$F[1], \"\t\", \$F[0], \" \", \"▄\" x (\$F[0] / 12)'"
 alias historyStatBasic="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a; }' | grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl | head -n10"
 alias ytMusic="youtube-dl --extract-audio --audio-format mp3"
-alias pyEvn="source ~/code/opensource/venv_python3/bin/activate"
+alias py3Evn="source ~/.python/py3/bin/activate"
+alias py2Evn="source ~/.python/py2/bin/activate"
 alias vi="vim"
 alias pkgByDate="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort"
 
@@ -54,3 +55,4 @@ stty -ixon
 # Never delete history
 HISTSIZE=
 HISTFILESIZE=
+
