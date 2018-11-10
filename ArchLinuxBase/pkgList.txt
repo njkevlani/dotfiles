@@ -32,7 +32,6 @@ gnome-system-monitor
 jdk10-openjdk
 zip
 unzip
-i3lock
 gnome-keyring
 neofetch
 noto-fonts
