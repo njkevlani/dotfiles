@@ -29,7 +29,6 @@ tlp
 tlp-rdw
 gnome-disk-utility
 gnome-system-monitor
-jdk10-openjdk
 zip
 unzip
 gnome-keyring
@@ -71,5 +70,6 @@ catfish
 transmission-gtk
 expac
 youtube-dl
-intellij-idea-community-edition
-pycharm-community-edition
+dbeaver
+mariadb
+
