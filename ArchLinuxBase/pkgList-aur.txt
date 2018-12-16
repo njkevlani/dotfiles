@@ -2,3 +2,6 @@ xfwm4-git
 vim-plug
 google-chrome-stable
 i3lock-color
+drive-bin
+visual-studio-code-bin
+
