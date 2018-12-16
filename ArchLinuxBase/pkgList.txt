@@ -71,3 +71,5 @@ catfish
 tranmission-gtk
 expac
 youtube-dl
+intellij-idea-community-edition
+pycharm-community-edition
