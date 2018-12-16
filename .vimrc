@@ -127,7 +127,7 @@ vmap <C-c> "+yi
 imap <C-v> <Esc>"+pi
 nmap <F6> :setlocal spell! spelllang=en_us<CR>
 imap <F6> <Esc><F6>i
-
+imap <C-q> <Esc>o--------------------------------<Esc>:put =strftime('%c')<CR>o--------------------------------
 " " " " " " " " " " " " " " " " " " " "
 " " " " " " " " " " " " " " " " " " " "
 ""  _____  _             _           ""
@@ -144,9 +144,10 @@ imap <F6> <Esc><F6>i
 call plug#begin()
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
-Plug 'maralla/completor.vim'
+" Plug 'maralla/completor.vim'
 Plug 'RRethy/vim-illuminate'
 Plug 'tpope/vim-commentary'
+" Plug 'artur-shaik/vim-javacomplete2'
 call plug#end()
 
 " NerdTree
@@ -158,9 +159,12 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 let g:indentLine_char = '┆'
 
 " Completer
-let g:completor_python_binary = '/home/nilesh/code/opensource/venv_python3/bin/python'
+" let g:completor_python_binary = '/home/nilesh/code/opensource/venv_python3/bin/python'
 
 " vim-commentary
 imap <C-_> <Esc>gcci
+
+" javacomplete2
+" autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 set conceallevel=0
