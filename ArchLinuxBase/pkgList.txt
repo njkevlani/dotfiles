@@ -68,7 +68,7 @@ acpi_call
 ethtool
 smartmontools
 catfish
-tranmission-gtk
+transmission-gtk
 expac
 youtube-dl
 intellij-idea-community-edition
