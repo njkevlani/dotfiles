@@ -3,7 +3,7 @@
 <action>
 	<icon>utilities-terminal</icon>
 	<name>Open Terminal Here</name>
-	<unique-id>1526030671652036-1</unique-id>
+	<unique-id>1537518114778342-1</unique-id>
 	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
 	<description>Example for a custom action</description>
 	<patterns>*</patterns>
@@ -11,7 +11,7 @@
 	<directories/>
 </action>
 <action>
-	<icon>vlc-panel</icon>
+	<icon>vlc</icon>
 	<name>Open VLC Here</name>
 	<unique-id>1529744817695650-1</unique-id>
 	<command>vlc %f</command>
