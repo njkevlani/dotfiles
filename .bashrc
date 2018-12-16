@@ -32,9 +32,9 @@ PS1=$'\[\033[01;32m\][\[\033[01;31m\]$?\[\033[01;32m\]]-[\[\033[01;94m\]\w\[\033
 PATH=$PATH:/home/nilesh/xfce-dotFiles/scripts:/home/nilesh/xfce-dotFiles/scripts/colorScripts
 
 # Alias
-alias todo="vim /home/nilesh/.TODO"
-alias todoPersonal="vim /home/nilesh/.TODO_PERSONAL"
-alias remember="vim /home/nilesh/.REMEBER"
+alias todo="vim /home/nilesh/Data/.TODO"
+alias todoPersonal="vim /home/nilesh/Data/.TODO_PERSONAL"
+alias remember="vim /home/nilesh/Data/.REMEBER"
 alias ls="ls --group-directories-first --color=auto"
 alias grep="grep --color"
 alias :q="exit"
