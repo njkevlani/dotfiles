@@ -70,3 +70,4 @@ smartmontools
 catfish
 tranmission-gtk
 expac
+youtube-dl
