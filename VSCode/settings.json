@@ -1,21 +1,16 @@
 {
-    "cSpell.userWords": [
-        "ahmedabad",
-        "codechef",
-        "kevlani",
-        "nilesh",
-        "njkevlani"
-    ],
     "window.menuBarVisibility": "toggle",
     "editor.tabSize": 2,
+    "window.titleBarStyle": "custom",
+    "workbench.activityBar.visible": true,
+    "explorer.sortOrder": "type",
     "files.trimTrailingWhitespace": true,
     "editor.multiCursorModifier": "ctrlCmd",
-    "workbench.colorTheme": "Dark (Molokai)",
     "editor.glyphMargin": false,
-    "workbench.activityBar.visible": true,
-    "materialTheme.fixIconsRunning": false,
-    "workbench.iconTheme": "eq-material-theme-icons-palenight",
     "workbench.startupEditor": "none",
-    "editor.minimap.enabled": false
-    // "workbench.settings.openDefaultSettings": false
+    "editor.minimap.enabled": false,
+    "window.title": "${activeEditorLong}",
+    "editor.fontSize": 16,
+    "explorer.confirmDelete": false,
+    "files.enableTrash": false
 }
