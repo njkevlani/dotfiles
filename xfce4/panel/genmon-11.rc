@@ -1,0 +1,6 @@
+Command=/home/nilesh/xfce-dotFiles/scripts/bandwidth
+UseLabel=0
+Text=(genmon)
+UpdatePeriod=2000
+Font=Sans 13
+
