@@ -72,4 +72,5 @@ expac
 youtube-dl
 dbeaver
 mariadb
+nethogs
 
