@@ -1,4 +1,7 @@
 # xfce-dotFiles
+*`set.sh` and `get.sh` are broken. Will fix them sometime soon in future OR will move to Stow*
+
+
 XFCE Dot Files
 
 ## Screenshot

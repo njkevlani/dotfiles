@@ -16,3 +16,10 @@ Add Molokai Intellij Color Scheme
 Add following color schems:
   - Google
   - Ayu
+
+Add libinput-gesture config
+Look into skippy-xd config
+
+Put latest xfce config, autostart application into git
+
+Fix set.sh and get.sh OR Move to stow
