@@ -45,6 +45,7 @@ gtk-xfce-engine
 thunar
 thunar-volman
 tumbler
+xfwm4
 xfce4-panel
 xfce4-power-manager
 xfce4-session
@@ -73,4 +74,5 @@ youtube-dl
 dbeaver
 mariadb
 nethogs
+cheese
 
