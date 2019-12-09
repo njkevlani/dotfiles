@@ -5,5 +5,4 @@ keycode 115 = Next
 keycode 108 = Menu
 keycode 118 = Delete
 clear lock
-keycode 66 = Escape
-
+keycode 66 = Shift_L
