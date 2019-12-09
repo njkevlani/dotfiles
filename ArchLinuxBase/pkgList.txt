@@ -75,4 +75,4 @@ dbeaver
 mariadb
 nethogs
 cheese
-
+xcape

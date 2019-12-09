@@ -5,4 +5,5 @@ drive-bin
 visual-studio-code-bin
 solr
 gotop-bin
+gestures
 
