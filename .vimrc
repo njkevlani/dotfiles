@@ -18,6 +18,7 @@
 "" " " " " " " " " " " " " " " " " " " ""
 set cursorline
 set number
+set relativenumber
 filetype plugin on
 filetype indent on
 set autoread
@@ -28,8 +29,9 @@ set hlsearch
 set lazyredraw
 set showmatch
 set mat=2
-colorscheme default
+colorscheme industry
 syntax enable
+set t_co=256
 set background=dark
 set encoding=utf8
 set ffs=unix,dos,mac
@@ -45,6 +47,7 @@ set tw=500
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+set clipboard=unnamedplus
 
 
 set titlestring=%t%(\ %r%M%w%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)
@@ -128,6 +131,12 @@ imap <C-v> <Esc>"+pi
 nmap <F6> :setlocal spell! spelllang=en_us<CR>
 imap <F6> <Esc><F6>i
 imap <C-q> <Esc>o--------------------------------<Esc>:put =strftime('%c')<CR>o--------------------------------
+imap <c-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+
 " " " " " " " " " " " " " " " " " " " "
 " " " " " " " " " " " " " " " " " " " "
 ""  _____  _             _           ""
@@ -147,6 +156,8 @@ Plug 'scrooloose/nerdtree'
 " Plug 'maralla/completor.vim'
 Plug 'RRethy/vim-illuminate'
 Plug 'tpope/vim-commentary'
+Plug 'will133/vim-dirdiff'
+Plug 'google/vim-colorscheme-primary'
 " Plug 'artur-shaik/vim-javacomplete2'
 call plug#end()
 
