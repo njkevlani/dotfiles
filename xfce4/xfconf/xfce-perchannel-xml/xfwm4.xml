@@ -20,7 +20,7 @@
     <property name="double_click_action" type="string" value="maximize"/>
     <property name="double_click_distance" type="int" value="5"/>
     <property name="double_click_time" type="int" value="250"/>
-    <property name="easy_click" type="string" value="Alt"/>
+    <property name="easy_click" type="string" value="Super"/>
     <property name="focus_delay" type="int" value="250"/>
     <property name="focus_hint" type="bool" value="true"/>
     <property name="focus_new" type="bool" value="true"/>
@@ -37,7 +37,7 @@
     <property name="prevent_focus_stealing" type="bool" value="false"/>
     <property name="raise_delay" type="int" value="250"/>
     <property name="raise_on_click" type="bool" value="true"/>
-    <property name="raise_on_focus" type="bool" value="false"/>
+    <property name="raise_on_focus" type="bool" value="true"/>
     <property name="raise_with_any_button" type="bool" value="true"/>
     <property name="repeat_urgent_blink" type="bool" value="false"/>
     <property name="resize_opacity" type="int" value="100"/>
@@ -48,7 +48,7 @@
     <property name="shadow_delta_y" type="int" value="-3"/>
     <property name="shadow_opacity" type="int" value="50"/>
     <property name="show_app_icon" type="bool" value="false"/>
-    <property name="show_dock_shadow" type="bool" value="true"/>
+    <property name="show_dock_shadow" type="bool" value="false"/>
     <property name="show_frame_shadow" type="bool" value="true"/>
     <property name="show_popup_shadow" type="bool" value="false"/>
     <property name="snap_resist" type="bool" value="false"/>
@@ -56,7 +56,7 @@
     <property name="snap_to_windows" type="bool" value="false"/>
     <property name="snap_width" type="int" value="5"/>
     <property name="sync_to_vblank" type="bool" value="false"/>
-    <property name="theme" type="string" value="Numix"/>
+    <property name="theme" type="string" value="Mojave-dark"/>
     <property name="tile_on_move" type="bool" value="true"/>
     <property name="title_alignment" type="string" value="left"/>
     <property name="title_font" type="string" value="Sans Bold 9"/>
@@ -70,7 +70,7 @@
     <property name="unredirect_overlays" type="bool" value="true"/>
     <property name="urgent_blink" type="bool" value="false"/>
     <property name="use_compositing" type="bool" value="true"/>
-    <property name="workspace_count" type="int" value="4"/>
+    <property name="workspace_count" type="int" value="5"/>
     <property name="wrap_cycle" type="bool" value="true"/>
     <property name="wrap_layout" type="bool" value="true"/>
     <property name="wrap_resistance" type="int" value="5"/>
@@ -78,11 +78,15 @@
     <property name="wrap_workspaces" type="bool" value="false"/>
     <property name="zoom_desktop" type="bool" value="true"/>
     <property name="workspace_names" type="array">
-      <value type="string" value=""/>
-      <value type="string" value=""/>
-      <value type="string" value=""/>
-      <value type="string" value=""/>
+      <value type="string" value="1"/>
+      <value type="string" value="2"/>
+      <value type="string" value="3"/>
+      <value type="string" value="4"/>
+      <value type="string" value="5"/>
+      <value type="string" value="Workspace 6"/>
     </property>
     <property name="cycle_raise" type="bool" value="true"/>
+    <property name="vblank_mode" type="string" value="xpresent"/>
+    <property name="frame_border_top" type="int" value="0"/>
   </property>
 </channel>

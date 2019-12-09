@@ -2,5 +2,5 @@ Command=/home/nilesh/xfce-dotFiles/scripts/memory
 UseLabel=0
 Text=(genmon)
 UpdatePeriod=2000
-Font=Sans 13
+Font=Sans 10
 

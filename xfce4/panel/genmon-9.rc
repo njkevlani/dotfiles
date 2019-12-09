@@ -1,0 +1,6 @@
+Command=/home/nilesh/xfce-dotFiles/scripts/weather.sh
+UseLabel=0
+Text=
+UpdatePeriod=3600000
+Font=Sans 10
+

@@ -25,4 +25,14 @@ MiscRewrapOnResize=TRUE
 MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=FALSE
 MiscNewTabAdjacent=FALSE
+ScrollingUnlimited=TRUE
+MiscSearchDialogOpacity=100
+MiscShowUnsafePasteDialog=TRUE
+ColorForeground=#c5c8c6
+ColorBackground=#1d1f21
+ColorCursor=#c5c8c6
+ColorPalette=#1d1f21;#cc342b;#198844;#fba922;#3971ed;#a36ac7;#3971ed;#c5c8c6;#969896;#cc342b;#198844;#fba922;#3971ed;#a36ac7;#3971ed;#ffffff
+ColorBold=#c5c8c6
+ColorBoldUseDefault=FALSE
+TabActivityColor=#dc322f
 
