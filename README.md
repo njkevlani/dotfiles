@@ -1,59 +1,35 @@
 # xfce-dotFiles
-*`set.sh` and `get.sh` are broken. Will fix them sometime soon in future OR will move to Stow*
+**`get.sh` is broken. Will fix it sometime later in future**
 
-
-XFCE Dot Files
+XFCE Dot Files using [GNU Stow](https://www.gnu.org/software/stow/)
 
 ## Screenshot
 ![Screenshot](https://raw.githubusercontent.com/njkevlani/xfce-dotFiles/master/images/Scrot.png)
 
 ## Introduction
-This are my configuration files for Xfce. `set.sh` script is used to set configuration on local machine. `get.sh` is used to copy configuration from local machine to this repository. Basically `set.sh` creates soft links(`ln`) of files in this repository to the configuration directory on local machine.
+This are my configuration files for Xfce.. `get.sh` is used to copy configuration from local machine to this repository.
 
 ## How to set this at local machine?
 - Clone this repository.
 
 `git clone https://github.com/njkevlani/xfce-dotFiles.git && cd xfce-dotFiles`
 
-- Mark set.sh executable.
+Use stow to make symlinks files from `home` folder of this repo into local system.
 
-`chmod +x set.sh`
+`stow -v -t $HOME home`
 
-- View help message.
+This command tells stow following things
+  - Be verbose (`-v`)
+  - Target directory for making symlinks is $HOMW (`-t $HOME`)
+  - Make symlinks from the folder `home`
 
-`./set.sh -h`
-
-- List which file are changed.
-
-`./set.sh -l`
-
-- Set everything. **This will delete all corresponding files.**
-
-`./set.sh -e`
-
-
-## How to get local machine configuration?
-
-- Mark get.sh executable.
-
-`chmod +x get.sh`
-
-- View help message.
-
-`./get.sh -h`
-
-- List which file are changed.
-
-`./get.sh -l`
-
-- Get everything. **This will delete all corresponding files.**
-
-`./get.sh -e`
+You can add `-n` option to this command to see what links will be made **without writing them on file system**.
 
 ## What else does this repository contain?
 
 - [`/awesome`](https://github.com/njkevlani/xfce-dotFiles/tree/master/awesome) contains some cool things to customize your setup.
 - [`/scripts`](https://github.com/njkevlani/xfce-dotFiles/tree/master/scripts) contains some cool scripts to ease day to day tasks and some eye candy as well!
+- [`/archlinux`](https://github.com/njkevlani/xfce-dotFiles/tree/master/archlinux) contains base packages that I use from archlinux official repositories and AUR.
 - Following config files are included in this repository:
   - Bash profile
   - vimrc
