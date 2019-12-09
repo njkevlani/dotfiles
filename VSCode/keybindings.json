@@ -1,7 +1,38 @@
 // Place your key bindings in this file to overwrite the defaults
 [
     {
+        "key": "alt+1",
+        "command": "workbench.files.action.focusFilesExplorer",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+left",
+        "command": "workbench.action.navigateBack",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+right",
+        "command": "workbench.action.navigateForward",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+f10",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "if [ -f '${fileDirname}/in.txt' ]; then go run ${file} < ${fileDirname}/in.txt; else go run ${file}; fi\n"
+        },
+        "when": "editorTextFocus && editorLangId == go"
+    },
+    {
         "key": "ctrl+shift+b",
         "command": "workbench.action.toggleActivityBarVisibility"
+    },
+    {
+        "key": "ctrl+shift+,",
+        "command": "workbench.action.toggleTabsVisibility"
+    },
+    {
+        "key": "ctrl+alt+,",
+        "command": "workbench.action.toggleFullScreen"
     }
 ]

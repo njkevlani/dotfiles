@@ -1,16 +1,25 @@
 {
     "window.menuBarVisibility": "toggle",
     "editor.tabSize": 2,
-    "window.titleBarStyle": "custom",
     "workbench.activityBar.visible": true,
     "explorer.sortOrder": "type",
     "files.trimTrailingWhitespace": true,
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.glyphMargin": false,
     "workbench.startupEditor": "none",
     "editor.minimap.enabled": false,
     "window.title": "${activeEditorLong}",
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "smooth",
+    "editor.mouseWheelZoom": true,
     "editor.fontSize": 16,
     "explorer.confirmDelete": false,
-    "files.enableTrash": false
+    "files.enableTrash": false,
+    "python.linting.pylintArgs": [
+        "--errors-only"
+    ],
+    "sync.gist": "4bc23ae92142e80d0cb00dbc52f40c01",
+    "cSpell.userWords": [
+        "bhavnagar",
+        "njkevlani",
+        "stackoverflow"
+    ]
 }
