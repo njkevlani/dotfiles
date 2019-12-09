@@ -20,6 +20,14 @@ function lsbytesum() {
   echo -n "$TotalMeg"
 }
 
+function pacurl () {
+  xdg-open "$(expac -S %u "$1")";
+}
+
+function cheat () {
+  curl cheat.sh/$1
+}
+
 # PS1 time !!
 PS1=$'\[\033[01;32m\][\[\033[01;31m\]$?\[\033[01;32m\]]-[\[\033[01;94m\]\w\[\033[01;31m\]`parse_git_branch` `lsbytesum`MB\[\033[01;32m\]]-[\[\033[01;94m\]\!\[\033[01;32m\]]-λ\[\033[0;0m\] '
 
@@ -32,9 +40,6 @@ PS1=$'\[\033[01;32m\][\[\033[01;31m\]$?\[\033[01;32m\]]-[\[\033[01;94m\]\w\[\033
 PATH=$PATH:/home/nilesh/xfce-dotFiles/scripts:/home/nilesh/xfce-dotFiles/scripts/colorScripts
 
 # Alias
-alias todo="vim /home/nilesh/Data/.TODO"
-alias todoPersonal="vim /home/nilesh/Data/.TODO_PERSONAL"
-alias remember="vim /home/nilesh/Data/.REMEBER"
 alias ls="ls --group-directories-first --color=auto"
 alias grep="grep --color"
 alias :q="exit"
@@ -49,14 +54,32 @@ alias py3Evn="source ~/.python/py3/bin/activate"
 alias py2Evn="source ~/.python/py2/bin/activate"
 alias vi="vim"
 alias pkgByDate="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort"
-
-
+alias randPass="head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo ''"
+alias tmp_pad="vim /tmp/tmp.txt"
+alias list_files_sorted_by_size="find . -type f  -exec du -h {} + | sort -r -h"
 # Disable Ctrl+s and Ctrl+q
 stty -ixon
 
 # Never delete history
 HISTSIZE=
 HISTFILESIZE=
+HISTCONTROL=ignorespace
 
 export MYSQL_PS1="\u@\h [\d]> "
 
+if [ -f ~/.bash_secret ]
+then
+  source ~/.bash_secret
+fi
+
+NPM_PACKAGES="${HOME}/.npm-packages"
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+PATH="$NPM_PACKAGES/bin:${HOME}/.gem/bin:$PATH"
+unset MANPATH
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+export GOPATH=$HOME/code/go
+PATH=${PATH}:${GOPATH}/bin
+
+PY3ENV=$HOME/.python
+PATH=${PATH}:${PY3ENV}/py3/bin
