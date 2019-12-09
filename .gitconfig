@@ -1,0 +1,26 @@
+[user]
+	email = njkevlani@gmail.com
+	name = Nilesh
+[color]
+	ui = true
+[core]
+	autocrlf = input
+	editor = vim
+	quotepath = false
+	commitGraph = true
+[filter "gitignore"]
+	clean = "sed '/#gitignore$/'d"
+	smudge = cat
+[diff]
+  tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+  cmd = meld "$LOCAL" "$REMOTE"
+[merge]
+    tool = meld
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+
+[gc]
+	writeCommitGraph = true
