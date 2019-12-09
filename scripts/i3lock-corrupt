@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+tmpbg="/tmp/screen.png"
+xfce4-screenshooter --fullscreen --save "$tmpbg"; corrupter "$tmpbg" "$tmpbg"
+i3lock -i "$tmpbg"; rm "$tmpbg"
+

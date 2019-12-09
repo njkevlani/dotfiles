@@ -16,11 +16,26 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+center() {
+    total_width=4
+    if [ ${#1} -lt ${total_width} ]
+    then
+      lpad=$(((total_width-${#1})/2))
+      rpad=$((total_width-${#1}-lpad))
+      yes " " | head -${lpad} | tr -d "\n"
+      printf "$1"
+      yes " " | head -${rpad} | tr -d "\n"
+    else
+      printf ${1}
+    fi
+}
+
+
 INTERFACE="wlp3s0"
 # Issue #36 compliant.
 if ! [ -e "/sys/class/net/${INTERFACE}/operstate" ] || ! [ "`cat /sys/class/net/${INTERFACE}/operstate`" = "up" ]
 then
-    echo "WiFi Down"
+    echo "····"
     exit 0
 fi
 
@@ -72,15 +87,6 @@ then
   unit="M"
 fi
 
-echo -n "<txt>"
-if [ $total_kib -lt 100 ]
-then
-	echo -n " "
-fi
-echo -n "${total_kib}${unit}"
-if [ $total_kib -lt 10 ]
-then
-	echo -n " "
-fi
-echo "</txt>"
+echo "<txt>$(center $total_kib$unit)</txt>"
+
 echo "<tool>Down: $rx_kib KB | UP: $tx_kib KB </tool>"
