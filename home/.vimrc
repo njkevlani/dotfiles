@@ -1,82 +1,28 @@
-"TODO
-"  - Add mapping for auto indent
-"  - Add some nice to have mappings
-"  - Add mapping for toggling spell check
-"  - Learn moving cursor around
 
-"" " " " " " " " " " " " " " " " " " " ""
-"" " " " " " " " " " " " " " " " " " " ""
-""   ____        _   _                 ""
-""  / __ \      | | (_)                ""
-"" | |  | |_ __ | |_ _  ___  _ __  ___ ""
-"" | |  | | '_ \| __| |/ _ \| '_ \/ __|""
-"" | |__| | |_) | |_| | (_) | | | \__ \""
-""  \____/| .__/ \__|_|\___/|_| |_|___/""
-""        | |                          ""
-""        |_|                          ""
-"" " " " " " " " " " " " " " " " " " " ""
-"" " " " " " " " " " " " " " " " " " " ""
-set cursorline
-set number
-set relativenumber
-filetype plugin on
-filetype indent on
-set autoread
-set so=7
-set ignorecase
-set smartcase
-set hlsearch
-set lazyredraw
-set showmatch
-set mat=2
-colorscheme industry
-syntax enable
-set t_co=256
-set background=dark
-set encoding=utf8
-set ffs=unix,dos,mac
-set nobackup
-set nowb
-set noswapfile
-set expandtab
-set smarttab
-set shiftwidth=2
-set tabstop=2
-set lbr
-set tw=500
-set ai "Auto indent
-set si "Smart indent
-set wrap "Wrap lines
-set clipboard=unnamedplus
-
-
-set titlestring=%t%(\ %r%M%w%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)
-set title
-set ruler
-set rulerformat=%9(%l/%L\ %c%)
-" Check it what this does
-set wildmenu
-set cmdheight=1
-set backspace=eol,start,indent
-
-
-" Change cursor shape
-let &t_SI = "\e[5 q"
-let &t_EI = "\e[2 q"
-
-
-" Configure backspace so it acts as it should act
-set whichwrap+=<,>,h,l
-
-" Makes search act like search in modern browsers
-set incsearch
-
-" For regular expressions turn magic on
-set magic
-
-" Don't know if i need this
-"set laststatus=2
-"set statusline=%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ Line:\ %l/%L\ \ Column:\ %ccall plug#begin('~/.vim/plugged')
+" " " " " " " " " " " " " " " " " " " "
+" " " " " " " " " " " " " " " " " " " "
+""  _____  _             _           ""
+"" |  __ \| |           (_)          ""
+"" | |__) | |_   _  __ _ _ _ __  ___ ""
+"" |  ___/| | | | |/ _` | | '_ \/ __|""
+"" | |    | | |_| | (_| | | | | \__ \""
+"" |_|    |_|\__,_|\__, |_|_| |_|___/""
+""                  __/ |            ""
+""                 |___/             ""
+" " " " " " " " " " " " " " " " " " " "
+" " " " " " " " " " " " " " " " " " " "
+call plug#begin()
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'fatih/vim-go'
+Plug 'tpope/vim-fugitive'
+Plug 'SirVer/ultisnips'
+Plug 'tomasr/molokai'
+Plug 'RRethy/vim-illuminate'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-repeat'
+call plug#end()
 
 
 "" " " " " " " " " " " " " " " " " " ""
@@ -90,7 +36,6 @@ set magic
 ""                    | |            ""
 "" " " " " " " " " " " " " " " " " " ""
 "" " " " " " " " " " " " " " " " " " ""
-
 " Delete trailing white space on save
 fun! CleanExtraSpaces()
   let save_cursor = getpos(".")
@@ -109,6 +54,106 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+" TODO do I need if(has("autocmd"))
+" TODO Find some way to identify the problem due to which underline is drawn
+
+
+"" " " " " " " " " " " " " " " " " " " ""
+"" " " " " " " " " " " " " " " " " " " ""
+""   ____        _   _                 ""
+""  / __ \      | | (_)                ""
+"" | |  | |_ __ | |_ _  ___  _ __  ___ ""
+"" | |  | | '_ \| __| |/ _ \| '_ \/ __|""
+"" | |__| | |_) | |_| | (_) | | | \__ \""
+""  \____/| .__/ \__|_|\___/|_| |_|___/""
+""        | |                          ""
+""        |_|                          ""
+"" " " " " " " " " " " " " " " " " " " ""
+"" " " " " " " " " " " " " " " " " " " ""
+colorscheme molokai
+syntax enable
+filetype plugin on
+filetype indent on
+set nocompatible
+set cursorline
+set number
+set relativenumber
+set autoread
+set scrolloff=7
+set ignorecase
+set smartcase
+set hlsearch
+set lazyredraw
+set showmatch
+set mat=2
+set t_co=256
+set background=dark
+set encoding=utf-8
+set ffs=unix,dos,mac
+set nobackup
+set nowb
+set noswapfile
+set expandtab
+set smarttab
+set shiftwidth=2
+set tabstop=2
+set lbr
+set tw=500
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+set clipboard=unnamedplus
+set titlestring=%t%(\ %r%M%w%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)
+set title
+set ruler
+set rulerformat=%9(%l/%L\ %c%)
+set wildmenu
+set wildmode=longest:full,full
+" set cmdheight=1
+set backspace=eol,start,indent
+set hidden
+set whichwrap+=<,>,[,]
+set incsearch
+set magic
+" set conceallevel=0
+set undofile
+set undodir=~/.vim/undo
+set list
+set listchars=tab:\┆│\ ,
+set showcmd
+set completeopt=longest,menuone
+set noshowmode
+set belloff=esc,showmatch,wildmode
+
+" Change cursor shape
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[2 q"
+
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let NERDTreeShowHidden=1
+
+let g:go_fmt_command = "goimports"
+" TODO Uncomment whene golangci-lint start working
+" let g:go_metalinter_autosave = 1
+" let g:go_metalinter_autosave_enabled = ['golint', 'govet', 'typecheck']
+" let g:go_metalinter_command = "golangci-lint"
+
+" TODO Uncomment when it does not give error while hovering over make, map, etc. Don't remember exact keywords.
+" let g:go_auto_type_info = 1
+" au filetype go inoremap <buffer> . .<C-x><C-o>
+
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+
+let g:Illuminate_delay = 5000
+
 "" " " " " " " " " " " " " " " " " " " " " " " ""
 "" " " " " " " " " " " " " " " " " " " " " " " ""
 ""  __  __                   _                 ""
@@ -121,61 +166,9 @@ endif
 ""              |_|   |_|            |___/     ""
 "" " " " " " " " " " " " " " " " " " " " " " " ""
 "" " " " " " " " " " " " " " " " " " " " " " " ""
-
-map <C-f> :FZF<CR>
-nnoremap <C-t> :tabnew<CR>
-nnoremap <C-w> :tabn<CR>
-imap <C-c> <Esc>V"+yi
-vmap <C-c> "+yi
-imap <C-v> <Esc>"+pi
-nmap <F6> :setlocal spell! spelllang=en_us<CR>
-imap <F6> <Esc><F6>i
-imap <C-q> <Esc>o--------------------------------<Esc>:put =strftime('%c')<CR>o--------------------------------
-imap <c-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
-
-
-" " " " " " " " " " " " " " " " " " " "
-" " " " " " " " " " " " " " " " " " " "
-""  _____  _             _           ""
-"" |  __ \| |           (_)          ""
-"" | |__) | |_   _  __ _ _ _ __  ___ ""
-"" |  ___/| | | | |/ _` | | '_ \/ __|""
-"" | |    | | |_| | (_| | | | | \__ \""
-"" |_|    |_|\__,_|\__, |_|_| |_|___/""
-""                  __/ |            ""
-""                 |___/             ""
-" " " " " " " " " " " " " " " " " " " "
-" " " " " " " " " " " " " " " " " " " "
-
-call plug#begin()
-Plug 'Yggdroot/indentLine'
-Plug 'scrooloose/nerdtree'
-" Plug 'maralla/completor.vim'
-Plug 'RRethy/vim-illuminate'
-Plug 'tpope/vim-commentary'
-Plug 'will133/vim-dirdiff'
-Plug 'google/vim-colorscheme-primary'
-" Plug 'artur-shaik/vim-javacomplete2'
-call plug#end()
-
-" NerdTree
 map <C-b> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
+nnoremap n nzzzv
+nnoremap N Nzzzv
+cmap w!! w !sudo tee > /dev/null %
+cmap Q bd
 
-" IndentLine
-let g:indentLine_char = '┆'
-
-" Completer
-" let g:completor_python_binary = '/home/nilesh/code/opensource/venv_python3/bin/python'
-
-" vim-commentary
-imap <C-_> <Esc>gcci
-
-" javacomplete2
-" autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
-set conceallevel=0
