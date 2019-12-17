@@ -18,8 +18,16 @@
     ],
     "sync.gist": "4bc23ae92142e80d0cb00dbc52f40c01",
     "cSpell.userWords": [
+        "algo",
         "bhavnagar",
         "njkevlani",
         "stackoverflow"
-    ]
+    ],
+    "workbench.colorTheme": "Default Light+",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "go.useLanguageServer": false,
+    "go.formatTool": "goimports",
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": ["--enable-all"],
 }
