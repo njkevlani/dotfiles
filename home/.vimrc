@@ -45,16 +45,11 @@ fun! CleanExtraSpaces()
   call setreg('/', old_query)
 endfun
 
-if has("autocmd")
-  autocmd BufWritePre * :call CleanExtraSpaces()
-endif
+autocmd BufWritePre * :call CleanExtraSpaces()
 
 " Open where I left it.
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g'\"" | endif
-endif
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g'\"" | endif
 
-" TODO do I need if(has("autocmd"))
 " TODO Find some way to identify the problem due to which underline is drawn
 
 
