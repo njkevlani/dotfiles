@@ -51,7 +51,7 @@ endif
 
 " Open where I left it.
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g'\"" | endif
 endif
 
 " TODO do I need if(has("autocmd"))
