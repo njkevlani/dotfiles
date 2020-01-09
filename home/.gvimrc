@@ -16,15 +16,29 @@ set guioptions=P
 nmap <A-z> 1z=
 nmap <A-j> <Esc>gd
 map <A-k> <C-o>
-nmap <A-f> <Esc>:set noh<CR>
+nmap <A-S-f> <Esc>:noh<CR>
 imap <A-/> <Esc>gccji
 nmap <A-/> <Esc>gccj
 vmap <A-/> gc
 map <C-Tab> <Esc>:tabnext<CR>
 map <C-S-Tab> <Esc>:tabprev<CR>
 map <A-q> <Esc>:bd<CR>
+map <A-g> <Esc>:Gstatus<CR>
+map <A-a> <Esc>:CtrlPBuffer<CR>
 autocmd FileType go imap <A-i> <ESC>:GoInfo<CR>i
 autocmd FileType go nmap <A-b> :w<CR>:GoTestCompile<CR>
 autocmd FileType go nmap <A-r> :w<CR>:GoRun<CR>
+autocmd FileType go nmap <A-p> :GoDecls<CR>
 autocmd FileType go imap <C-Space> <C-x><C-o>
 
+set mousemodel=popup
+function! ToggleMenuBar()
+    let l:menu_option = strridx(&guioptions, "m")
+    let l:toolbar_option = strridx(&guioptions, "T")
+    if l:menu_option > 0
+        set guioptions-=m
+    else
+        set guioptions+=m
+    endif
+endfunction
+menu PopUp.Toggle\ Menu :call ToggleMenuBar()<CR>

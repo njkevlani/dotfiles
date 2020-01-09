@@ -22,6 +22,9 @@ Plug 'tomasr/molokai'
 Plug 'RRethy/vim-illuminate'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'mhinz/vim-signify'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 
@@ -120,10 +123,6 @@ set completeopt=longest,menuone
 set noshowmode
 set belloff=esc,showmatch,wildmode
 
-" Change cursor shape
-let &t_SI = "\e[5 q"
-let &t_EI = "\e[2 q"
-
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeShowHidden=1
@@ -147,7 +146,7 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 
-let g:Illuminate_delay = 5000
+let g:Illuminate_delay = 1000
 
 "" " " " " " " " " " " " " " " " " " " " " " " ""
 "" " " " " " " " " " " " " " " " " " " " " " " ""
@@ -165,5 +164,6 @@ map <C-b> :NERDTreeToggle<CR>
 nnoremap n nzzzv
 nnoremap N Nzzzv
 cmap w!! w !sudo tee > /dev/null %
-cmap Q bd
-
+nmap <Home> ^
+vmap <Home> ^
+imap <Home> <ESC>^i
