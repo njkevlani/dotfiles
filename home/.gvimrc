@@ -1,5 +1,5 @@
 source /home/nilesh/.vimrc
-set guioptions=P
+set guioptions=Pd
 
 "" " " " " " " " " " " " " " " " " " " " " " " ""
 "" " " " " " " " " " " " " " " " " " " " " " " ""
@@ -29,7 +29,7 @@ autocmd FileType go imap <A-i> <ESC>:GoInfo<CR>i
 autocmd FileType go nmap <A-b> :w<CR>:GoTestCompile<CR>
 autocmd FileType go nmap <A-r> :w<CR>:GoRun<CR>
 autocmd FileType go nmap <A-p> :GoDecls<CR>
-autocmd FileType go imap <C-Space> <C-x><C-o>
+" autocmd FileType go imap <C-Space> <C-x><C-o>
 
 set mousemodel=popup
 function! ToggleMenuBar()
@@ -42,3 +42,10 @@ function! ToggleMenuBar()
     endif
 endfunction
 menu PopUp.Toggle\ Menu :call ToggleMenuBar()<CR>
+
+set guifont=Victor\ Mono\ Semibold\ 14
+highlight Keyword gui=italic
+highlight Conditional gui=italic
+highlight Repeat gui=italic
+highlight SpecialChar gui=italic
+highlight Statement gui=italic
