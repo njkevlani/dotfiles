@@ -1,6 +1,7 @@
 [user]
 	email = njkevlani@gmail.com
 	name = Nilesh
+	signingkey = E8A0E35BE2E4EB1A9C62E50F27CBB64272E42DB0
 [color]
 	ui = true
 [core]
@@ -24,3 +25,5 @@
 
 [gc]
 	writeCommitGraph = true
+[commit]
+	gpgsign = true
