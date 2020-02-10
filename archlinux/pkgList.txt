@@ -76,3 +76,4 @@ mariadb
 nethogs
 cheese
 xcape
+mpv
