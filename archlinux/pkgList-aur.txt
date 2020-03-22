@@ -5,5 +5,11 @@ drive-bin
 visual-studio-code-bin
 solr
 gotop-bin
-gestures
-
+rofi-greenclip
+skippy-xd-git
+libinput-gestures
+mpv-mpris
+subliminal
+spotify
+brave-bin
+colorpicker

@@ -15,7 +15,7 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
 Plug 'tomasr/molokai'
@@ -25,6 +25,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-signify'
 Plug 'dense-analysis/ale'
+Plug 'majutsushi/tagbar'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 
@@ -119,7 +121,7 @@ set undodir=~/.vim/undo
 set list
 set listchars=tab:\┆│\ ,
 set showcmd
-set completeopt=longest,menuone
+set completeopt=noinsert,menuone,popup
 set noshowmode
 set belloff=esc,showmatch,wildmode
 
@@ -128,10 +130,8 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeShowHidden=1
 
 let g:go_fmt_command = "goimports"
-" TODO Uncomment whene golangci-lint start working
-" let g:go_metalinter_autosave = 1
-" let g:go_metalinter_autosave_enabled = ['golint', 'govet', 'typecheck']
-" let g:go_metalinter_command = "golangci-lint"
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_enabled = ['golint', 'govet', 'typecheck', 'deadcode', 'errcheck', 'gosimple', 'govet', 'ineffassign', 'staticcheck', 'structcheck', 'typecheck', 'unused', 'varcheck']
 
 " TODO Uncomment when it does not give error while hovering over make, map, etc. Don't remember exact keywords.
 " let g:go_auto_type_info = 1
@@ -147,7 +147,9 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 
 let g:Illuminate_delay = 1000
+let g:go_doc_popup_window = 1
 
+let g:delimitMate_expand_cr = 1
 "" " " " " " " " " " " " " " " " " " " " " " " ""
 "" " " " " " " " " " " " " " " " " " " " " " " ""
 ""  __  __                   _                 ""
@@ -167,3 +169,12 @@ cmap w!! w !sudo tee > /dev/null %
 nmap <Home> ^
 vmap <Home> ^
 imap <Home> <ESC>^i
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>f :noh<CR>
+nnoremap <leader>q :bd<CR>
+nnoremap <silent> <Leader>+ :vertical resize +5<CR>
+nnoremap <silent> <Leader>- :vertical resize -5<CR>
+nmap Q <NOP>

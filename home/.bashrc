@@ -57,6 +57,10 @@ alias pkgByDate="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort"
 alias randPass="head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo ''"
 alias tmp_pad="vim /tmp/tmp.txt"
 alias list_files_sorted_by_size="find . -type f  -exec du -h {} + | sort -r -h"
+alias cb="xmodmap ~/.Xmodmap_CB"
+function reminder () {
+  sleep $1 && notify-send -u critical -i clock $2
+}
 # Disable Ctrl+s and Ctrl+q
 stty -ixon
 
@@ -71,12 +75,6 @@ if [ -f ~/.bash_secret ]
 then
   source ~/.bash_secret
 fi
-
-NPM_PACKAGES="${HOME}/.npm-packages"
-NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-PATH="$NPM_PACKAGES/bin:${HOME}/.gem/bin:$PATH"
-unset MANPATH
-MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 export GOPATH=$HOME/code/go
 PATH=${PATH}:${GOPATH}/bin

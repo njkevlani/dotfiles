@@ -77,3 +77,6 @@ nethogs
 cheese
 xcape
 mpv
+kdeconnect
+qt5-tools
+xsel

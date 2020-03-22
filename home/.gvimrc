@@ -13,19 +13,13 @@ set guioptions=Pd
 ""              |_|   |_|            |___/     ""
 "" " " " " " " " " " " " " " " " " " " " " " " ""
 "" " " " " " " " " " " " " " " " " " " " " " " ""
-nmap <A-z> 1z=
-nmap <A-j> <Esc>gd
-map <A-k> <C-o>
-nmap <A-S-f> <Esc>:noh<CR>
+imap <A-z> <C-X>s
 imap <A-/> <Esc>gccji
 nmap <A-/> <Esc>gccj
 vmap <A-/> gc
-map <C-Tab> <Esc>:tabnext<CR>
-map <C-S-Tab> <Esc>:tabprev<CR>
-map <A-q> <Esc>:bd<CR>
 map <A-g> <Esc>:Gstatus<CR>
 map <A-a> <Esc>:CtrlPBuffer<CR>
-autocmd FileType go imap <A-i> <ESC>:GoInfo<CR>i
+autocmd FileType go nmap <A-i> :GoInfo<CR>
 autocmd FileType go nmap <A-b> :w<CR>:GoTestCompile<CR>
 autocmd FileType go nmap <A-r> :w<CR>:GoRun<CR>
 autocmd FileType go nmap <A-p> :GoDecls<CR>
@@ -43,9 +37,4 @@ function! ToggleMenuBar()
 endfunction
 menu PopUp.Toggle\ Menu :call ToggleMenuBar()<CR>
 
-set guifont=Victor\ Mono\ Semibold\ 14
-highlight Keyword gui=italic
-highlight Conditional gui=italic
-highlight Repeat gui=italic
-highlight SpecialChar gui=italic
-highlight Statement gui=italic
+set guifont=Monospace\ 12
