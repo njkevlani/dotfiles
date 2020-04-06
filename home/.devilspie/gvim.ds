@@ -1,0 +1,1 @@
+(if (is (application_name) "Vim") maximize)
