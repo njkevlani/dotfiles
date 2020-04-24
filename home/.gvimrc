@@ -14,16 +14,6 @@ set guioptions=Pd
 "" " " " " " " " " " " " " " " " " " " " " " " ""
 "" " " " " " " " " " " " " " " " " " " " " " " ""
 imap <A-z> <C-X>s
-imap <A-/> <Esc>gccji
-nmap <A-/> <Esc>gccj
-vmap <A-/> gc
-map <A-g> <Esc>:Gstatus<CR>
-map <A-a> <Esc>:CtrlPBuffer<CR>
-autocmd FileType go nmap <A-i> :GoInfo<CR>
-autocmd FileType go nmap <A-b> :w<CR>:GoTestCompile<CR>
-autocmd FileType go nmap <A-r> :w<CR>:GoRun<CR>
-autocmd FileType go nmap <A-p> :GoDecls<CR>
-" autocmd FileType go imap <C-Space> <C-x><C-o>
 
 set mousemodel=popup
 function! ToggleMenuBar()
@@ -37,4 +27,4 @@ function! ToggleMenuBar()
 endfunction
 menu PopUp.Toggle\ Menu :call ToggleMenuBar()<CR>
 
-set guifont=Monospace\ 12
+set guifont=Jetbrains\ Mono
