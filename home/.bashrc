@@ -80,6 +80,8 @@ fi
 export GOPATH=$HOME/code/go
 PATH=${PATH}:${GOPATH}/bin
 
+PATH=$PATH:/home/nilesh/.cargo/bin
+
 PY3ENV=$HOME/.python
 PATH=${PATH}:${PY3ENV}/py3/bin
 
