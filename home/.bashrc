@@ -58,7 +58,7 @@ alias randPass="head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo ''"
 alias tmp_pad="vim /tmp/tmp.txt"
 alias list_files_sorted_by_size="find . -type f  -exec du -h {} + | sort -r -h"
 alias cb="xmodmap ~/.Xmodmap_CB"
-alias mv="mv -i"
+alias mv="mv -vi"
 function reminder () {
   sleep $1 && notify-send -u critical -i clock $2
 }
