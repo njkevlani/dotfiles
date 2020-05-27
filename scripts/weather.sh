@@ -1,6 +1,6 @@
 #!/bin/bash
 
-data=$(curl wttr.in/?format="%t|%C")
+data=$(curl wttr.in/Bhavnagar?format="%t|%C")
 temperature=$(echo "$data" | grep -o ".*|" | sed "s/|//g" | sed "s/\+//g")
 condition=$(echo "$data" | grep -o "|.*" | sed "s/|//g")
 
