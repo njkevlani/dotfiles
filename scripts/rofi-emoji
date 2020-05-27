@@ -79,6 +79,7 @@ function download() {
     line=($line)
 
     if [ $exit_code == 0 ]; then
+      sleep 0.1  # Delay pasting so the text-entry can come active
       xdotool type --clearmodifiers "${line[0]}"
     elif [ $exit_code == 10 ]; then
       echo -n "${line[0]}" | xsel -i -b
