@@ -81,3 +81,7 @@ PATH=${PATH}:${GOPATH}/bin
 
 PY3ENV=$HOME/.python
 PATH=${PATH}:${PY3ENV}/py3/bin
+
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+[[ -r "/usr/share/fzf/completion.bash" ]] && source /usr/share/fzf/completion.bash
+[[ -r "/usr/share/fzf/key-bindings.bash" ]] && source /usr/share/fzf/key-bindings.bash
