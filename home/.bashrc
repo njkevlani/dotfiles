@@ -28,6 +28,19 @@ function cheat () {
   curl cheat.sh/$1
 }
 
+function hugonew () {
+  given_path=${1}
+  timestamp=`date +%Y%m%d`
+  dir=
+  if [[ "$given_path" == *\/* ]]; then
+    dir=${given_path%/*}/
+  fi
+  file_name=${given_path##*/}
+  path_with_timestamp="${dir}${timestamp}-${file_name}"
+
+  hugo new $path_with_timestamp
+}
+
 # PS1 time !!
 PS1=$'\[\033[01;32m\][\[\033[01;31m\]$?\[\033[01;32m\]]-[\[\033[01;94m\]\W\[\033[01;31m\]`parse_git_branch` `lsbytesum`MB\[\033[01;32m\]]-[\[\033[01;94m\]\!\[\033[01;32m\]]-λ\[\033[0;0m\] '
 
