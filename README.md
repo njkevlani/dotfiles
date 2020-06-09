@@ -18,6 +18,9 @@ Use stow to make symlinks files from `home` folder of this repo into local syste
 
 `stow -v -t $HOME home`
 
+For creating symlinks for files from `etc`, run:
+`stow -v -t /etc /etc`
+
 This command tells stow following things
   - Be verbose (`-v`)
   - Target directory for making symlinks is $HOMW (`-t $HOME`)
