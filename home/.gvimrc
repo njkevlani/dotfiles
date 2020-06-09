@@ -27,4 +27,4 @@ function! ToggleMenuBar()
 endfunction
 menu PopUp.Toggle\ Menu :call ToggleMenuBar()<CR>
 
-set guifont=Jetbrains\ Mono
+set guifont=Jetbrains\ Mono\ NL
