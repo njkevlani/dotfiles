@@ -34,10 +34,12 @@ unzip
 gnome-keyring
 neofetch
 noto-fonts
+noto-fonts-cjk
 ttf-dejavu
 ttf-liberation
 ttf-ubuntu-font-family
 ttf-roboto
+ttf-roboto-mono
 xorg-xmodmap
 exo
 garcon
@@ -80,3 +82,9 @@ mpv
 kdeconnect
 qt5-tools
 xsel
+stow
+fzf
+i3lock-color
+obs-studio
+capitaine-cursors
+wget
