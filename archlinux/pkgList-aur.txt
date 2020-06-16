@@ -12,3 +12,4 @@ colorpicker
 ttf-twemoji
 ytop
 numix-gtk-theme-git
+fittstool
