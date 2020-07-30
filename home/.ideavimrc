@@ -3,6 +3,7 @@ set clipboard+=unnamed
 set number
 set relativenumber
 set visualbell
+set surround
 
 let mapleader=" "
 nnoremap <leader>h <C-w>h
