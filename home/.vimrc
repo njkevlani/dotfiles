@@ -185,6 +185,8 @@ map <leader>g <Esc>:Gstatus<CR>
 
 map <leader>a <Esc>:Buffers<CR>
 
+nnoremap <leader>d "_d
+
 autocmd filetype go inoremap <buffer> <c-space> <C-x><C-o>
 autocmd filetype go inoremap <buffer> <c-p> <esc>:GoInfo<cr>li
 autocmd filetype go nnoremap <buffer> <leader>p :GoDiagnostics<cr>
