@@ -1,5 +1,5 @@
 source /home/nilesh/.vimrc
-set guioptions=Pd
+set guioptions=d
 
 "" " " " " " " " " " " " " " " " " " " " " " " ""
 "" " " " " " " " " " " " " " " " " " " " " " " ""
