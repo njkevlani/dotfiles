@@ -1,0 +1,15 @@
+# https://wiki.archlinux.org/index.php/mirrors#Ranking_an_existing_mirror_list
+# List of arch linux mirrors that work well with GTPL Broadband.
+# Put them on top of /etc/pacman.d/mirrorlist
+
+
+Server = http://mirrors.dotsrc.org/archlinux/$repo/os/$arch
+Server = http://mirrors.manchester.m247.com/arch-linux/$repo/os/$arch
+Server = http://mirrors.celianvdb.fr/archlinux/$repo/os/$arch
+Server = http://mirror.librelabucm.org/archlinux/$repo/os/$arch
+Server = http://archlinux.de-labrusse.fr/$repo/os/$arch
+Server = https://ftp.acc.umu.se/mirror/archlinux/$repo/os/$arch
+Server = https://arch.mirrors.lavatech.top/$repo/os/$arch
+Server = https://mirror.archlinux.no/$repo/os/$arch
+Server = http://mirror2.evolution-host.com/archlinux/$repo/os/$arch
+Server = http://mirror.puzzle.ch/archlinux/$repo/os/$arch
