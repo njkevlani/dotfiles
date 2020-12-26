@@ -41,7 +41,16 @@ function hugonew () {
   hugo new $path_with_timestamp
 }
 
-PS1="\[$(tput bold)\]\[\033[38;5;10m\][\[$(tput sgr0)\]\[\033[38;5;9m\]\$?\[$(tput sgr0)\]\[\033[38;5;10m\]]-[\[$(tput sgr0)\]\[\033[38;5;9m\]\h\[$(tput sgr0)\]\[\033[38;5;10m\]]-[\[$(tput sgr0)\]\[\033[38;5;12m\]\W\[$(tput sgr0)\]\[\033[38;5;9m\]\$(parse_git_branch) $(lsbytesum)MB\[$(tput sgr0)\]\[\033[38;5;10m\]]-[\[$(tput sgr0)\]\[\033[38;5;12m\]\\!\[$(tput sgr0)\]\[\033[38;5;10m\]]-λ\[$(tput sgr0)\] "
+BOLD="\[$(tput bold)\]"
+RS="\[$(tput sgr0)\]"
+NR="\[\033[38;5;9m\]"
+NG="\[\033[38;5;10m\]"
+NB="\[\033[38;5;12m\]"
+R="${BOLD}${NR}"
+G="${BOLD}${NG}"
+B="${BOLD}${NB}"
+
+PS1="${G}[${R}\$?${G}]-[${R}\h${G}]-[${B}\W${R}$(parse_git_branch) $(lsbytesum)MB${G}]-[${B}\\!${G}]-λ${RS} "
 
 # Custom script are kept in this folder
 PATH=$PATH:/home/nilesh/xfce-dotFiles/scripts:/home/nilesh/xfce-dotFiles/scripts/colorScripts
