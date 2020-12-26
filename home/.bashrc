@@ -53,7 +53,7 @@ B="${BOLD}${NB}"
 PS1="${G}[${R}\$?${G}]-[${R}\h${G}]-[${B}\W${R}\$(parse_git_branch) \$(lsbytesum)MB${G}]-[${B}\\!${G}]-λ${RS} "
 
 # Custom script are kept in this folder
-PATH=$PATH:/home/nilesh/xfce-dotFiles/scripts:/home/nilesh/xfce-dotFiles/scripts/colorScripts
+PATH=$PATH:$HOME/xfce-dotFiles/scripts:$HOME/xfce-dotFiles/scripts/colorScripts
 
 # Alias
 alias ls="ls --group-directories-first --color=auto"
@@ -97,7 +97,7 @@ fi
 export GOPATH=$HOME/code/go
 PATH=${PATH}:${GOPATH}/bin
 
-PATH=$PATH:/home/nilesh/.cargo/bin
+PATH=$PATH:$HOME/.cargo/bin
 
 PY3ENV=$HOME/.python
 PATH=${PATH}:${PY3ENV}/py3/bin
