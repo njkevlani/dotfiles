@@ -50,7 +50,7 @@ R="${BOLD}${NR}"
 G="${BOLD}${NG}"
 B="${BOLD}${NB}"
 
-PS1="${G}[${R}\$?${G}]-[${R}\h${G}]-[${B}\W${R}$(parse_git_branch) $(lsbytesum)MB${G}]-[${B}\\!${G}]-λ${RS} "
+PS1="${G}[${R}\$?${G}]-[${R}\h${G}]-[${B}\W${R}\$(parse_git_branch) \$(lsbytesum)MB${G}]-[${B}\\!${G}]-λ${RS} "
 
 # Custom script are kept in this folder
 PATH=$PATH:/home/nilesh/xfce-dotFiles/scripts:/home/nilesh/xfce-dotFiles/scripts/colorScripts
