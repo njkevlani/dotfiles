@@ -26,6 +26,7 @@ Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
 Plug 'rust-lang/rust.vim'
+Plug 'godlygeek/tabular'
 call plug#end()
 
 
@@ -53,6 +54,19 @@ autocmd BufWritePre * :call CleanExtraSpaces()
 
 " Open where I left it.
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g'\"" | endif
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 
 
 "" " " " " " " " " " " " " " " " " " " ""
