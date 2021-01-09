@@ -68,6 +68,34 @@ endfunction
 
 inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 
+let s:wrapenabled = 0
+function! ToggleWrap()
+  set wrap nolist
+  if s:wrapenabled
+    set nolinebreak
+    unmap j
+    unmap k
+    unmap 0
+    unmap ^
+    unmap $
+    let s:wrapenabled = 0
+  else
+    set linebreak
+    nnoremap j gj
+    nnoremap k gk
+    nnoremap 0 g0
+    nnoremap ^ g^
+    nnoremap $ g$
+    vnoremap j gj
+    vnoremap k gk
+    vnoremap 0 g0
+    vnoremap ^ g^
+    vnoremap $ g$
+    let s:wrapenabled = 1
+  endif
+endfunction
+
+
 
 "" " " " " " " " " " " " " " " " " " " ""
 "" " " " " " " " " " " " " " " " " " " ""
@@ -111,7 +139,6 @@ set lbr
 set tw=500
 set autoindent
 set smartindent
-set wrap
 set clipboard=unnamedplus
 set titlestring=%t%(\ %r%M%w%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)
 set title
@@ -121,7 +148,6 @@ set wildmenu
 set wildmode=longest:full,full
 set backspace=eol,start,indent
 set hidden
-set whichwrap+=<,>,[,]
 set incsearch
 set magic
 set undofile
