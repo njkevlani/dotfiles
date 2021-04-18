@@ -248,3 +248,5 @@ nnoremap <leader>d "_d
 autocmd filetype go inoremap <buffer> <c-space> <C-x><C-o>
 autocmd filetype go inoremap <buffer> <c-p> <esc>:GoInfo<cr>li
 autocmd filetype go nnoremap <buffer> <leader>p :GoDiagnostics<cr>
+
+iab :time: <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
