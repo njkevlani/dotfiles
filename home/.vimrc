@@ -96,6 +96,21 @@ function! ToggleWrap()
 endfunction
 
 
+let g:qf_g_open = 0
+fun! ToggleQFList()
+    if g:qf_g_open == 1
+        let g:qf_g_open = 0
+        cclose
+    else
+        let g:qf_g_open = 1
+        copen
+    end
+endfun
+
+nnoremap <C-k> :cnext<CR>zz
+nnoremap <C-j> :cprev<CR>zz
+nnoremap <C-q> :call ToggleQFList()<CR>
+
 
 "" " " " " " " " " " " " " " " " " " " ""
 "" " " " " " " " " " " " " " " " " " " ""
