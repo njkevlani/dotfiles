@@ -88,3 +88,5 @@ i3lock-color
 obs-studio
 capitaine-cursors
 wget
+xautomation
+xbindkeys
