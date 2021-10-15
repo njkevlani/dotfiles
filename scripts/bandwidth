@@ -32,6 +32,7 @@ center() {
 
 
 INTERFACE="wlp3s0"
+INTERFACE=$(iw dev | awk '$1=="Interface"{print $2}')
 # Issue #36 compliant.
 if ! [ -e "/sys/class/net/${INTERFACE}/operstate" ] || ! [ "`cat /sys/class/net/${INTERFACE}/operstate`" = "up" ]
 then
