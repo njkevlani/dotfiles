@@ -1,3 +1,9 @@
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)  source .bashrc_linux;;
+    Darwin*) source .bashrc_mac;;
+esac
+
 # get current branch in git repository
 function parse_git_branch() {
   BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
