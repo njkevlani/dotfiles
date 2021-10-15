@@ -1,4 +1,4 @@
-# xfce-dotFiles
+# dotfiles
 My dotfiles using [GNU Stow](https://www.gnu.org/software/stow/)
 
 ## Screenshot
@@ -8,8 +8,8 @@ My dotfiles using [GNU Stow](https://www.gnu.org/software/stow/)
 - Clone this repository.
 
 ```bash
-git clone https://github.com/njkevlani/xfce-dotFiles.git
-cd xfce-dotFiles
+git clone https://github.com/njkevlani/dotfiles.git
+cd dotfiles
 ```
 
 Make symlinks for config files of any config-directory(directories in root of this repo) with stow like:
@@ -23,10 +23,10 @@ stow -v git
 You can add `-n` option to this command to see what links will be made **without writing them on file system**.
 ```bash
 $ stow -nv bash/
-LINK: .bashrc => xfce-dotFiles/bash/.bashrc
-LINK: .bash_profile => xfce-dotFiles/bash/.bash_profile
-LINK: .bashrc_linux => xfce-dotFiles/bash/.bashrc_linux
-LINK: .bashrc_mac => xfce-dotFiles/bash/.bashrc_mac
+LINK: .bashrc => dotfiles/bash/.bashrc
+LINK: .bash_profile => dotfiles/bash/.bash_profile
+LINK: .bashrc_linux => dotfiles/bash/.bashrc_linux
+LINK: .bashrc_mac => dotfiles/bash/.bashrc_mac
 WARNING: in simulation mode so not modifying filesystem.
 ```
 
