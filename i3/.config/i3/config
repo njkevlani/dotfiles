@@ -97,3 +97,6 @@ bindsym $mod+r mode "resize"
 default_border pixel 1
 default_floating_border pixel 1
 
+for_window [class="Xfce4-*"] floating enable
+for_window [class="Blueman-manager"] floating enable, resize set 640 480, position center
+for_window [class="Solaar"] floating enable, resize set 640 480, position center
