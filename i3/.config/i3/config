@@ -80,6 +80,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec --no-startup-id xfce4-session-logout
+bindsym $mod+Delete exec --no-startup-id xflock4
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -88,7 +89,7 @@ mode "resize" {
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
+        # back to normal: $mod+r
         bindsym $mod+r mode "default"
 }
 
