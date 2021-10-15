@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xdg-open "$(expac -S %u "$1")";

@@ -4,49 +4,6 @@ case "${unameOut}" in
     Darwin*) source .bashrc_mac;;
 esac
 
-# get current branch in git repository
-function parse_git_branch() {
-  BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-  if [ ! "${BRANCH}" == "" ]
-  then
-    echo "(${BRANCH})"
-  else
-    echo ""
-  fi
-}
-
-# Print sum size of current folder files.
-function lsbytesum() {
-  TotalBytes=0
-  for Bytes in $(ls -l | grep "^-" | awk '{ print $5 }')
-  do
-    let TotalBytes=$TotalBytes+$Bytes
-  done
-  TotalMeg=$(echo -e "scale=3 \n$TotalBytes/1048576 \nquit" | bc)
-  echo -n "$TotalMeg"
-}
-
-function pacurl () {
-  xdg-open "$(expac -S %u "$1")";
-}
-
-function cheat () {
-  curl cheat.sh/$1
-}
-
-function hugonew () {
-  given_path=${1}
-  timestamp=`date +%Y%m%d`
-  dir=
-  if [[ "$given_path" == *\/* ]]; then
-    dir=${given_path%/*}/
-  fi
-  file_name=${given_path##*/}
-  path_with_timestamp="${dir}${timestamp}-${file_name}"
-
-  hugo new $path_with_timestamp
-}
-
 BOLD="\[$(tput bold)\]"
 RS="\[$(tput sgr0)\]"
 NR="\[\033[38;5;9m\]"

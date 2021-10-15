@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #     lsbytesum - sum the number of bytes in a directory listing
 TotalBytes=0
