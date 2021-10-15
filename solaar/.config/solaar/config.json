@@ -1,0 +1,35 @@
+{
+  "B02340820000:1D0941CE": {
+    "_modelId": "B02340820000",
+    "_name": "MX Master 3 Wireless Mouse",
+    "_sensitive": {
+      "mouse-gestures": false
+    },
+    "_unitId": "1D0941CE",
+    "divert-keys": {
+      "195": 1,
+      "196": 0,
+      "82": 0,
+      "83": 0,
+      "86": 0
+    },
+    "dpi": 1000,
+    "dpi-sliding": 0,
+    "hires-smooth-invert": false,
+    "hires-smooth-resolution": true,
+    "mouse-gestures": "195",
+    "reprogrammable-keys": {
+      "195": 195,
+      "196": 196,
+      "80": 80,
+      "81": 81,
+      "82": 82,
+      "83": 83,
+      "86": 86
+    },
+    "smart-shift": 10,
+    "thumb-scroll-invert": false,
+    "thumb-scroll-mode": false
+  },
+  "_version": "1.0.7"
+}
