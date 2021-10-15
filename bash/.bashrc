@@ -18,6 +18,8 @@ PS1="${G}[${R}\$?${G}]-[${R}\h${G}]-[${B}\W${R}\$(parse_git_branch) \$(lsbytesum
 # Custom script are kept in this folder
 PATH=$PATH:$HOME/xfce-dotFiles/scripts:$HOME/xfce-dotFiles/scripts/colorScripts
 
+EDITOR=nvim
+
 # Alias
 alias ls="ls --group-directories-first --color=auto"
 alias grep="grep --color"
@@ -31,10 +33,11 @@ alias historyStatBasic="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)
 alias ytMusic="youtube-dl --extract-audio --audio-format mp3"
 alias py3Evn="source ~/.python/py3/bin/activate"
 alias py2Evn="source ~/.python/py2/bin/activate"
-alias vi="vim"
+alias vi="$EDITOR"
+alias vim="$EDITOR"
 alias pkgByDate="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort"
 alias randPass="head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo ''"
-alias tmp_pad="vim /tmp/tmp.txt"
+alias tmp_pad="$EDITOR /tmp/tmp.txt"
 alias list_files_sorted_by_size="find . -type f  -exec du -h {} + | sort -r -h"
 alias cb="xmodmap ~/.Xmodmap_CB"
 alias mv="mv -vi"
