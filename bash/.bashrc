@@ -16,7 +16,7 @@ B="${BOLD}${NB}"
 PS1="${G}[${R}\$?${G}]-[${R}\h${G}]-[${B}\W${R}\$(parse_git_branch) \$(lsbytesum)MB${G}]-[${B}\\!${G}]-λ${RS} "
 
 # Custom script are kept in this folder
-PATH=$PATH:$HOME/xfce-dotFiles/scripts:$HOME/xfce-dotFiles/scripts/colorScripts
+PATH=$PATH:$HOME/.local/bin
 
 EDITOR=nvim
 
