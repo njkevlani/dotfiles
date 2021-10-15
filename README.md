@@ -1,45 +1,37 @@
 # xfce-dotFiles
-**`get.sh` is broken. Will fix it sometime later in future**
-
-XFCE Dot Files using [GNU Stow](https://www.gnu.org/software/stow/)
+My dotfiles using [GNU Stow](https://www.gnu.org/software/stow/)
 
 ## Screenshot
-![Screenshot](https://raw.githubusercontent.com/njkevlani/xfce-dotFiles/master/misc/images/Scrot.png)
-
-## Introduction
-This are my configuration files for Xfce.. `get.sh` is used to copy configuration from local machine to this repository.
+![Screenshot](/misc/images/Scrot.png)
 
 ## How to set this at local machine?
 - Clone this repository.
 
-`git clone https://github.com/njkevlani/xfce-dotFiles.git && cd xfce-dotFiles`
+```bash
+git clone https://github.com/njkevlani/xfce-dotFiles.git
+cd xfce-dotFiles
+```
 
-Use stow to make symlinks files from `home` folder of this repo into local system.
+Make symlinks for config files of any config-directory(directories in root of this repo) with stow like:
 
-`stow -v -t $HOME home`
-
-For creating symlinks for files from `etc`, run:
-`stow -v -t /etc /etc`
-
-This command tells stow following things
-  - Be verbose (`-v`)
-  - Target directory for making symlinks is $HOMW (`-t $HOME`)
-  - Make symlinks from the folder `home`
+```bash
+stow -v bash
+stow -v git
+# and so on...
+```
 
 You can add `-n` option to this command to see what links will be made **without writing them on file system**.
+```bash
+$ stow -nv bash/
+LINK: .bashrc => xfce-dotFiles/bash/.bashrc
+LINK: .bash_profile => xfce-dotFiles/bash/.bash_profile
+LINK: .bashrc_linux => xfce-dotFiles/bash/.bashrc_linux
+LINK: .bashrc_mac => xfce-dotFiles/bash/.bashrc_mac
+WARNING: in simulation mode so not modifying filesystem.
+```
 
 ## What else does this repository contain?
 
-- [`/awesome`](https://github.com/njkevlani/xfce-dotFiles/tree/master/awesome) contains some cool things to customize your setup.
-- [`/scripts`](https://github.com/njkevlani/xfce-dotFiles/tree/master/scripts) contains some cool scripts to ease day to day tasks and some eye candy as well!
-- [`/archlinux`](https://github.com/njkevlani/xfce-dotFiles/tree/master/archlinux) contains base packages that I use from archlinux official repositories and AUR.
-- Following config files are included in this repository:
-  - Bash profile
-  - vimrc
-  - gtk configs
-  - VSCode settings and keybindings
-  - Xmodmap config
-  - Xfce4 keyboard shortcuts
-  - Xfwm4 config
-  - Xfce4-panel config
-  - xfce4-terminal config
+- [`/misc/awesome`](/misc/awesome) contains some cool things to customize your setup.
+- [`/misc/scripts`](/misc/scripts) contains some cool scripts to ease day to day tasks and some eye candy as well!
+- [`/misc/archlinux`](/misc/archlinux) contains base packages that I use from archlinux official repositories and AUR.
