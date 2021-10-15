@@ -4,7 +4,7 @@
 XFCE Dot Files using [GNU Stow](https://www.gnu.org/software/stow/)
 
 ## Screenshot
-![Screenshot](https://raw.githubusercontent.com/njkevlani/xfce-dotFiles/master/images/Scrot.png)
+![Screenshot](https://raw.githubusercontent.com/njkevlani/xfce-dotFiles/master/misc/images/Scrot.png)
 
 ## Introduction
 This are my configuration files for Xfce.. `get.sh` is used to copy configuration from local machine to this repository.
