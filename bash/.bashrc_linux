@@ -1,0 +1,1 @@
+alias cpdt="date +'%a %b %d %Y' | xclip -sel clip"
