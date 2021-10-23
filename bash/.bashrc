@@ -1,7 +1,7 @@
 unameOut="$(uname -s)"
 case "${unameOut}" in
-    Linux*)  source .bashrc_linux;;
-    Darwin*) source .bashrc_mac;;
+    Linux*)  source $HOME/.bashrc_linux;;
+    Darwin*) source $HOME/.bashrc_mac;;
 esac
 
 BOLD="\[$(tput bold)\]"
