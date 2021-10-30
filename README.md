@@ -2,7 +2,7 @@
 My dotfiles using [GNU Stow](https://www.gnu.org/software/stow/)
 
 ## Screenshot
-![Screenshot](/misc/images/Scrot.png)
+![Screenshot](/misc/images/screenshot.png)
 
 ## How to set this at local machine?
 - Clone this repository.
