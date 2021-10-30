@@ -202,6 +202,8 @@ map <leader>e <Esc>:FZF<CR>
 
 nnoremap <leader>d "_d
 
+tnoremap <Esc> <C-\><C-n>
+
 iab :time: <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 luafile ~/.config/nvim/lua/gopls-lsp.lua
