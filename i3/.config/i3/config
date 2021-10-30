@@ -16,6 +16,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 bindsym $mod+Return exec alacritty
+bindsym $mod+w exec google-chrome-stable
+bindsym $mod+e exec ~/.local/bin/rofi-emoji
+bindsym $mod+f exec thunar
+bindsym Print exec xfce4-screenshooter
 
 bindsym $mod+q kill
 
@@ -35,9 +39,9 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+shift+f fullscreen toggle
 
-bindsym $mod+e layout toggle split
+bindsym $mod+shift+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
