@@ -1,0 +1,6 @@
+Command=/home/test/.local/bin/bandwidth
+UseLabel=0
+Text=(genmon)
+UpdatePeriod=2000
+Font=Monospace 10
+
