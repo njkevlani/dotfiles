@@ -27,7 +27,7 @@ PATH=$PATH:$CARGO_HOME/bin
 PY3BIN=$HOME/lang/python3/bin
 PATH=${PATH}:${PY3BIN}
 
-EDITOR=nvim
+export EDITOR=nvim
 
 # Alias
 alias ls="ls --group-directories-first --color=auto"
