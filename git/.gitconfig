@@ -6,7 +6,7 @@
 	ui = true
 [core]
 	autocrlf = input
-	editor = vim
+	editor = nvim
 	quotepath = false
 	commitGraph = true
 [filter "gitignore"]
