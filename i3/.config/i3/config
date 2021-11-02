@@ -17,7 +17,7 @@ floating_modifier $mod
 
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+w exec google-chrome-stable
-bindsym $mod+e exec ~/.local/bin/rofi-emoji
+bindsym $mod+e exec rofi -show emoji
 bindsym $mod+f exec thunar
 bindsym Print exec xfce4-screenshooter
 
