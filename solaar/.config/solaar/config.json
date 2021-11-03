@@ -1,10 +1,12 @@
 {
-  "B02340820000:1D0941CE": {
+  "4082:1D0941CE": {
     "_modelId": "B02340820000",
     "_name": "MX Master 3 Wireless Mouse",
     "_sensitive": {
+      "change-host": true,
       "mouse-gestures": false
     },
+    "_serial": "1D0941CE",
     "_unitId": "1D0941CE",
     "divert-keys": {
       "195": 1,

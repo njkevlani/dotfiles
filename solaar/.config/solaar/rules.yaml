@@ -1,11 +1,11 @@
 %YAML 1.3
 ---
 - MouseGesture: Mouse Left
-- Execute: [i3-msg, workspace prev]
+- KeyPress: [Super_L, Left]
 ...
 ---
 - MouseGesture: Mouse Right
-- Execute: [i3-msg, workspace next]
+- KeyPress: [Super_L, Right]
 ...
 ---
 - MouseGesture: Mouse Up
