@@ -28,6 +28,7 @@ PY3BIN=$HOME/lang/python3/bin
 PATH=${PATH}:${PY3BIN}
 
 export EDITOR=nvim
+export MANPAGER='nvim +Man!'
 
 # Alias
 alias ls="ls --group-directories-first --color=auto"
