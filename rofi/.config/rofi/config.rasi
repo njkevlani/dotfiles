@@ -2,6 +2,6 @@ configuration {
 	modi: "drun,window,calc,emoji";
 	font: "Monospace 12";
 	show-icons: true;
-	theme: "/usr/share/rofi/themes/android_notification.rasi";
 	display-drun: "(";
 }
+@theme "/usr/share/rofi/themes/android_notification.rasi"
