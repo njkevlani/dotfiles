@@ -37,4 +37,13 @@
 	<patterns>*</patterns>
 	<directories/>
 </action>
+<action>
+	<icon>nvim</icon>
+	<name>Neovide</name>
+	<unique-id>1638463785670357-1</unique-id>
+	<command>neovide %f</command>
+	<description>Open this folder in neovide</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
 </actions>
