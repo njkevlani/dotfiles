@@ -5,3 +5,14 @@ keymap:
       Alt-c: Ctrl-Shift-c
     application:
       only: Alacritty
+  - name: Chrome
+    remap:
+      Alt-f: Ctrl-f
+      Alt-l: Ctrl-l
+      Alt-v: Ctrl-v
+      Alt-c: Ctrl-c
+      Alt-w: Ctrl-w
+      Alt-t: Ctrl-t
+      Alt-Shift-t: Ctrl-Shift-t
+    application:
+      only: Google-chrome
