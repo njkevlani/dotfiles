@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.9.4
+Type=Application
+Name=xremap
+Comment=Start xremap
+Exec=/bin/sh -c "$HOME/lang/cargo/bin/xremap $HOME/.config/xremap/config.yaml"
+RunHook=0
+StartupNotify=false
+Terminal=false
+Hidden=false

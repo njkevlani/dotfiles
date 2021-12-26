@@ -1,0 +1,7 @@
+keymap:
+  - name: Copy Paste in terminal
+    remap:
+      M-v: C-Shift-v
+      M-c: C-Shift-c
+    application:
+      only: Alacritty
