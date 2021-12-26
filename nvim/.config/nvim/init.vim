@@ -25,6 +25,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'ray-x/lsp_signature.nvim'
 call plug#end()
 
 
