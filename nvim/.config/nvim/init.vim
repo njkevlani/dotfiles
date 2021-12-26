@@ -221,6 +221,7 @@ nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 
 
 luafile ~/.config/nvim/lua/compe-config.lua
+luafile ~/.config/nvim/lua/rust_analyser-lsp.lua
 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
