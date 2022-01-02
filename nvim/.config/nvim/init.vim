@@ -26,6 +26,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown' }
 call plug#end()
 
 
