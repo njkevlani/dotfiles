@@ -111,6 +111,7 @@ nnoremap <C-q> :call ToggleQFList()<CR>
 "" " " " " " " " " " " " " " " " " " " ""
 "" " " " " " " " " " " " " " " " " " " ""
 colorscheme PaperColor
+set mouse=a
 set background=light
 syntax enable
 filetype plugin on
