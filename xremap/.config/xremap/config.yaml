@@ -12,7 +12,10 @@ keymap:
       Alt-v: Ctrl-v
       Alt-c: Ctrl-c
       Alt-w: Ctrl-w
+      Alt-r: Ctrl-r
       Alt-t: Ctrl-t
       Alt-Shift-t: Ctrl-Shift-t
+      Alt-n: Ctrl-n
+      Alt-Shift-n: Ctrl-Shift-n
     application:
       only: Google-chrome
