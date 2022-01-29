@@ -1,3 +1,10 @@
+modmap:
+  - name: Chrome
+    remap:
+      Alt_L: Ctrl_L
+    application:
+      only: Google-chrome
+
 keymap:
   - name: Copy Paste in terminal
     remap:
@@ -5,17 +12,10 @@ keymap:
       Alt-c: Ctrl-Shift-c
     application:
       only: Alacritty
-  - name: Chrome
+  - name: Chrome conflicting mappings
     remap:
-      Alt-f: Ctrl-f
-      Alt-l: Ctrl-l
-      Alt-v: Ctrl-v
-      Alt-c: Ctrl-c
-      Alt-w: Ctrl-w
-      Alt-r: Ctrl-r
-      Alt-t: Ctrl-t
-      Alt-Shift-t: Ctrl-Shift-t
-      Alt-n: Ctrl-n
-      Alt-Shift-n: Ctrl-Shift-n
+      Ctrl-LeftBrace: Alt-Left
+      Ctrl-RightBrace: Alt-Right
+      Ctrl-q: Ctrl-Alt-q
     application:
       only: Google-chrome
