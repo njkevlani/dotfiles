@@ -16,6 +16,7 @@ keymap:
     remap:
       Ctrl-LeftBrace: Alt-Left
       Ctrl-RightBrace: Alt-Right
+      Ctrl-Space: Alt-Space
       Ctrl-q: Ctrl-Alt-q
     application:
       only: Google-chrome
