@@ -43,7 +43,8 @@ bindsym $mod+Shift+l move right
 bindsym $mod+shift+f fullscreen toggle
 
 bindsym $mod+shift+e layout toggle split
-bindsym $mod+shift+v split v
+bindsym $mod+shift+Down split v
+bindsym $mod+shift+Right split h
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
