@@ -26,7 +26,7 @@ bindsym $mod+q kill
 bindsym Mod1+space exec --no-startup-id rofi -show drun
 bindsym $mod+p exec --no-startup-id rofi -show window
 bindsym $mod+c exec --no-startup-id rofi -show calc
-bindsym $mod+v exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+bindsym Mod1+shift+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 bindsym XF86Display exec xfce4-display-settings -m
 
 bindsym $mod+h focus left

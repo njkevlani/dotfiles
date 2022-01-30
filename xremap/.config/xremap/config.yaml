@@ -18,5 +18,6 @@ keymap:
       Ctrl-RightBrace: Alt-Right
       Ctrl-Space: Alt-Space
       Ctrl-q: Ctrl-Alt-q
+      Ctrl-Shift-c: Alt-Shift-c
     application:
       only: Google-chrome
