@@ -12,6 +12,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for':
 call plug#end()
 
 call SourceIfExists('minimal.vim')
+call SourceIfExists('statusline.vim')
 call SourceIfExists('scripts.vim')
 call SourceIfExists('mappings.vim')
 call SourceIfExists('nvim-lsp.vim')
