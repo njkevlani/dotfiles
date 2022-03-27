@@ -1,4 +1,5 @@
-colorscheme PaperColor
+let g:vscode_style = "light"
+colorscheme vscode
 set mouse=a
 set background=light
 set cursorline

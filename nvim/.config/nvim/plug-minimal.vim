@@ -6,3 +6,4 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'Mofiqul/vscode.nvim'
