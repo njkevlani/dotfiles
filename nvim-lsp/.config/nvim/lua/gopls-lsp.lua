@@ -1,4 +1,11 @@
-require'lspconfig'.gopls.setup{}
+require('lspconfig')['gopls'].setup {
+    on_attach = GetLspOnAttach(),
+    flags = {
+        -- This will be the default in neovim 0.7+
+        debounce_text_changes = 150,
+    },
+    capabilities = GetNvimCmpCapabilities(),
+}
 
 function OrgImports(wait_ms)
     local params = vim.lsp.util.make_range_params()
