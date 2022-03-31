@@ -1,5 +1,27 @@
 {
   "4082:1D0941CE": {
+    "_absent": [
+      "hi-res-scroll",
+      "lowres-smooth-scroll",
+      "onboard_profiles",
+      "report_rate",
+      "pointer_speed",
+      "speed-change",
+      "backlight",
+      "backlight-timed",
+      "fn-swap",
+      "persistent-remappable-keys",
+      "disable-keyboard-keys",
+      "divert-crown",
+      "crown-smooth",
+      "divert-gkeys",
+      "m-key-leds",
+      "mr-key-led",
+      "multiplatform",
+      "gesture2-gestures",
+      "gesture2-divert",
+      "gesture2-params"
+    ],
     "_modelId": "B02340820000",
     "_name": "MX Master 3 Wireless Mouse",
     "_sensitive": {
@@ -33,5 +55,5 @@
     "thumb-scroll-invert": false,
     "thumb-scroll-mode": false
   },
-  "_version": "1.1.1"
+  "_version": "1.1.2"
 }
