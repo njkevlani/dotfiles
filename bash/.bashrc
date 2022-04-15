@@ -64,6 +64,8 @@ HISTCONTROL=ignorespace
 
 export MYSQL_PS1="\u@\h [\d]> "
 
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
+
 if [ -f ~/.bash_secret ]
 then
   source ~/.bash_secret
