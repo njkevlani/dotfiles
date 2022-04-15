@@ -1,2 +1,5 @@
 --hidden
 --smart-case
+
+# Ignore .git directory
+--glob=!.git/
