@@ -5,6 +5,19 @@ require('lspconfig')['gopls'].setup {
         debounce_text_changes = 150,
     },
     capabilities = GetNvimCmpCapabilities(),
+    settings = {
+        gopls = {
+            experimentalPostfixCompletions = true,
+            analyses = {
+                unusedparams = true,
+                shadow = true,
+            },
+            staticcheck = true,
+        },
+    },
+    init_options = {
+        usePlaceholders = true,
+    }
 }
 
 function OrgImports(wait_ms)
