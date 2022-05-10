@@ -31,7 +31,7 @@ set backspace=eol,start,indent
 set incsearch
 set undofile
 set undodir=~/.cache/nvim/undo
-set completeopt=noinsert,menuone
+set completeopt=menu,menuone,noinsert
 set noshowmode
 set splitbelow splitright
 set tabstop=4
