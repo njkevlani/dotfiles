@@ -11,3 +11,4 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'f3fora/cmp-spell'
 
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'onsails/lspkind.nvim'
