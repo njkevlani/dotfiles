@@ -12,3 +12,5 @@ Plug 'f3fora/cmp-spell'
 
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'onsails/lspkind.nvim'
+
+Plug 'mfussenegger/nvim-lint'
