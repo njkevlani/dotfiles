@@ -42,9 +42,6 @@ let mapleader=" "
 
 let g:delimitMate_expand_cr = 1
 
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-let $FZF_DEFAULT_OPTS='--reverse'
-
 if exists('g:neovide')
     call SourceIfExists("neovide.vim")
 endif

@@ -16,4 +16,5 @@ call SourceIfExists('statusline.vim')
 call SourceIfExists('scripts.vim')
 call SourceIfExists('mappings.vim')
 call SourceIfExists('nvim-lsp.vim')
-call SourceIfExists('autocmd.vim')
+
+luafile ~/.config/nvim/lua/telescope-setup.lua

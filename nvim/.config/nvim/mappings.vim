@@ -17,9 +17,12 @@ vmap <leader>/ gc
 
 map <leader>g <Esc>:Git<CR>
 
-map <leader>a <Esc>:Buffers<CR>
-map <leader>e <Esc>:FZF<CR>
+map <leader>a <Esc>:Telescope buffers<CR>
+map <leader>e <Esc>:Telescope find_files<CR>
+map <leader>r <Esc>:Telescope live_grep<CR>
 
 nnoremap <leader>d "_d
 
 tnoremap <Esc> <C-\><C-n>
+
+nmap <leader>t :Telescope<CR>
