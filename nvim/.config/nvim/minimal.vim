@@ -1,5 +1,6 @@
-let g:vscode_style = "light"
-colorscheme vscode
+set termguicolors
+colorscheme zenwritten
+
 set mouse=a
 set background=light
 set cursorline

@@ -3,8 +3,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-signify'
 Plug 'Raimondi/delimitMate'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'Mofiqul/vscode.nvim'
+
+" Needed for zenbones colorschemes.
+Plug 'rktjmp/lush.nvim'
+Plug 'mcchrish/zenbones.nvim'
+
 Plug 'stevearc/dressing.nvim'
 
 " Needed for telescope.nvim
