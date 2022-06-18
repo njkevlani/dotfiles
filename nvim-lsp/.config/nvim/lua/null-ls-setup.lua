@@ -1,6 +1,8 @@
-require('lint').linters_by_ft = {
-    go = {'golangcilint',},
-}
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.diagnostics.golangci_lint,
+    },
+})
 
 vim.diagnostic.config({
     virtual_text = false,
