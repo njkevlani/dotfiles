@@ -1,7 +1,7 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('n', '<space>p', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<space>p', '<cmd>TroubleToggle <CR>', opts)
 
 function GetLspOnAttach()
     -- Use an on_attach function to only map the following keys
