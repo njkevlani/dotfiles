@@ -116,3 +116,6 @@ default_floating_border pixel 1
 for_window [class="Xfce4-*"] floating enable
 for_window [class="Blueman-manager"] floating enable, resize set 640 480, position center
 for_window [class="Solaar"] floating enable, resize set 640 480, position center
+
+# Open chrome pop-up windows (like login) in floating mode.
+for_window [window_role="pop-up"] floating enable
