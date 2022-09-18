@@ -1,7 +1,7 @@
 [user]
 	email = njkevlani@gmail.com
 	name = Nilesh
-	signingkey = E8A0E35BE2E4EB1A9C62E50F27CBB64272E42DB0
+	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCz5Nhkf7QYmWPkUxuo37TWR7EiFoAcFQjGjNVd/BRPUgOoBlo5Z0hWtY9BiQhHDj11L/osDTDOQXZWDoI/+vWzxaD88T8ABJ6Bz5Lt6mJbHTylFohDxPeOa4I1UQwtioh3zzO2zdYxWz5WJJTDhuMDhE5hzZA/t2CgvR9EyUqIf/3JC8XV8sUc8hS73TcETqwTwT6yzwAipqx6KY70PJUJ3vbB4r2zCCAIcGBxccszsMKciHJoQIvFDstdYsYbOuwKXcQ8jx5zUdqt3lnENp8D2RBpg/FqElcToa9Oy0cKuIA1GvFAFFF/Utsn99FuBZ+t+jIbpClMraBcL2ZqVZvwXsT5vG52LPJsVxChNmKoRWuYu1ZEAvBNZ7cedUK8xxtjq6NRYOppgtYcV4hRa+mDdGritw9iBLrTWzYsHRL7Yb7y/HnWT3qmUivfBsT7/d2sDvZe9I1ZuyG4O5SYbeqibMiposB92z98lwrgVH1H12dv8w9QeK49tbUiq1s7KMGS9Ypira4TwEm90rmKY81o33koO9rxgr9hPfsnBe4fKEEd1OSpbhuBX3IQlc6Btx648zqW+uMLvV5/fRrD5bNHrHGLcuS3+AtpxoGAHgtMmaqanS85Z6eLyPPcypg0DIJ4hIOyim8Izj9SWDEKcrpZUdS89QrgOwbEL9vhPUo+1Q== njkevlani@gmail.com
 [color]
 	ui = true
 [core]
@@ -30,3 +30,5 @@
 
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[gpg]
+	format = ssh
