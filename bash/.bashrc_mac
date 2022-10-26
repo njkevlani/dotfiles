@@ -10,3 +10,8 @@ PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
 # Disable prompt for using zsh in mac.
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# https://apple.stackexchange.com/a/55886
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
