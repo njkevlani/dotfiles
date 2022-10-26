@@ -7,3 +7,6 @@ PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/gnu-indent/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+
+# Disable prompt for using zsh in mac.
+export BASH_SILENCE_DEPRECATION_WARNING=1
