@@ -16,3 +16,5 @@ Plug 'onsails/lspkind.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 
 Plug 'folke/trouble.nvim'
+
+Plug 'nvim-treesitter/nvim-treesitter-context'
