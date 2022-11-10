@@ -1,4 +1,4 @@
-- 1.1.5
+- 1.1.7
 - _NAME: MX Master 3 Wireless Mouse
   _absent: [hi-res-scroll, lowres-scroll-mode, onboard_profiles, report_rate, pointer_speed, speed-change, backlight, backlight-timed, fn-swap, persistent-remappable-keys,
     disable-keyboard-keys, divert-crown, crown-smooth, divert-gkeys, m-key-leds, mr-key-led, multiplatform, gesture2-gestures, gesture2-divert, gesture2-params,
@@ -12,11 +12,11 @@
   change-host: null
   divert-keys: {82: 0, 83: 0, 86: 0, 195: 2, 196: 0}
   dpi: 1000
-  dpi-sliding: 0
   hires-scroll-mode: false
   hires-smooth-invert: false
   hires-smooth-resolution: true
   reprogrammable-keys: {80: 80, 81: 81, 82: 82, 83: 83, 86: 86, 195: 195, 196: 196}
+  scroll-ratchet: 2
   smart-shift: 10
   thumb-scroll-invert: false
   thumb-scroll-mode: false
