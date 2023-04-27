@@ -1,5 +1,6 @@
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'ruanyl/vim-gh-line'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-signify'
 Plug 'Raimondi/delimitMate'
