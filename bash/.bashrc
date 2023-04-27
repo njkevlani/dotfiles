@@ -66,11 +66,18 @@ export MYSQL_PS1="\u@\h [\d]> "
 
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
 
-if [ -f ~/.bash_secret ]
-then
+if [ -f ~/.bash_secret ]; then
   source ~/.bash_secret
 fi
 
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
-[[ -r "/usr/share/fzf/completion.bash" ]] && source /usr/share/fzf/completion.bash
-[[ -r "/usr/share/fzf/key-bindings.bash" ]] && source /usr/share/fzf/key-bindings.bash
+if [[ -r "/usr/share/z/z.sh" ]]; then
+  source /usr/share/z/z.sh
+fi
+
+if [[ -r "/usr/share/fzf/completion.bash" ]]; then
+  source /usr/share/fzf/completion.bash
+fi
+
+if [[ -r "/usr/share/fzf/key-bindings.bash" ]]; then
+  source /usr/share/fzf/key-bindings.bash
+fi
