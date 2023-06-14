@@ -67,6 +67,10 @@ return {
           keymap("n", "<leader>ca", "<cmd>CodeActionMenu<cr>", merge(opts, { desc = "[LSP] suggest code actions" }))
           keymap("n", "gr", vim.lsp.buf.references, merge(opts, { desc = "[LSP] go to references" }))
 
+          -- On mouse click, do the mouse click and show diagnostics.
+          -- Ideally would want to show diagnostic on mouse hover, but could not find somethign that does it.
+          keymap("n", "<LeftMouse>", "<LeftMouse><cmd>lua vim.diagnostic.open_float()<cr>", opts)
+
           -- Toggle formatting.
           local formatting_enabled = true
           keymap("n", "<leader>f", function()
@@ -93,19 +97,6 @@ return {
       vim.diagnostic.config({
         virtual_text = false,
       })
-
-
-      -- Show diagnostic on hover
-      vim.api.nvim_create_autocmd("CursorHold", {
-        callback = function()
-          vim.diagnostic.open_float()
-        end,
-        group = vim.api.nvim_create_augroup("DiagnosticConfig", {}),
-        pattern = "*",
-      })
-
-      -- This helps triggering CursorHold event sooner.
-      vim.opt.updatetime = 400
     end,
     dependencies = {
       -- LSP goodness in nvim config.
