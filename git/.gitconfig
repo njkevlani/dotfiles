@@ -32,3 +32,5 @@
 	insteadOf = https://github.com/
 [gpg]
 	format = ssh
+[init]
+	defaultBranch = main
