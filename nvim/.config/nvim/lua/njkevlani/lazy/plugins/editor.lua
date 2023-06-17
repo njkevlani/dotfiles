@@ -70,6 +70,8 @@ return {
           -- On mouse click, do the mouse click and show diagnostics.
           -- Ideally would want to show diagnostic on mouse hover, but could not find somethign that does it.
           keymap("n", "<LeftMouse>", "<LeftMouse><cmd>lua vim.diagnostic.open_float()<cr>", opts)
+          keymap("n", "[d", vim.diagnostic.goto_prev, merge(opts, { desc = "go to previous diagnostic" }))
+          keymap("n", "]d", vim.diagnostic.goto_next, merge(opts, { desc = "go to next diagnostic" }))
 
           -- Toggle formatting.
           local formatting_enabled = true
