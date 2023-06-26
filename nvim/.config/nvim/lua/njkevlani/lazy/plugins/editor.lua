@@ -60,12 +60,12 @@ return {
           keymap("n", "gD", vim.lsp.buf.declaration, merge(opts, { desc = "[LSP] go to declaration" }))
           keymap("n", "gd", vim.lsp.buf.definition, merge(opts, { desc = "[LSP] go to definition" }))
           keymap("n", "K", vim.lsp.buf.hover, opts)
-          keymap("n", "gi", vim.lsp.buf.implementation, merge(opts, { desc = "[LSP] go to implementations" }))
+          keymap("n", "gi", "<cmd>TroubleToggle lsp_implementations<cr>", merge(opts, { desc = "[LSP] go to implementations" }))
           keymap("n", "<C-k>", vim.lsp.buf.signature_help, opts)
           keymap("n", "<leader>D", vim.lsp.buf.type_definition, merge(opts, { desc = "[LSP] go to definition of type" }))
           keymap("n", "<leader>rn", vim.lsp.buf.rename, merge(opts, { desc = "[LSP] raname" }))
           keymap("n", "<leader>ca", "<cmd>CodeActionMenu<cr>", merge(opts, { desc = "[LSP] suggest code actions" }))
-          keymap("n", "gr", vim.lsp.buf.references, merge(opts, { desc = "[LSP] go to references" }))
+          keymap("n", "gr", "<cmd>TroubleToggle lsp_references<cr>", merge(opts, { desc = "[LSP] go to references" }))
 
           -- On mouse click, do the mouse click and show diagnostics.
           -- Ideally would want to show diagnostic on mouse hover, but could not find somethign that does it.
