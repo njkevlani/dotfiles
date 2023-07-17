@@ -43,6 +43,7 @@ return {
     end,
     keys = {
       { "<leader>tt", "<cmd>Telescope<cr>",            desc = "Show all telescope pickers" },
+      { "<leader>tr", "<cmd>Telescope resume<cr>",     desc = "Resume last search in telescope" },
       { "<leader>tg", "<cmd>Telescope live_grep<cr>",  desc = "Live grep telescope picker" },
       { "<leader>tf", "<cmd>Telescope find_files<cr>", desc = "Find files telescope picker" },
     },
