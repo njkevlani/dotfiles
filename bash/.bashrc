@@ -83,3 +83,9 @@ fi
 if [[ -r "/usr/share/fzf/key-bindings.bash" ]]; then
   source /usr/share/fzf/key-bindings.bash
 fi
+
+# bash-preexec is required for atuin.
+if [[ -f ~/.bash-preexec.sh ]]; then
+  source ~/.bash-preexec.sh
+  eval "$(atuin init bash --disable-up-arrow)"
+fi
