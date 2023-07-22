@@ -51,6 +51,8 @@ alias list_files_sorted_by_size="find . -type f  -exec du -h {} + | sort -r -h"
 alias cb="xmodmap ~/.Xmodmap_CB"
 alias mv="mv -vi"
 alias cbmk="xmodmap ~/.Xmodmap_CB"
+alias lg=lazygit
+
 function reminder () {
   sleep $1 && notify-send -u critical -i clock $2
 }
