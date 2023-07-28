@@ -23,7 +23,9 @@ colors:
     magenta: '#7B3B70'
     cyan:    '#2B747C'
     white:   '#5C5C5C'
-
+  search:
+    matches:
+      background: '#999999'
 font:
   normal:
     family: JetBrainsMonoNL Nerd Font
