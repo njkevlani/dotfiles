@@ -1,0 +1,8 @@
+theme = "papercolor-light"
+
+[editor]
+line-number = "relative"
+cursorline = true
+
+[editor.cursor-shape]
+insert = "bar"
