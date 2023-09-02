@@ -27,6 +27,7 @@ colors:
     matches:
       background: '#999999'
 font:
+  size: 15
   normal:
     family: JetBrainsMonoNL Nerd Font
 
