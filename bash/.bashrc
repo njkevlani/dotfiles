@@ -52,6 +52,7 @@ alias cb="xmodmap ~/.Xmodmap_CB"
 alias mv="mv -vi"
 alias cbmk="xmodmap ~/.Xmodmap_CB"
 alias lg=lazygit
+alias kc="kubectl config use-context \$(kubectl config get-contexts -o name | fzf)"
 
 function reminder () {
   sleep $1 && notify-send -u critical -i clock $2
