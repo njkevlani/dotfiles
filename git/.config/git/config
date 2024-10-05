@@ -36,3 +36,6 @@
 	defaultBranch = main
 [gpg "ssh"]
 	allowedSignersFile = ~/.config/git/allowed-signers
+
+[includeIf "gitdir:~/git/ShareChat/"]
+	path = ~/git/ShareChat/.gitconfig
