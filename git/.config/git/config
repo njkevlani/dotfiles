@@ -34,3 +34,5 @@
 	format = ssh
 [init]
 	defaultBranch = main
+[gpg "ssh"]
+	allowedSignersFile = ~/.config/git/allowed-signers
