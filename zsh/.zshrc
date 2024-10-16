@@ -13,8 +13,9 @@ export EDITOR="nvim"
 export MANPAGER='nvim +Man!'
 
 # Consider / as wordchar.
-# This helps in seprating words by / when performing actions like backward-word.
-WORDCHARS="${WORDCHARS/\//}"
+# Add period (`.`) and slash (`/`) into WORDCHARS.
+# This helps in seprating words by given chars when performing actions like backward-word.
+WORDCHARS=${WORDCHARS//[.\/]/}
 
 # Aliases
 alias ls="ls --color --group-directories-first -F"
