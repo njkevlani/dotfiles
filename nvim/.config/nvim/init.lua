@@ -1,4 +1,154 @@
-require("njkevlani.options")
-require("njkevlani.keymaps")
-require("njkevlani.autocmds")
-require("njkevlani.lazy")
+vim.g.mapleader = ' '
+
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+-- Enable mouse mode, can be useful for resizing splits
+vim.opt.mouse = 'a'
+
+-- Sync clipboard with OS
+vim.opt.clipboard = 'unnamedplus'
+
+-- Save undo history
+vim.opt.undofile = true
+
+-- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Configure how new splits should be opened
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- Highlight the line where cursor is at
+vim.opt.cursorline = true
+
+-- Minimal number of screen lines to keep above and below the cursor
+vim.opt.scrolloff = 10
+
+vim.keymap.set('n', '<Esc>', '<CMD>nohlsearch<CR>', { desc = '<ESC> will also clear highlights' })
+
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+vim.keymap.set('n', '<leader>h', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<leader>l', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<leader>j', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<leader>k', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- better indenting
+vim.keymap.set('v', '<', '<gv', { desc = 'Stay in visual mode after indenting in visual mode' })
+vim.keymap.set('v', '>', '>gv', { desc = 'Stay in visual mode after indenting in visual mode' })
+
+vim.keymap.set('n', '<leader>q', '<CMD>bd<CR>', { desc = 'Buffer delete' })
+
+vim.keymap.set('n', '<leader>/', 'gccj', { remap = true, desc = 'Comment current line and move down' })
+vim.keymap.set('v', '<leader>/', 'gc', { remap = true, desc = 'Comment current selection' })
+
+-- Highlight when yanking text
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
+-- go to last loc when opening a buffer
+vim.api.nvim_create_autocmd('BufReadPost', {
+  group = vim.api.nvim_create_augroup('last_loc', { clear = true }),
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local lcount = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= lcount then
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+    end
+  end,
+})
+
+-- Install `lazy.nvim` plugin manager
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  if vim.v.shell_error ~= 0 then
+    error('Error cloning lazy.nvim:\n' .. out)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Plugins
+require('lazy').setup({
+  'tpope/vim-sleuth',   -- Detect tabstop and shiftwidth automatically
+
+  'tpope/vim-surround', -- Delete/change/add parentheses/quotes/much more with ease
+
+  {
+    -- For git signs
+    'echasnovski/mini.diff',
+    opts = {
+      view = {
+        style = 'sign'
+      }
+    },
+  },
+
+  {
+    -- For auto close parentheses
+    'echasnovski/mini.pairs',
+    config = true,
+  },
+
+  {
+    -- LSP for java
+    -- TODO: fix completion and linting for lombok generated code.
+    'mfussenegger/nvim-jdtls',
+    ft = "java",
+    config = function()
+      require('jdtls').start_or_attach({
+        cmd = { 'jdtls' },
+        root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
+      })
+    end
+  },
+
+  {
+    'neovim/nvim-lspconfig',
+    config = function()
+      local lspconfig = require('lspconfig')
+      lspconfig.gopls.setup {}
+      lspconfig.jsonnet_ls.setup {}
+      lspconfig.lua_ls.setup {}
+
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function()
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = '[LSP] Go to definition' })
+          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = '[LSP] Rename' })
+          vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[LSP] Code Actions' })
+        end,
+      })
+    end
+  },
+
+  {
+    -- For formatting
+    'stevearc/conform.nvim',
+    opts = {
+      formatters_by_ft = {
+        lua = { 'stylua' },
+        go = { 'goimports', 'gofmt' },
+      },
+      format_on_save = {
+        timeout_ms = 5000,
+        lsp_format = 'fallback',
+      }
+    },
+  },
+})
+
+-- TODO: treesitter?
+-- TODO: telescope?
+-- TODO: completion?
+-- TODO: setup for markdown?
+-- TODO: setup for bash?
+-- TODO: linting?
+-- TODO: status line
