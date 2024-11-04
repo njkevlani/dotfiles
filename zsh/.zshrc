@@ -17,6 +17,10 @@ export MANPAGER='nvim +Man!'
 # This helps in seprating words by given chars when performing actions like backward-word.
 WORDCHARS=${WORDCHARS//[.\/]/}
 
+# gopath setup
+export GOPATH="$HOME/.local/share/go"
+export PATH="$PATH:$GOPATH/bin"
+
 # Aliases
 alias ls="ls --color --group-directories-first -F"
 alias vi="nvim"
