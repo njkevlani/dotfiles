@@ -102,7 +102,7 @@ require('lazy').setup({
     -- LSP for java
     -- TODO: fix completion and linting for lombok generated code.
     'mfussenegger/nvim-jdtls',
-    ft = "java",
+    ft = 'java',
     config = function()
       require('jdtls').start_or_attach({
         cmd = { 'jdtls' },
