@@ -112,12 +112,43 @@ require('lazy').setup({
   },
 
   {
+    'saghen/blink.cmp',
+    dependencies = 'rafamadriz/friendly-snippets',
+    version = '*',
+    opts = {
+      keymap = {
+        preset = 'enter',
+        ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
+        ['<Tab>'] = { 'select_next', 'snippet_forward', 'fallback' },
+      },
+      sources = {
+        cmdline = {},
+      },
+      signature = {
+        enabled = true,
+        window = { border = "rounded" },
+      },
+      completion = {
+        menu = {
+          border = "rounded",
+          draw = {
+            columns = { { 'label', 'kind_icon', gap = 1 } },
+          },
+        },
+      },
+    },
+  },
+
+  {
     'neovim/nvim-lspconfig',
+    dependencies = { 'saghen/blink.cmp' },
     config = function()
       local lspconfig = require('lspconfig')
-      lspconfig.gopls.setup {}
-      lspconfig.jsonnet_ls.setup {}
-      lspconfig.lua_ls.setup {}
+
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      lspconfig.gopls.setup { capabilities = capabilities }
+      lspconfig.jsonnet_ls.setup { capabilities = capabilities }
+      lspconfig.lua_ls.setup { capabilities = capabilities }
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function()
@@ -147,7 +178,6 @@ require('lazy').setup({
 
 -- TODO: treesitter?
 -- TODO: telescope?
--- TODO: completion?
 -- TODO: setup for markdown?
 -- TODO: setup for bash?
 -- TODO: linting?
