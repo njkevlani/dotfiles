@@ -126,11 +126,11 @@ require('lazy').setup({
       },
       signature = {
         enabled = true,
-        window = { border = "rounded" },
+        window = { border = 'rounded' },
       },
       completion = {
         menu = {
-          border = "rounded",
+          border = 'rounded',
           draw = {
             columns = { { 'label', 'kind_icon', gap = 1 } },
           },
