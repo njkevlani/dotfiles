@@ -149,6 +149,7 @@ require('lazy').setup({
       lspconfig.gopls.setup { capabilities = capabilities }
       lspconfig.jsonnet_ls.setup { capabilities = capabilities }
       lspconfig.lua_ls.setup { capabilities = capabilities }
+      lspconfig.golangci_lint_ls.setup {}
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function()
@@ -166,12 +167,26 @@ require('lazy').setup({
     opts = {
       formatters_by_ft = {
         lua = { 'stylua' },
-        go = { 'goimports', 'gofmt' },
+        go = {
+          'goimports', -- removal of unused imports
+          'gci',       -- better ordering of imports
+          'gofumpt'    -- formating in general
+        },
       },
       format_on_save = {
         timeout_ms = 5000,
         lsp_format = 'fallback',
-      }
+      },
+      formatters = {
+        gci = {
+          prepend_args = {
+            -- Order for sorting imports
+            '-s', 'standard',   -- std packages first
+            '-s', 'default',    -- then pacakges that do not match any group
+            '-s', 'localmodule' -- then local packages
+          },
+        },
+      },
     },
   },
 })
