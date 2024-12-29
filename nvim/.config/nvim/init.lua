@@ -189,10 +189,42 @@ require('lazy').setup({
       },
     },
   },
+
+  {
+    'nvim-telescope/telescope.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {
+      pickers = {
+        live_grep = {
+          additional_args = { '--hidden' }
+        },
+        find_files = {
+          -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        },
+      },
+    },
+    keys = {
+      { '<leader>f', '<cmd>Telescope<cr>',            desc = 'Telescope' },
+      { '<leader>e', '<cmd>Telescope buffers<cr>',    desc = 'Telescope Buffers' },
+      { '<leader>n', '<cmd>Telescope live_grep<cr>',  desc = 'Telescope Live Grep' },
+      { '<leader>N', '<cmd>Telescope find_files<cr>', desc = 'Telescope Files' },
+    },
+  },
+
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    opts = {},
+    keys = {
+      { '<leader>1', '<cmd>NvimTreeToggle<cr>', desc = 'Toggole NvimTree' },
+    },
+  },
 })
 
 -- TODO: treesitter?
--- TODO: telescope?
 -- TODO: setup for markdown?
 -- TODO: setup for bash?
 -- TODO: linting?
