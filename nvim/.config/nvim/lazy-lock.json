@@ -1,4 +1,5 @@
 {
+  "adwaita.nvim": { "branch": "main", "commit": "c9379097755701ab597140bafd097fbaff3dd517" },
   "blink.cmp": { "branch": "main", "commit": "5f442681df24fe705d1ee7ce5b4d435aa4b4dee4" },
   "conform.nvim": { "branch": "master", "commit": "9180320205d250429f0f80e073326c674e2a7149" },
   "friendly-snippets": { "branch": "main", "commit": "efff286dd74c22f731cdec26a70b46e5b203c619" },

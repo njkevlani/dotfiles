@@ -222,6 +222,14 @@ require('lazy').setup({
       { '<leader>1', '<cmd>NvimTreeToggle<cr>', desc = 'Toggole NvimTree' },
     },
   },
+
+  {
+    'Mofiqul/adwaita.nvim',
+    lazy = false,
+    config = function()
+      vim.cmd('colorscheme adwaita')
+    end,
+  },
 })
 
 -- TODO: treesitter?
