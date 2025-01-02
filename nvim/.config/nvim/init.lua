@@ -162,6 +162,21 @@ require('lazy').setup({
   },
 
   {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = function()
+      local configs = require('nvim-treesitter.configs')
+
+      configs.setup({
+        ensure_installed = { 'go', 'bash', 'diff', 'dockerfile', 'jsonnet', 'just', 'markdown', 'scala', 'sql', 'yaml', 'lua', 'html', 'css' },
+        sync_install = false,
+        highlight = { enable = true },
+        indent = { enable = true },
+      })
+    end,
+  },
+
+  {
     -- For formatting
     'stevearc/conform.nvim',
     opts = {
@@ -232,7 +247,6 @@ require('lazy').setup({
   },
 })
 
--- TODO: treesitter?
 -- TODO: setup for markdown?
 -- TODO: setup for bash?
 -- TODO: linting?

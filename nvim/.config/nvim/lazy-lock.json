@@ -9,6 +9,7 @@
   "nvim-jdtls": { "branch": "master", "commit": "ece818f909c6414cbad4e1fb240d87e003e10fda" },
   "nvim-lspconfig": { "branch": "master", "commit": "ff2b85abaa810f6611233dbe6d31c07510ebf43d" },
   "nvim-tree.lua": { "branch": "master", "commit": "375e38673b5c61debd8074ced01cfd4f3b7ce1e9" },
+  "nvim-treesitter": { "branch": "master", "commit": "fc687f38d4ea9a7399707a5a2d57297c2ac17323" },
   "nvim-web-devicons": { "branch": "master", "commit": "63f552a7f59badc6e6b6d22e603150f0d5abebb7" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
   "telescope.nvim": { "branch": "master", "commit": "2eca9ba22002184ac05eddbe47a7fe2d5a384dfc" },
