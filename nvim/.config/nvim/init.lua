@@ -239,10 +239,12 @@ require('lazy').setup({
   },
 
   {
-    'Mofiqul/adwaita.nvim',
+    'zenbones-theme/zenbones.nvim',
+    dependencies = { 'rktjmp/lush.nvim' },
     lazy = false,
     config = function()
-      vim.cmd('colorscheme adwaita')
+      vim.opt.background = 'light'
+      vim.cmd.colorscheme('seoulbones')
     end,
   },
 })
