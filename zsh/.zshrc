@@ -21,6 +21,10 @@ WORDCHARS=${WORDCHARS//[.\/]/}
 export GOPATH="$HOME/.local/share/go"
 export PATH="$PATH:$GOPATH/bin"
 
+# ruest setup
+export CARGO_HOME=$HOME/.local/share/cargo
+PATH=$PATH:$CARGO_HOME/bin
+
 # Aliases
 alias ls="ls --color --group-directories-first -F"
 alias vi="nvim"
