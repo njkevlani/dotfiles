@@ -154,6 +154,7 @@ require('lazy').setup({
       lspconfig.gopls.setup { capabilities = capabilities }
       lspconfig.jsonnet_ls.setup { capabilities = capabilities }
       lspconfig.lua_ls.setup { capabilities = capabilities }
+      lspconfig.pyright.setup { capabilities = capabilities }
       lspconfig.golangci_lint_ls.setup {}
 
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -173,7 +174,7 @@ require('lazy').setup({
       local configs = require('nvim-treesitter.configs')
 
       configs.setup({
-        ensure_installed = { 'go', 'bash', 'diff', 'dockerfile', 'jsonnet', 'just', 'markdown', 'scala', 'sql', 'yaml', 'lua', 'html', 'css' },
+        ensure_installed = { 'go', 'bash', 'python', 'diff', 'dockerfile', 'jsonnet', 'just', 'markdown', 'scala', 'sql', 'yaml', 'lua', 'html', 'css' },
         sync_install = false,
         highlight = { enable = true },
         indent = { enable = true },
