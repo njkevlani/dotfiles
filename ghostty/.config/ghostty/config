@@ -1,0 +1,6 @@
+# Disable font ligatures.
+font-feature = -calt
+
+copy-on-select = true
+
+theme=seoulbones_light
