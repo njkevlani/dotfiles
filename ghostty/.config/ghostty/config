@@ -1,8 +1,12 @@
 # Disable font ligatures.
 font-feature = -calt
 
-copy-on-select = true
+# Copy to system clipboard always. Using `true` as value will only copy to
+# selection clipboard where selection clipboard is supported (like linux).
+copy-on-select = clipboard
 
 theme=seoulbones_light
 
+# Disable CSD'ed titlebar on linux. CSD'ed titlebar looks too inconsitent with
+# other apps on Xfce.
 gtk-titlebar = false
