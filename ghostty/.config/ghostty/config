@@ -10,3 +10,5 @@ theme = seoulbones_light
 # Disable CSD'ed titlebar on linux. CSD'ed titlebar looks too inconsitent with
 # other apps on Xfce.
 gtk-titlebar = false
+
+keybind = super+n=new_tab
