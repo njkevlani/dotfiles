@@ -257,6 +257,12 @@ require('lazy').setup({
       vim.cmd.colorscheme('seoulbones')
     end,
   },
+
+  {
+    'linrongbin16/gitlinker.nvim',
+    cmd = 'GitLink',
+    config = true,
+  },
 })
 
 -- TODO: setup for markdown?
