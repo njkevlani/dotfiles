@@ -12,3 +12,7 @@ theme = seoulbones_light
 gtk-titlebar = false
 
 keybind = super+n=new_tab
+
+# Shell integration sets cursor to a bar on a prompt by default. This disables
+# that and keeps the cursor as block.
+shell-integration-features = no-cursor
