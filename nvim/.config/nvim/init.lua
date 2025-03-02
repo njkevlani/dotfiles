@@ -272,6 +272,9 @@ require('lazy').setup({
 
   {
     'linrongbin16/gitlinker.nvim',
+    keys = {
+      { "<leader>gb", "<cmd>GitLink!<cr>", mode = { "n", "v" }, desc = "Open git link" },
+    },
     cmd = 'GitLink',
     config = true,
   },
