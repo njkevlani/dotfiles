@@ -112,9 +112,21 @@ require('lazy').setup({
   },
 
   {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+
+  {
     'saghen/blink.cmp',
     dependencies = 'rafamadriz/friendly-snippets',
     version = '*',
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
       keymap = {
         preset = 'enter',
