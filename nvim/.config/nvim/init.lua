@@ -69,10 +69,10 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 })
 
 -- Install `lazy.nvim` plugin manager
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath })
   if vim.v.shell_error ~= 0 then
     error('Error cloning lazy.nvim:\n' .. out)
   end
@@ -81,7 +81,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Plugins
 require('lazy').setup({
-  'tpope/vim-sleuth',   -- Detect tabstop and shiftwidth automatically
+  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   'tpope/vim-surround', -- Delete/change/add parentheses/quotes/much more with ease
 
@@ -90,8 +90,8 @@ require('lazy').setup({
     'echasnovski/mini.diff',
     opts = {
       view = {
-        style = 'sign'
-      }
+        style = 'sign',
+      },
     },
   },
 
@@ -111,7 +111,7 @@ require('lazy').setup({
         cmd = { 'jdtls' },
         root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
       })
-    end
+    end,
   },
 
   {
@@ -167,11 +167,11 @@ require('lazy').setup({
       local lspconfig = require('lspconfig')
 
       local capabilities = require('blink.cmp').get_lsp_capabilities()
-      lspconfig.gopls.setup { capabilities = capabilities }
-      lspconfig.jsonnet_ls.setup { capabilities = capabilities }
-      lspconfig.lua_ls.setup { capabilities = capabilities }
-      lspconfig.pyright.setup { capabilities = capabilities }
-      lspconfig.golangci_lint_ls.setup {}
+      lspconfig.gopls.setup({ capabilities = capabilities })
+      lspconfig.jsonnet_ls.setup({ capabilities = capabilities })
+      lspconfig.lua_ls.setup({ capabilities = capabilities })
+      lspconfig.pyright.setup({ capabilities = capabilities })
+      lspconfig.golangci_lint_ls.setup({})
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function()
@@ -180,7 +180,7 @@ require('lazy').setup({
           vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[LSP] Code Actions' })
         end,
       })
-    end
+    end,
   },
 
   {
@@ -190,7 +190,22 @@ require('lazy').setup({
       local configs = require('nvim-treesitter.configs')
 
       configs.setup({
-        ensure_installed = { 'go', 'bash', 'python', 'diff', 'dockerfile', 'jsonnet', 'just', 'markdown', 'scala', 'sql', 'yaml', 'lua', 'html', 'css' },
+        ensure_installed = {
+          'go',
+          'bash',
+          'python',
+          'diff',
+          'dockerfile',
+          'jsonnet',
+          'just',
+          'markdown',
+          'scala',
+          'sql',
+          'yaml',
+          'lua',
+          'html',
+          'css',
+        },
         sync_install = false,
         highlight = { enable = true },
         indent = { enable = true },
@@ -206,8 +221,8 @@ require('lazy').setup({
         lua = { 'stylua' },
         go = {
           'goimports', -- removal of unused imports
-          'gci',       -- better ordering of imports
-          'gofumpt'    -- formating in general
+          'gci', -- better ordering of imports
+          'gofumpt', -- formating in general
         },
       },
       format_on_save = {
@@ -218,9 +233,12 @@ require('lazy').setup({
         gci = {
           prepend_args = {
             -- Order for sorting imports
-            '-s', 'standard',   -- std packages first
-            '-s', 'default',    -- then pacakges that do not match any group
-            '-s', 'localmodule' -- then local packages
+            '-s',
+            'standard', -- std packages first
+            '-s',
+            'default', -- then pacakges that do not match any group
+            '-s',
+            'localmodule', -- then local packages
           },
         },
       },
@@ -234,7 +252,7 @@ require('lazy').setup({
     opts = {
       pickers = {
         live_grep = {
-          additional_args = { '--hidden' }
+          additional_args = { '--hidden' },
         },
         find_files = {
           -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
@@ -243,10 +261,12 @@ require('lazy').setup({
       },
     },
     keys = {
+      -- stylua: ignore start
       { '<leader>f', '<cmd>Telescope<cr>',            desc = 'Telescope' },
       { '<leader>e', '<cmd>Telescope buffers<cr>',    desc = 'Telescope Buffers' },
       { '<leader>n', '<cmd>Telescope live_grep<cr>',  desc = 'Telescope Live Grep' },
       { '<leader>N', '<cmd>Telescope find_files<cr>', desc = 'Telescope Files' },
+      -- stylua: ignore end
     },
   },
 
@@ -311,6 +331,7 @@ require('lazy').setup({
       },
     },
     keys = {
+      -- stylua: ignore start
       { '<leader><space>', function() Snacks.picker.smart() end,                 desc = 'Smart Find Files' },
       { '<leader>1',       function() Snacks.explorer() end,                     desc = 'File Explorer' },
       { '<leader>n',       function() Snacks.picker.grep() end,                  desc = 'Grep' },
@@ -341,6 +362,7 @@ require('lazy').setup({
       { '<leader>i',       function() Snacks.notifier.show_history() end,        desc = 'Notification History' },
       { '<leader>cR',      function() Snacks.rename.rename_file() end,           desc = 'Rename File' },
       { '<leader>gg',      function() Snacks.lazygit() end,                      desc = 'Lazygit' },
+      -- stylua: ignore end
     },
     init = function()
       vim.api.nvim_create_autocmd('User', {
@@ -365,7 +387,7 @@ require('lazy').setup({
         end,
       })
     end,
-  }
+  },
 })
 
 -- TODO: setup for markdown?
