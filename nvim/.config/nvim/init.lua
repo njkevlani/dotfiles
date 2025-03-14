@@ -136,9 +136,6 @@ require('lazy').setup({
         ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
         ['<Tab>'] = { 'select_next', 'snippet_forward', 'fallback' },
       },
-      sources = {
-        cmdline = {},
-      },
       signature = {
         enabled = true,
         window = { border = 'rounded' },
@@ -154,6 +151,10 @@ require('lazy').setup({
           draw = {
             columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon', 'kind', gap = 1 } },
           },
+        },
+        documentation = {
+          auto_show = true,
+          window = { border = 'rounded' },
         },
       },
     },
