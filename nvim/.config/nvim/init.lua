@@ -168,7 +168,6 @@ require('lazy').setup({
 
       local capabilities = require('blink.cmp').get_lsp_capabilities()
       lspconfig.gopls.setup({ capabilities = capabilities })
-      lspconfig.jsonnet_ls.setup({ capabilities = capabilities })
       lspconfig.lua_ls.setup({ capabilities = capabilities })
       lspconfig.pyright.setup({ capabilities = capabilities })
       lspconfig.golangci_lint_ls.setup({})
@@ -389,6 +388,25 @@ require('lazy').setup({
     end,
   },
 })
+
+-- Ensure binaries required by the plugins are installed.
+local binaries_required = {
+  'golangci-lint',
+  'goimports',
+  'gci',
+  'gofumpt',
+  'gopls',
+  'golangci-lint-langserver',
+  'stylua',
+  'lua-language-server',
+  'pyright-langserver',
+}
+
+for _, cmd in ipairs(binaries_required) do
+  if vim.fn.executable(cmd) == 0 then
+    vim.notify('Command not found: ' .. cmd, vim.log.levels.WARN)
+  end
+end
 
 -- TODO: setup for markdown?
 -- TODO: setup for bash?
