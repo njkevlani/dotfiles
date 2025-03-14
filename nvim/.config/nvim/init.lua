@@ -115,11 +115,11 @@ require('lazy').setup({
   },
 
   {
-    "folke/lazydev.nvim",
-    ft = "lua",
+    'folke/lazydev.nvim',
+    ft = 'lua',
     opts = {
       library = {
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
       },
     },
   },
@@ -278,16 +278,16 @@ require('lazy').setup({
   {
     'linrongbin16/gitlinker.nvim',
     keys = {
-      { "<leader>gb", "<cmd>GitLink!<cr>", mode = { "n", "v" }, desc = "Open git link" },
+      { '<leader>gb', '<cmd>GitLink!<cr>', mode = { 'n', 'v' }, desc = 'Open git link' },
     },
     cmd = 'GitLink',
     config = true,
   },
 
   {
-    "folke/snacks.nvim",
+    'folke/snacks.nvim',
     lazy = false,
-    -----@module "snacks"
+    -----@module 'snacks'
     ---@type snacks.Config
     opts = {
       explorer = { enabled = true },
@@ -310,40 +310,40 @@ require('lazy').setup({
       },
     },
     keys = {
-      { "<leader><space>", function() Snacks.picker.smart() end,                 desc = "Smart Find Files" },
-      { "<leader>1",       function() Snacks.explorer() end,                     desc = "File Explorer" },
-      { "<leader>n",       function() Snacks.picker.grep() end,                  desc = "Grep" },
-      { "<leader>N",       function() Snacks.picker.files() end,                 desc = "Grep" },
-      { "<leader>sd",      function() Snacks.picker.diagnostics() end,           desc = "Diagnostics" },
-      { "<leader>sD",      function() Snacks.picker.diagnostics_buffer() end,    desc = "Buffer Diagnostics" },
-      { "<leader>sh",      function() Snacks.picker.help() end,                  desc = "Help Pages" },
-      { "<leader>sH",      function() Snacks.picker.highlights() end,            desc = "Highlights" },
-      { "<leader>si",      function() Snacks.picker.icons() end,                 desc = "Icons" },
-      { "<leader>sk",      function() Snacks.picker.keymaps() end,               desc = "Keymaps" },
-      { "<leader>sl",      function() Snacks.picker.loclist() end,               desc = "Location List" },
-      { "<leader>sm",      function() Snacks.picker.marks() end,                 desc = "Marks" },
-      { "<leader>sM",      function() Snacks.picker.man() end,                   desc = "Man Pages" },
-      { "<leader>sp",      function() Snacks.picker.lazy() end,                  desc = "Search for Plugin Spec" },
-      { "<leader>sq",      function() Snacks.picker.qflist() end,                desc = "Quickfix List" },
-      { "<leader>sR",      function() Snacks.picker.resume() end,                desc = "Resume" },
-      { "<leader>su",      function() Snacks.picker.undo() end,                  desc = "Undo History" },
-      { "<leader>uC",      function() Snacks.picker.colorschemes() end,          desc = "Colorschemes" },
-      { "gd",              function() Snacks.picker.lsp_definitions() end,       desc = "Goto Definition" },
-      { "gD",              function() Snacks.picker.lsp_declarations() end,      desc = "Goto Declaration" },
-      { "gr",              function() Snacks.picker.lsp_references() end,        desc = "References",            nowait = true },
-      { "gI",              function() Snacks.picker.lsp_implementations() end,   desc = "Goto Implementation" },
-      { "gy",              function() Snacks.picker.lsp_type_definitions() end,  desc = "Goto T[y]pe Definition" },
-      { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,           desc = "LSP Symbols" },
-      { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
-      { "<leader>.",       function() Snacks.scratch() end,                      desc = "Toggle Scratch Buffer" },
-      { "<leader>S",       function() Snacks.scratch.select() end,               desc = "Select Scratch Buffer" },
-      { "<leader>i",       function() Snacks.notifier.show_history() end,        desc = "Notification History" },
-      { "<leader>cR",      function() Snacks.rename.rename_file() end,           desc = "Rename File" },
-      { "<leader>gg",      function() Snacks.lazygit() end,                      desc = "Lazygit" },
+      { '<leader><space>', function() Snacks.picker.smart() end,                 desc = 'Smart Find Files' },
+      { '<leader>1',       function() Snacks.explorer() end,                     desc = 'File Explorer' },
+      { '<leader>n',       function() Snacks.picker.grep() end,                  desc = 'Grep' },
+      { '<leader>N',       function() Snacks.picker.files() end,                 desc = 'Grep' },
+      { '<leader>sd',      function() Snacks.picker.diagnostics() end,           desc = 'Diagnostics' },
+      { '<leader>sD',      function() Snacks.picker.diagnostics_buffer() end,    desc = 'Buffer Diagnostics' },
+      { '<leader>sh',      function() Snacks.picker.help() end,                  desc = 'Help Pages' },
+      { '<leader>sH',      function() Snacks.picker.highlights() end,            desc = 'Highlights' },
+      { '<leader>si',      function() Snacks.picker.icons() end,                 desc = 'Icons' },
+      { '<leader>sk',      function() Snacks.picker.keymaps() end,               desc = 'Keymaps' },
+      { '<leader>sl',      function() Snacks.picker.loclist() end,               desc = 'Location List' },
+      { '<leader>sm',      function() Snacks.picker.marks() end,                 desc = 'Marks' },
+      { '<leader>sM',      function() Snacks.picker.man() end,                   desc = 'Man Pages' },
+      { '<leader>sp',      function() Snacks.picker.lazy() end,                  desc = 'Search for Plugin Spec' },
+      { '<leader>sq',      function() Snacks.picker.qflist() end,                desc = 'Quickfix List' },
+      { '<leader>sR',      function() Snacks.picker.resume() end,                desc = 'Resume' },
+      { '<leader>su',      function() Snacks.picker.undo() end,                  desc = 'Undo History' },
+      { '<leader>uC',      function() Snacks.picker.colorschemes() end,          desc = 'Colorschemes' },
+      { 'gd',              function() Snacks.picker.lsp_definitions() end,       desc = 'Goto Definition' },
+      { 'gD',              function() Snacks.picker.lsp_declarations() end,      desc = 'Goto Declaration' },
+      { 'gr',              function() Snacks.picker.lsp_references() end,        desc = 'References',            nowait = true },
+      { 'gI',              function() Snacks.picker.lsp_implementations() end,   desc = 'Goto Implementation' },
+      { 'gy',              function() Snacks.picker.lsp_type_definitions() end,  desc = 'Goto T[y]pe Definition' },
+      { '<leader>ss',      function() Snacks.picker.lsp_symbols() end,           desc = 'LSP Symbols' },
+      { '<leader>sS',      function() Snacks.picker.lsp_workspace_symbols() end, desc = 'LSP Workspace Symbols' },
+      { '<leader>.',       function() Snacks.scratch() end,                      desc = 'Toggle Scratch Buffer' },
+      { '<leader>S',       function() Snacks.scratch.select() end,               desc = 'Select Scratch Buffer' },
+      { '<leader>i',       function() Snacks.notifier.show_history() end,        desc = 'Notification History' },
+      { '<leader>cR',      function() Snacks.rename.rename_file() end,           desc = 'Rename File' },
+      { '<leader>gg',      function() Snacks.lazygit() end,                      desc = 'Lazygit' },
     },
     init = function()
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "VeryLazy",
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'VeryLazy',
         callback = function()
           -- Setup some globals for debugging (lazy-loaded)
           _G.dd = function(...)
@@ -355,12 +355,12 @@ require('lazy').setup({
           vim.print = _G.dd -- Override print to use snacks for `:=` command
 
           -- Create some toggle mappings
-          Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
-          Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-          Snacks.toggle.diagnostics():map("<leader>ud")
-          Snacks.toggle.treesitter():map("<leader>uT")
-          Snacks.toggle.inlay_hints():map("<leader>uh")
-          Snacks.toggle.indent():map("<leader>ug")
+          Snacks.toggle.option('spell', { name = 'Spelling' }):map('<leader>us')
+          Snacks.toggle.option('wrap', { name = 'Wrap' }):map('<leader>uw')
+          Snacks.toggle.diagnostics():map('<leader>ud')
+          Snacks.toggle.treesitter():map('<leader>uT')
+          Snacks.toggle.inlay_hints():map('<leader>uh')
+          Snacks.toggle.indent():map('<leader>ug')
         end,
       })
     end,
