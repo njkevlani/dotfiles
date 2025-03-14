@@ -9,6 +9,7 @@
 	editor = nvim
 	quotepath = false
 	commitGraph = true
+	pager = delta --line-numbers
 [filter "gitignore"]
 	clean = "sed '/#gitignore$/'d"
 	smudge = cat
