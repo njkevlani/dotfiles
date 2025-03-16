@@ -171,6 +171,7 @@ require('lazy').setup({
       lspconfig.lua_ls.setup({ capabilities = capabilities })
       lspconfig.pyright.setup({ capabilities = capabilities })
       lspconfig.golangci_lint_ls.setup({})
+      lspconfig.harper_ls.setup({})
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function()
@@ -397,6 +398,7 @@ local binaries_required = {
   'gofumpt',
   'gopls',
   'golangci-lint-langserver',
+  'harper-ls',
   'stylua',
   'lua-language-server',
   'pyright-langserver',
