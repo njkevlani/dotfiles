@@ -222,7 +222,7 @@ require('lazy').setup({
         go = {
           'goimports', -- removal of unused imports
           'gci', -- better ordering of imports
-          'gofumpt', -- formating in general
+          'gofumpt', -- formatting in general
         },
       },
       format_on_save = {
@@ -236,7 +236,7 @@ require('lazy').setup({
             '-s',
             'standard', -- std packages first
             '-s',
-            'default', -- then pacakges that do not match any group
+            'default', -- then packages that do not match any group
             '-s',
             'localmodule', -- then local packages
           },
@@ -255,7 +255,7 @@ require('lazy').setup({
           additional_args = { '--hidden' },
         },
         find_files = {
-          -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+          -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`ed.
           find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
         },
       },
