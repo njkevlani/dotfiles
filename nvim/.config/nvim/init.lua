@@ -162,14 +162,12 @@ require('lazy').setup({
 
   {
     'neovim/nvim-lspconfig',
-    dependencies = { 'saghen/blink.cmp' },
     config = function()
       local lspconfig = require('lspconfig')
 
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
-      lspconfig.gopls.setup({ capabilities = capabilities })
-      lspconfig.lua_ls.setup({ capabilities = capabilities })
-      lspconfig.pyright.setup({ capabilities = capabilities })
+      lspconfig.gopls.setup({})
+      lspconfig.lua_ls.setup({})
+      lspconfig.pyright.setup({})
       lspconfig.golangci_lint_ls.setup({})
       lspconfig.harper_ls.setup({})
 
