@@ -7,5 +7,3 @@ elif [ -f   /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; th
 else
 	echo "did not load zsh-syntax-highlighting"
 fi
-
-source ~/.config/zsh/linux-keybindings.zsh

@@ -4,6 +4,8 @@ case "${uname_out}" in
     Darwin*) source ~/.config/zsh/mac.zsh;;
 esac
 
+source ~/.config/zsh/keybindings.zsh
+
 # Uncomitted changes.
 if [ -f ~/.config/zsh/misc.zsh ]; then
     source ~/.config/zsh/misc.zsh
@@ -74,15 +76,3 @@ setopt AUTO_CD
 # MISC
 # allow # comments in shell
 setopt INTERACTIVE_COMMENTS
-
-# BINDKEY
-# ⌥← for going back word by word.
-bindkey "\e[1;3D" backward-word
-# ⌥→ for going forward word by word.
-bindkey "\e[1;3C" forward-word
-# cmd+← for going at the beginning of the line.
-bindkey "^[[1;9D" beginning-of-line
-# cmd+→ for going at the end of the line.
-bindkey "^[[1;9C" end-of-line
-# Up arrow only goes up in history and not up in line when there are multiple lines in a command.
-bindkey '^[[A' up-history
