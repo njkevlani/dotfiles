@@ -295,6 +295,11 @@ require('lazy').setup({
   },
 
   {
+    'mcauley-penney/visual-whitespace.nvim',
+    config = true,
+  },
+
+  {
     'linrongbin16/gitlinker.nvim',
     keys = {
       { '<leader>gb', '<cmd>GitLink!<cr>', mode = { 'n', 'v' }, desc = 'Open git link' },

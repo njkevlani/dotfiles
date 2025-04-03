@@ -16,5 +16,6 @@
   "telescope.nvim": { "branch": "master", "commit": "415af52339215926d705cccc08145f3782c4d132" },
   "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
+  "visual-whitespace.nvim": { "branch": "main", "commit": "97bb1320f259be56a08b3b33ef335f5865ebf17e" },
   "zenbones.nvim": { "branch": "main", "commit": "9ef4241c50ea24026b732512223dbc55589ce2c4" }
 }
