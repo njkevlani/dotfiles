@@ -14,15 +14,15 @@
 	clean = "sed '/#gitignore$/'d"
 	smudge = cat
 [diff]
-  tool = meld
+	tool = meld
 [difftool]
-    prompt = false
+	prompt = false
 [difftool "meld"]
-  cmd = meld "$LOCAL" "$REMOTE"
+	cmd = meld "$LOCAL" "$REMOTE"
 [merge]
-    tool = meld
+	tool = meld
 [mergetool "meld"]
-    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
 [gc]
 	writeCommitGraph = true
