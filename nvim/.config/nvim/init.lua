@@ -68,6 +68,19 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   end,
 })
 
+-- This makes sure cursorHold triggered sooner.
+vim.opt.updatetime = 500
+vim.api.nvim_create_autocmd('CursorHold', {
+  callback = function()
+    vim.diagnostic.open_float({
+      focusable = false,
+      border = 'rounded',
+      source = true,
+      scope = 'cursor',
+    })
+  end,
+})
+
 local function ensure_installed(binaries_required)
   for _, cmd in ipairs(binaries_required) do
     if vim.fn.executable(cmd) == 0 then
