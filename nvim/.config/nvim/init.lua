@@ -68,6 +68,14 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   end,
 })
 
+local function ensure_installed(binaries_required)
+  for _, cmd in ipairs(binaries_required) do
+    if vim.fn.executable(cmd) == 0 then
+      require('snacks').notify.warn('Command not found: ' .. cmd)
+    end
+  end
+end
+
 -- Install `lazy.nvim` plugin manager
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -162,14 +170,24 @@ require('lazy').setup({
 
   {
     'neovim/nvim-lspconfig',
+    init = function()
+      ensure_installed({
+        'gopls',
+        'golangci-lint-langserver',
+        'harper-ls',
+        'stylua',
+        'lua-language-server',
+        'pyright-langserver',
+      })
+    end,
     config = function()
       local lspconfig = require('lspconfig')
 
       lspconfig.gopls.setup({})
-      lspconfig.lua_ls.setup({})
-      lspconfig.pyright.setup({})
       lspconfig.golangci_lint_ls.setup({})
       lspconfig.harper_ls.setup({})
+      lspconfig.lua_ls.setup({})
+      lspconfig.pyright.setup({})
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function()
@@ -214,6 +232,9 @@ require('lazy').setup({
   {
     -- For formatting
     'stevearc/conform.nvim',
+    init = function()
+      ensure_installed({ 'golangci-lint', 'goimports', 'gci', 'gofumpt' })
+    end,
     opts = {
       formatters_by_ft = {
         lua = { 'stylua' },
@@ -392,26 +413,6 @@ require('lazy').setup({
     end,
   },
 })
-
--- Ensure binaries required by the plugins are installed.
-local binaries_required = {
-  'golangci-lint',
-  'goimports',
-  'gci',
-  'gofumpt',
-  'gopls',
-  'golangci-lint-langserver',
-  'harper-ls',
-  'stylua',
-  'lua-language-server',
-  'pyright-langserver',
-}
-
-for _, cmd in ipairs(binaries_required) do
-  if vim.fn.executable(cmd) == 0 then
-    vim.notify('Command not found: ' .. cmd, vim.log.levels.WARN)
-  end
-end
 
 -- TODO: setup for markdown?
 -- TODO: setup for bash?
