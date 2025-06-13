@@ -45,8 +45,8 @@ zstyle ':vcs_info:*' formats '%F{blue}(%b)%f' # (main)
 # Prompt like [0]-[dotfiles(main)]-λ
 PROMPT='%F{red}[%f%?%F{red}]%f-%F{red}[%f%1~${vcs_info_msg_0_}%F{red}]%f-λ '
 
-# Do not put % at the end of output.
-PROMPT_EOL_MARK=''
+# Show 󰜺 when output does not end with new line.
+PROMPT_EOL_MARK=$'\U000f073a'
 
 # Enable fzf shell integration for things like history search.
 source <(fzf --zsh)
