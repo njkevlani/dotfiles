@@ -337,6 +337,7 @@ require('lazy').setup({
     config = function()
       vim.opt.background = 'light'
       vim.cmd.colorscheme('seoulbones')
+      vim.api.nvim_set_hl(0, 'LspSignatureActiveParameter', { bg = '#AAAAAA', bold = true })
     end,
   },
 
