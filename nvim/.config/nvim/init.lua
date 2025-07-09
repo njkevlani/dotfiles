@@ -219,7 +219,18 @@ require('lazy').setup({
     config = function()
       local configs = require('nvim-treesitter.configs')
 
+      ---@diagnostic disable-next-line: missing-fields
       configs.setup({
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = '<leader>w',
+            node_incremental = 'w',
+            scope_incremental = false,
+            node_decremental = 'W',
+          },
+        },
+
         ensure_installed = {
           'go',
           'bash',
