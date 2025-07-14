@@ -191,6 +191,7 @@ require('lazy').setup({
         'lua-language-server',
         'pyright-langserver',
         'yaml-language-server',
+        'bash-language-server',
       })
     end,
     config = function()
@@ -202,6 +203,7 @@ require('lazy').setup({
       lspconfig.lua_ls.setup({})
       lspconfig.pyright.setup({})
       lspconfig.yamlls.setup({})
+      lspconfig.bashls.setup({})
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function()
