@@ -195,15 +195,13 @@ require('lazy').setup({
       })
     end,
     config = function()
-      local lspconfig = require('lspconfig')
-
-      lspconfig.gopls.setup({})
-      lspconfig.golangci_lint_ls.setup({})
-      lspconfig.harper_ls.setup({})
-      lspconfig.lua_ls.setup({})
-      lspconfig.pyright.setup({})
-      lspconfig.yamlls.setup({})
-      lspconfig.bashls.setup({})
+      vim.lsp.enable('gopls')
+      vim.lsp.enable('golangci_lint_ls')
+      vim.lsp.enable('harper_ls')
+      vim.lsp.enable('lua_ls')
+      vim.lsp.enable('pyright')
+      vim.lsp.enable('yamlls')
+      vim.lsp.enable('bashls')
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function()
