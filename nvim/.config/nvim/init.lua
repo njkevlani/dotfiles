@@ -47,6 +47,11 @@ vim.keymap.set('n', '<leader>q', '<CMD>bd<CR>', { desc = 'Buffer delete' })
 vim.keymap.set('n', '<leader>/', 'gccj', { remap = true, desc = 'Comment current line and move down' })
 vim.keymap.set('v', '<leader>/', 'gc', { remap = true, desc = 'Comment current selection' })
 
+-- Map <leader>cc to copy entire file to system clipboard
+vim.keymap.set('n', '<leader>cc', function()
+  vim.cmd('%y+')
+end, { desc = 'Copy entire file to clipboard' })
+
 -- Highlight when yanking text
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
