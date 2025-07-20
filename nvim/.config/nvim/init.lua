@@ -52,6 +52,10 @@ vim.keymap.set('n', '<leader>cc', function()
   vim.cmd('%y+')
 end, { desc = 'Copy entire file to clipboard' })
 
+vim.keymap.set('n', '<leader>cf', function()
+  vim.fn.setreg('+', vim.fn.expand('%:p'))
+end, { desc = 'Copy absolute file path' })
+
 -- Highlight when yanking text
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
