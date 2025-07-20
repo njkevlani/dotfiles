@@ -122,7 +122,7 @@ require('lazy').setup({
 
   {
     -- For auto close parentheses
-    'echasnovski/mini.pairs',
+    'windwp/nvim-autopairs',
     config = true,
   },
 
