@@ -65,6 +65,27 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Hungry backspace - eat more spaces if there is only spaces when pressing backspace.
+vim.keymap.set('i', '<BS>', function()
+  local _, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local before = vim.api.nvim_get_current_line():sub(1, col):match('^%s*$')
+  if before then
+    -- https://www.reddit.com/r/neovim/comments/146gya4/comment/jnrl8lu/
+    vim.cmd([[
+      let g:exprvalue =
+        \ (&indentexpr isnot '' ? &indentkeys : &cinkeys) =~? '!\^F'
+        \ && &backspace =~? '.*eol\&.*start\&.*indent\&'
+        \ && !search('\S', 'nbW', line('.'))
+        \ ? (col('.') != 1 ? "\<C-U>" : "") . "\<bs>" . (getline(line('.')-1) =~ '\S' ? "" : "\<C-F>")
+        \ : "\<bs>"
+    ]])
+    return vim.g.exprvalue
+  else
+    -- Default to autopairs backspace.
+    return require('nvim-autopairs').autopairs_bs()
+  end
+end, { expr = true, noremap = true, replace_keycodes = false })
+
 -- go to last loc when opening a buffer
 vim.api.nvim_create_autocmd('BufReadPost', {
   group = vim.api.nvim_create_augroup('last_loc', { clear = true }),
@@ -138,7 +159,10 @@ require('lazy').setup({
   {
     -- For auto close parentheses
     'windwp/nvim-autopairs',
-    config = true,
+    event = 'InsertEnter',
+    opts = {
+      map_bs = false,
+    },
   },
 
   {
