@@ -104,6 +104,17 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Settings up following rules for markdown files.
+-- - New line after 80 chars in current line.
+-- - Show column line at col 80.
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  callback = function()
+    vim.opt_local.textwidth = 80
+    vim.opt_local.colorcolumn = { 80 }
+  end,
+})
+
 -- Plugins
 require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
@@ -245,6 +256,7 @@ require('lazy').setup({
           'jsonnet',
           'just',
           'markdown',
+          'markdown_inline',
           'scala',
           'sql',
           'yaml',
@@ -263,7 +275,7 @@ require('lazy').setup({
     -- For formatting
     'stevearc/conform.nvim',
     init = function()
-      ensure_installed({ 'golangci-lint', 'goimports', 'gci', 'gofumpt' })
+      ensure_installed({ 'golangci-lint', 'goimports', 'gci', 'gofumpt', 'markdownlint-cli2' })
     end,
     opts = {
       formatters_by_ft = {
@@ -273,6 +285,7 @@ require('lazy').setup({
           'gci', -- better ordering of imports
           'gofumpt', -- formatting in general
         },
+        markdown = { 'markdownlint-cli2' },
       },
       format_on_save = {
         timeout_ms = 5000,
@@ -443,9 +456,32 @@ require('lazy').setup({
       })
     end,
   },
-})
 
--- TODO: setup for markdown?
--- TODO: setup for bash?
--- TODO: linting?
--- TODO: status line
+  {
+    'iamcco/markdown-preview.nvim',
+    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+    ft = { 'markdown' },
+    build = function()
+      vim.fn['mkdp#util#install']()
+    end,
+    keys = {
+      { '<leader>mp', '<cmd>MarkdownPreviewToggle<cr>', desc = 'Toggole NvimTree' },
+    },
+  },
+
+  {
+    'gaoDean/autolist.nvim',
+    ft = { 'markdown' },
+    config = true,
+    keys = {
+      -- Specifying ft = markdown for <CR> in insert mode because more plugins attempt to register
+      -- that keybinding and that results in conflict.
+      { '<CR>', '<CR><cmd>AutolistNewBullet<cr>', desc = 'Autolist Enter', mode = 'i', ft = { 'markdown' } },
+      { 'o', 'o<cmd>AutolistNewBullet<cr>', desc = 'Autolist o' },
+      { 'O', 'O<cmd>AutolistNewBulletBefore<cr>', desc = 'Auitlist O' },
+      { '>>', '>><cmd>AutolistRecalculate<cr>', desc = 'Autolist increase indent' },
+      { '<<', '<<<cmd>AutolistRecalculate<cr>', desc = 'Autolist decrease indent' },
+      { 'dd', 'dd<cmd>AutolistRecalculate<cr>', desc = 'Autolist dd' },
+    },
+  },
+})
