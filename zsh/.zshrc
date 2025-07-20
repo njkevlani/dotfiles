@@ -27,6 +27,9 @@ export PATH="$PATH:$GOPATH/bin"
 export CARGO_HOME=$HOME/.local/share/cargo
 PATH=$PATH:$CARGO_HOME/bin
 
+# python virtual env
+alias py3="source $HOME/.local/share/py3-venv/bin/activate"
+
 # Aliases
 alias ls="ls --color --group-directories-first -F"
 alias vi="nvim"
