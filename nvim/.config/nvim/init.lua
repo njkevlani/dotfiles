@@ -86,6 +86,31 @@ vim.keymap.set('i', '<BS>', function()
   end
 end, { expr = true, noremap = true, replace_keycodes = false })
 
+local run_cmds = {
+  python = 'python',
+  sh = 'bash',
+  go = 'go run',
+  rust = 'cargo run',
+}
+
+-- Run file
+vim.keymap.set('n', '<leader>rf', function()
+  local ft = vim.bo.filetype
+  local file = vim.fn.expand('%')
+  local cmd = run_cmds[ft]
+
+  if not cmd then
+    print('No run command defined for filetype: ' .. ft)
+    return
+  end
+
+  local run_cmd = cmd .. ' ' .. file
+
+  vim.notify('Running ' .. run_cmd)
+
+  vim.cmd('vs | terminal ' .. run_cmd)
+end, { desc = 'Run current file' })
+
 -- go to last loc when opening a buffer
 vim.api.nvim_create_autocmd('BufReadPost', {
   group = vim.api.nvim_create_augroup('last_loc', { clear = true }),
