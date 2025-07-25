@@ -526,7 +526,15 @@ require('lazy').setup({
   {
     'gaoDean/autolist.nvim',
     ft = { 'markdown' },
-    config = true,
+    -- https://github.com/gaoDean/autolist.nvim/issues/90
+    opts = {
+      lists = {
+        markdown = {
+          '[-+*] ',
+          '%d+[.)] ',
+        },
+      },
+    },
     keys = {
       -- Specifying ft = markdown for <CR> in insert mode because more plugins attempt to register
       -- that keybinding and that results in conflict.
