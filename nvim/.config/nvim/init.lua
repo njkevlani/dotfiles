@@ -47,11 +47,12 @@ vim.keymap.set('n', '<leader>q', '<CMD>bd<CR>', { desc = 'Buffer delete' })
 vim.keymap.set('n', '<leader>/', 'gccj', { remap = true, desc = 'Comment current line and move down' })
 vim.keymap.set('v', '<leader>/', 'gc', { remap = true, desc = 'Comment current selection' })
 
--- Map <leader>cc to copy entire file to system clipboard
+-- Copy content
 vim.keymap.set('n', '<leader>cc', function()
   vim.cmd('%y+')
 end, { desc = 'Copy entire file to clipboard' })
 
+-- Copy filename
 vim.keymap.set('n', '<leader>cf', function()
   vim.fn.setreg('+', vim.fn.expand('%:p'))
 end, { desc = 'Copy absolute file path' })
