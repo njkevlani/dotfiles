@@ -5,4 +5,4 @@ gui:
 
 git:
   paging:
-    pager: delta --light --paging=never --line-numbers
+    pager: delta --paging=never

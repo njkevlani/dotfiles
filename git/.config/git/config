@@ -9,7 +9,7 @@
 	editor = nvim
 	quotepath = false
 	commitGraph = true
-	pager = delta --line-numbers
+	pager = delta
 [filter "gitignore"]
 	clean = "sed '/#gitignore$/'d"
 	smudge = cat
@@ -40,3 +40,8 @@
 
 [includeIf "gitdir:~/git/ShareChat/"]
 	path = ~/.config/git/sharechat.config
+
+# Config for https://github.com/dandavison/delta
+[delta]
+	light = true
+	line-numbers = true
