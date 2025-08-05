@@ -439,6 +439,13 @@ require('lazy').setup({
       notifier = { enabled = true },
       picker = {
         enabled = true,
+        win = {
+          input = {
+            keys = {
+              ['<S-CR>'] = { 'edit_vsplit', mode = { 'i', 'n' } },
+            },
+          },
+        },
         sources = {
           explorer = {
             hidden = true,
@@ -454,35 +461,21 @@ require('lazy').setup({
     },
     keys = {
       -- stylua: ignore start
-      { '<leader><space>', function() Snacks.picker.smart() end,                 desc = 'Smart Find Files' },
       { '<leader>1',       function() Snacks.explorer() end,                     desc = 'File Explorer' },
+      { '<leader>p',       function() Snacks.picker.resume() end,                desc = 'Resume last picker' },
       { '<leader>n',       function() Snacks.picker.grep() end,                  desc = 'Grep' },
       { '<leader>N',       function() Snacks.picker.files() end,                 desc = 'Grep' },
-      { '<leader>sd',      function() Snacks.picker.diagnostics() end,           desc = 'Diagnostics' },
-      { '<leader>sD',      function() Snacks.picker.diagnostics_buffer() end,    desc = 'Buffer Diagnostics' },
+      { '<leader>d',       function() Snacks.picker.diagnostics_buffer() end,    desc = 'Buffer Diagnostics' },
       { '<leader>sh',      function() Snacks.picker.help() end,                  desc = 'Help Pages' },
-      { '<leader>sH',      function() Snacks.picker.highlights() end,            desc = 'Highlights' },
-      { '<leader>si',      function() Snacks.picker.icons() end,                 desc = 'Icons' },
-      { '<leader>?',      function() Snacks.picker.keymaps() end,               desc = 'Keymaps' },
-      { '<leader>sl',      function() Snacks.picker.loclist() end,               desc = 'Location List' },
-      { '<leader>sm',      function() Snacks.picker.marks() end,                 desc = 'Marks' },
-      { '<leader>sM',      function() Snacks.picker.man() end,                   desc = 'Man Pages' },
-      { '<leader>sp',      function() Snacks.picker.lazy() end,                  desc = 'Search for Plugin Spec' },
+      { '<leader>?',       function() Snacks.picker.keymaps() end,               desc = 'Keymaps' },
       { '<leader>sq',      function() Snacks.picker.qflist() end,                desc = 'Quickfix List' },
-      { '<leader>sR',      function() Snacks.picker.resume() end,                desc = 'Resume' },
-      { '<leader>su',      function() Snacks.picker.undo() end,                  desc = 'Undo History' },
-      { '<leader>uC',      function() Snacks.picker.colorschemes() end,          desc = 'Colorschemes' },
       { 'gd',              function() Snacks.picker.lsp_definitions() end,       desc = 'Goto Definition' },
       { 'gD',              function() Snacks.picker.lsp_declarations() end,      desc = 'Goto Declaration' },
       { 'gr',              function() Snacks.picker.lsp_references() end,        desc = 'References',            nowait = true },
-      { 'gI',              function() Snacks.picker.lsp_implementations() end,   desc = 'Goto Implementation' },
-      { 'gy',              function() Snacks.picker.lsp_type_definitions() end,  desc = 'Goto T[y]pe Definition' },
       { '<leader>ss',      function() Snacks.picker.lsp_symbols() end,           desc = 'LSP Symbols' },
-      { '<leader>sS',      function() Snacks.picker.lsp_workspace_symbols() end, desc = 'LSP Workspace Symbols' },
       { '<leader>.',       function() Snacks.scratch() end,                      desc = 'Toggle Scratch Buffer' },
       { '<leader>S',       function() Snacks.scratch.select() end,               desc = 'Select Scratch Buffer' },
       { '<leader>i',       function() Snacks.notifier.show_history() end,        desc = 'Notification History' },
-      { '<leader>cR',      function() Snacks.rename.rename_file() end,           desc = 'Rename File' },
       { '<leader>gg',      function() Snacks.lazygit() end,                      desc = 'Lazygit' },
       -- stylua: ignore end
     },
