@@ -199,6 +199,7 @@ local plugins = {
       local java_21_path = home .. '/.sdkman/candidates/java/21.0.6-amzn/bin/java'
       local lombok_jar = home
         .. '/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.22/9c08ea24c6eb714e2d6170e8122c069a0ba9aacf/lombok-1.18.22.jar'
+      local project_name = require('lspconfig.configs.jdtls').default_config.root_dir(vim.api.nvim_buf_get_name(0))
 
       -- Configs taken from https://github.com/mfussenegger/nvim-jdtls
       require('jdtls').start_or_attach({
@@ -221,7 +222,7 @@ local plugins = {
           '-configuration',
           '/opt/homebrew/Cellar/jdtls/1.47.0/libexec/config_mac_arm',
           '-data',
-          '/tmp/jdtls',
+          '/tmp/jdtls/' .. project_name,
         },
         root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
       })
