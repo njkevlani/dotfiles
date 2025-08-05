@@ -546,4 +546,22 @@ require('lazy').setup({
       { 'dd', 'dd<cmd>AutolistRecalculate<cr>', desc = 'Autolist dd' },
     },
   },
+
+  {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    opts = {
+      views = {
+        cmdline_popup = {
+          position = {
+            row = '10%',
+          },
+        },
+      },
+    },
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+      'rcarriga/nvim-notify',
+    },
+  },
 })
