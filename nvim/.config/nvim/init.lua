@@ -48,22 +48,21 @@ vim.keymap.set('n', '<leader>/', 'gccj', { remap = true, desc = 'Comment current
 vim.keymap.set('v', '<leader>/', 'gc', { remap = true, desc = 'Comment current selection' })
 
 -- Copy content
-vim.keymap.set('n', '<leader>cc', function()
-  vim.cmd('%y+')
-end, { desc = 'Copy entire file to clipboard' })
+vim.keymap.set('n', '<leader>cc', function() vim.cmd('%y+') end, { desc = 'Copy entire file to clipboard' })
 
 -- Copy filename
-vim.keymap.set('n', '<leader>cf', function()
-  vim.fn.setreg('+', vim.fn.expand('%:p'))
-end, { desc = 'Copy absolute file path' })
+vim.keymap.set(
+  'n',
+  '<leader>cf',
+  function() vim.fn.setreg('+', vim.fn.expand('%:p')) end,
+  { desc = 'Copy absolute file path' }
+)
 
 -- Highlight when yanking text
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+  callback = function() vim.highlight.on_yank() end,
 })
 
 -- Hungry backspace - eat more spaces if there is only spaces when pressing backspace.
@@ -328,9 +327,7 @@ require('lazy').setup({
   {
     -- For formatting
     'stevearc/conform.nvim',
-    init = function()
-      ensure_installed({ 'golangci-lint', 'goimports', 'gci', 'gofumpt', 'markdownlint-cli2' })
-    end,
+    init = function() ensure_installed({ 'golangci-lint', 'goimports', 'gci', 'gofumpt', 'markdownlint-cli2' }) end,
     opts = {
       formatters_by_ft = {
         lua = { 'stylua' },
@@ -377,12 +374,10 @@ require('lazy').setup({
       },
     },
     keys = {
-      -- stylua: ignore start
-      { '<leader>f', '<cmd>Telescope<cr>',            desc = 'Telescope' },
-      { '<leader>e', '<cmd>Telescope buffers<cr>',    desc = 'Telescope Buffers' },
-      { '<leader>n', '<cmd>Telescope live_grep<cr>',  desc = 'Telescope Live Grep' },
+      { '<leader>f', '<cmd>Telescope<cr>', desc = 'Telescope' },
+      { '<leader>e', '<cmd>Telescope buffers<cr>', desc = 'Telescope Buffers' },
+      { '<leader>n', '<cmd>Telescope live_grep<cr>', desc = 'Telescope Live Grep' },
       { '<leader>N', '<cmd>Telescope find_files<cr>', desc = 'Telescope Files' },
-      -- stylua: ignore end
     },
   },
 
@@ -460,36 +455,35 @@ require('lazy').setup({
       },
     },
     keys = {
-      -- stylua: ignore start
-      { '<leader>1',       function() Snacks.explorer() end,                     desc = 'File Explorer' },
-      { '<leader>p',       function() Snacks.picker.resume() end,                desc = 'Resume last picker' },
-      { '<leader>n',       function() Snacks.picker.grep() end,                  desc = 'Grep' },
-      { '<leader>N',       function() Snacks.picker.files() end,                 desc = 'Grep' },
-      { '<leader>d',       function() Snacks.picker.diagnostics_buffer() end,    desc = 'Buffer Diagnostics' },
-      { '<leader>sh',      function() Snacks.picker.help() end,                  desc = 'Help Pages' },
-      { '<leader>?',       function() Snacks.picker.keymaps() end,               desc = 'Keymaps' },
-      { '<leader>sq',      function() Snacks.picker.qflist() end,                desc = 'Quickfix List' },
-      { 'gd',              function() Snacks.picker.lsp_definitions() end,       desc = 'Goto Definition' },
-      { 'gD',              function() Snacks.picker.lsp_declarations() end,      desc = 'Goto Declaration' },
-      { 'gr',              function() Snacks.picker.lsp_references() end,        desc = 'References',            nowait = true },
-      { '<leader>ss',      function() Snacks.picker.lsp_symbols() end,           desc = 'LSP Symbols' },
-      { '<leader>.',       function() Snacks.scratch() end,                      desc = 'Toggle Scratch Buffer' },
-      { '<leader>S',       function() Snacks.scratch.select() end,               desc = 'Select Scratch Buffer' },
-      { '<leader>i',       function() Snacks.notifier.show_history() end,        desc = 'Notification History' },
-      { '<leader>gg',      function() Snacks.lazygit() end,                      desc = 'Lazygit' },
-      -- stylua: ignore end
+      { '<leader>1', function() Snacks.explorer() end, desc = 'File Explorer' },
+      { '<leader>p', function() Snacks.picker.resume() end, desc = 'Resume last picker' },
+      { '<leader>n', function() Snacks.picker.grep() end, desc = 'Grep' },
+      { '<leader>N', function() Snacks.picker.files() end, desc = 'Grep' },
+      { '<leader>d', function() Snacks.picker.diagnostics_buffer() end, desc = 'Buffer Diagnostics' },
+      { '<leader>sh', function() Snacks.picker.help() end, desc = 'Help Pages' },
+      { '<leader>?', function() Snacks.picker.keymaps() end, desc = 'Keymaps' },
+      { '<leader>sq', function() Snacks.picker.qflist() end, desc = 'Quickfix List' },
+      { 'gd', function() Snacks.picker.lsp_definitions() end, desc = 'Goto Definition' },
+      { 'gD', function() Snacks.picker.lsp_declarations() end, desc = 'Goto Declaration' },
+      {
+        'gr',
+        function() Snacks.picker.lsp_references() end,
+        desc = 'References',
+        nowait = true,
+      },
+      { '<leader>ss', function() Snacks.picker.lsp_symbols() end, desc = 'LSP Symbols' },
+      { '<leader>.', function() Snacks.scratch() end, desc = 'Toggle Scratch Buffer' },
+      { '<leader>S', function() Snacks.scratch.select() end, desc = 'Select Scratch Buffer' },
+      { '<leader>i', function() Snacks.notifier.show_history() end, desc = 'Notification History' },
+      { '<leader>gg', function() Snacks.lazygit() end, desc = 'Lazygit' },
     },
     init = function()
       vim.api.nvim_create_autocmd('User', {
         pattern = 'VeryLazy',
         callback = function()
           -- Setup some globals for debugging (lazy-loaded)
-          _G.dd = function(...)
-            Snacks.debug.inspect(...)
-          end
-          _G.bt = function()
-            Snacks.debug.backtrace()
-          end
+          _G.dd = function(...) Snacks.debug.inspect(...) end
+          _G.bt = function() Snacks.debug.backtrace() end
           vim.print = _G.dd -- Override print to use snacks for `:=` command
 
           -- Create some toggle mappings
@@ -508,9 +502,7 @@ require('lazy').setup({
     'iamcco/markdown-preview.nvim',
     cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
     ft = { 'markdown' },
-    build = function()
-      vim.fn['mkdp#util#install']()
-    end,
+    build = function() vim.fn['mkdp#util#install']() end,
     keys = {
       { '<leader>mp', '<cmd>MarkdownPreviewToggle<cr>', desc = 'Toggole NvimTree' },
     },
