@@ -192,12 +192,37 @@ require('lazy').setup({
 
   {
     -- LSP for java
-    -- TODO: fix completion and linting for lombok generated code.
     'mfussenegger/nvim-jdtls',
     ft = 'java',
     config = function()
+      local home = os.getenv('HOME')
+      local java_21_path = home .. '/.sdkman/candidates/java/21.0.6-amzn/bin/java'
+      local lombok_jar = home
+        .. '/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.22/9c08ea24c6eb714e2d6170e8122c069a0ba9aacf/lombok-1.18.22.jar'
+
+      -- Configs taken from https://github.com/mfussenegger/nvim-jdtls
       require('jdtls').start_or_attach({
-        cmd = { 'jdtls' },
+        cmd = {
+          java_21_path,
+          '-javaagent:' .. lombok_jar,
+          '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+          '-Dosgi.bundles.defaultStartLevel=4',
+          '-Declipse.product=org.eclipse.jdt.ls.core.product',
+          '-Dlog.protocol=true',
+          '-Dlog.level=ALL',
+          '-Xmx1g',
+          '--add-modules=ALL-SYSTEM',
+          '--add-opens',
+          'java.base/java.util=ALL-UNNAMED',
+          '--add-opens',
+          'java.base/java.lang=ALL-UNNAMED',
+          '-jar',
+          '/opt/homebrew/Cellar/jdtls/1.47.0/libexec/plugins/org.eclipse.equinox.launcher_1.7.0.v20250424-1814.jar',
+          '-configuration',
+          '/opt/homebrew/Cellar/jdtls/1.47.0/libexec/config_mac_arm',
+          '-data',
+          '/tmp/jdtls',
+        },
         root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
       })
     end,
@@ -328,6 +353,8 @@ require('lazy').setup({
     -- For formatting
     'stevearc/conform.nvim',
     init = function() ensure_installed({ 'golangci-lint', 'goimports', 'gci', 'gofumpt', 'markdownlint-cli2' }) end,
+    ---@module 'conform.nvim'
+    ---@type conform.setupOpts
     opts = {
       formatters_by_ft = {
         lua = { 'stylua' },
@@ -340,7 +367,6 @@ require('lazy').setup({
       },
       format_on_save = {
         timeout_ms = 5000,
-        lsp_format = 'fallback',
       },
       formatters = {
         gci = {
