@@ -1,8 +1,30 @@
 gui:
   theme:
-   selectedLineBgColor:
-     - cyan
+    selectedLineBgColor:
+      - reverse
+      - bold
 
 git:
   paging:
     pager: delta --paging=never
+
+customCommands:
+  - key: <c-p>
+    description: Push to different remote branch
+    context: global
+    prompts:
+      - key: Branch
+        title: Remote branch
+        type: menuFromCommand
+        command: 'git branch  -r --list {{.SelectedRemote.Name}}/*'
+        filter: '.*{{.SelectedRemote.Name }}/(?P<branch>.*)'
+        valueFormat: '{{ .branch }}'
+        labelFormat: '{{ .branch }}'
+      - key: Cmd
+        type: menu
+        title: How to push?
+        options:
+          - value: push
+          - value: push --force
+    loadingText: Pushing...
+    command: git {{.Form.Cmd}} {{.SelectedRemote.Name}} {{.SelectedLocalBranch.Name}}:{{.Form.Branch}}
