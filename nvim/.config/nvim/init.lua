@@ -165,11 +165,11 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Plugins
-require('lazy').setup({
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+---@type LazyPluginSpec[]
+local plugins = {
+  { 'tpope/vim-sleuth' }, -- Detect tabstop and shiftwidth automatically
 
-  'tpope/vim-surround', -- Delete/change/add parentheses/quotes/much more with ease
+  { 'tpope/vim-surround' }, -- Delete/change/add parentheses/quotes/much more with ease
 
   {
     -- For git signs
@@ -575,4 +575,6 @@ require('lazy').setup({
       'rcarriga/nvim-notify',
     },
   },
-})
+}
+
+require('lazy').setup(plugins)
