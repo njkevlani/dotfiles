@@ -25,3 +25,23 @@ customCommands:
     loadingText: Pushing...
     command: git {{ .Form.PushCmd }} {{ .SelectedRemoteBranch.RemoteName }} {{ .SelectedLocalBranch.Name }}:{{ .SelectedRemoteBranch.Name }}
     output: popup
+
+  - key: a
+    context: stash
+    description: "Apply stash"
+    prompts:
+      - type: 'confirm'
+        title: 'Apply stash'
+        body: 'Are you sure you want to apply stash?'
+    command: git stash apply {{.SelectedStashEntry.Index}}
+    output: popup
+
+  - key: A
+    context: stash
+    description: "Apply reverse stash"
+    prompts:
+      - type: 'confirm'
+        title: 'Apply reverse stash'
+        body: 'Are you sure you want to apply reverse stash?'
+    command: bash -c 'git stash show -p {{.SelectedStashEntry.Index}} | git apply --reverse'
+    output: popup
