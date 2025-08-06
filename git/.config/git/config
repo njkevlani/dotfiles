@@ -13,17 +13,10 @@
 [filter "gitignore"]
 	clean = "sed '/#gitignore$/'d"
 	smudge = cat
-[diff]
-	tool = meld
-[difftool]
-	prompt = false
-[difftool "meld"]
-	cmd = meld "$LOCAL" "$REMOTE"
 [merge]
-	tool = meld
-[mergetool "meld"]
-	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-
+	tool = nvim
+[mergetool "nvim"]
+	cmd = nvim -c "DiffviewOpen"
 [gc]
 	writeCommitGraph = true
 [commit]
@@ -50,3 +43,7 @@
 	# With this, remote branches are pruned everytime we run fetch/pull.
 	# This helps avoid some errors during pull
 	prune = true
+
+[pull]
+	# When pulling, perform merge if need be.
+	rebase = false

@@ -580,6 +580,10 @@ local plugins = {
     -- Highlight work currently under the cursor at other places as well.
     'RRethy/vim-illuminate',
   },
+  {
+    -- Merge conflict resolver.
+    'sindrets/diffview.nvim',
+  },
 }
 
 require('lazy').setup(plugins)
