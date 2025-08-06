@@ -45,3 +45,8 @@
 [delta]
 	light = true
 	line-numbers = true
+
+[fetch]
+	# With this, remote branches are pruned everytime we run fetch/pull.
+	# This helps avoid some errors during pull
+	prune = true
