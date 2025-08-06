@@ -576,6 +576,10 @@ local plugins = {
       'rcarriga/nvim-notify',
     },
   },
+  {
+    -- Highlight work currently under the cursor at other places as well.
+    'RRethy/vim-illuminate',
+  },
 }
 
 require('lazy').setup(plugins)
