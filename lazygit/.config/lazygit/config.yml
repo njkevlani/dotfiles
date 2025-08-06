@@ -10,13 +10,14 @@ git:
 
 customCommands:
   - key: <c-p>
-    description: Push to different remote branch
     context: global
+    description: Push to different remote branch
     prompts:
       - key: Branch
         title: Remote branch
         type: menuFromCommand
-        command: 'git branch  -r --list {{.SelectedRemote.Name}}/*'
+        # Print remote branches except HEAD (HEAD is listed in output of git branch --remote).
+        command: bash -c 'git branch  --remote --list {{.SelectedRemote.Name}}/* | grep -v HEAD'
         filter: '.*{{.SelectedRemote.Name }}/(?P<branch>.*)'
         valueFormat: '{{ .branch }}'
         labelFormat: '{{ .branch }}'
@@ -28,3 +29,4 @@ customCommands:
           - value: push --force
     loadingText: Pushing...
     command: git {{.Form.Cmd}} {{.SelectedRemote.Name}} {{.SelectedLocalBranch.Name}}:{{.Form.Branch}}
+    output: popup
