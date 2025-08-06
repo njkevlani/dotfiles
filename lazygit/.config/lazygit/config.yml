@@ -9,24 +9,19 @@ git:
     pager: delta --paging=never
 
 customCommands:
-  - key: <c-p>
-    context: global
-    description: Push to different remote branch
+  - key: P
+    context: remoteBranches
+    description: Push to specific remote branch
     prompts:
-      - key: Branch
-        title: Remote branch
-        type: menuFromCommand
-        # Print remote branches except HEAD (HEAD is listed in output of git branch --remote).
-        command: bash -c 'git branch  --remote --list {{.SelectedRemote.Name}}/* | grep -v HEAD'
-        filter: '.*{{.SelectedRemote.Name }}/(?P<branch>.*)'
-        valueFormat: '{{ .branch }}'
-        labelFormat: '{{ .branch }}'
-      - key: Cmd
+      - type: 'confirm'
+        title: 'Push to {{ .SelectedRemoteBranch.RemoteName }}:{{ .SelectedRemoteBranch.Name }}'
+        body: 'Are you sure you want to push to {{ .SelectedRemoteBranch.Name }} branch in {{ .SelectedRemoteBranch.RemoteName }} remote?'
+      - key: PushCmd
         type: menu
         title: How to push?
         options:
           - value: push
           - value: push --force
     loadingText: Pushing...
-    command: git {{.Form.Cmd}} {{.SelectedRemote.Name}} {{.SelectedLocalBranch.Name}}:{{.Form.Branch}}
+    command: git {{ .Form.PushCmd }} {{ .SelectedRemoteBranch.RemoteName }} {{ .SelectedLocalBranch.Name }}:{{ .SelectedRemoteBranch.Name }}
     output: popup
