@@ -1,23 +1,6 @@
-modmap:
-  - name: Chrome
-    remap:
-      Alt_L: Ctrl_L
-    application:
-      only: Google-chrome
-
 keymap:
-  - name: Copy Paste in terminal
+  - name: Paste in terminal with super+v
     remap:
-      Alt-v: Ctrl-Shift-v
-      Alt-c: Ctrl-Shift-c
+      Super-v: Ctrl-Shift-v
     application:
-      only: Alacritty
-  - name: Chrome conflicting mappings
-    remap:
-      Ctrl-LeftBrace: Alt-Left
-      Ctrl-RightBrace: Alt-Right
-      Ctrl-Space: Alt-Space
-      Ctrl-q: Ctrl-Alt-q
-      Ctrl-Shift-c: Alt-Shift-c
-    application:
-      only: Google-chrome
+      only: [ Alacritty, Xfce4-terminal ]
