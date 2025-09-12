@@ -1,0 +1,67 @@
+{
+  "modules-left": [
+    "niri/workspaces",
+    "wlr/taskbar"
+  ],
+  "modules-right": [
+    "tray",
+    "backlight",
+    "pulseaudio",
+    "battery",
+    "clock"
+  ],
+  "niri/workspaces": {
+    "format": "{index}"
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 16,
+    "icon-theme": "Papirus",
+    "tooltip-format": "{title}",
+    "on-click": "activate"
+  },
+  "backlight": {
+    "format": "{percent}% 󰃠 ",
+    "on-click": "brightnessctl set 5%-",
+    "on-click-right": "brightnessctl set +5%",
+    "tooltip-format": "Brightness {percent}%"
+  },
+  "clock": {
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "format": {
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+  "pulseaudio": {
+    "format": "{volume}%  ",
+    "format-bluetooth": "{volume}% ",
+    "format-muted": "",
+    "scroll-step": 1,
+    "on-click": "pavucontrol"
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  "tray": {
+    "spacing": 12
+  }
+}

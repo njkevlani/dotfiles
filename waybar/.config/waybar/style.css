@@ -1,0 +1,13 @@
+@import "/etc/xdg/waybar/style.css";
+
+/* https://github.com/Alexays/Waybar/issues/3334 */
+#taskbar button {
+    padding: 0;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#taskbar button.active {
+    box-shadow: inset 0 -3px #ffffff;
+}
+
