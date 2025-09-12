@@ -368,6 +368,7 @@ local plugins = {
         },
         markdown = { 'markdownlint-cli2' },
         sh = { 'shellcheck' },
+        json = { 'jq' },
       },
       format_on_save = {
         timeout_ms = 5000,
