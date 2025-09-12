@@ -1,0 +1,146 @@
+input {
+    touchpad {
+        natural-scroll
+        // Scroll a little slower.
+        scroll-factor 0.3
+    }
+
+    keyboard {
+        xkb {
+            // Swapping Alt and Win key. It is convenient on Thinkpad this way.
+            // This option is enabled or disabled by toggling comment with Mod+Alt+L
+            // As of now there is no way to set/unset this with niri IPC hance done this way.
+            options "altwin:swap_alt_win"
+        }
+    }
+}
+
+output "eDP-1" {
+    // Default is 1.25; 1 seems better.
+    scale 1
+}
+
+layout {
+    gaps 8
+
+    // Preset width and height of full and had, which can be applied with Mod+R nad Mod+Shift+R
+    preset-column-widths {
+        proportion 0.5
+        proportion 0.85
+        proportion 1.0
+    }
+
+    preset-window-heights {
+        proportion 0.5
+        proportion 1.0
+    }
+
+    focus-ring {
+        off
+    }
+
+    border {
+        width 2
+        active-color "#255a90"
+        inactive-color "#505a65"
+        urgent-color "#9b0000"
+    }
+}
+
+spawn-at-startup "waybar"
+spawn-at-startup "elephant"
+spawn-at-startup "walker" "--gapplication-service"
+
+prefer-no-csd
+
+hotkey-overlay {
+    hide-not-bound
+}
+
+// Open all windows maximised by default.
+window-rule {
+    open-maximized true
+}
+
+// Open these windows in floating mode.
+window-rule {
+    match app-id="blueman-manager"
+    match app-id="org.pulseaudio.pavucontrol"
+    match app-id="com.github.hluk.copyq"
+    match app-id="nwg-look"
+
+    open-floating true
+}
+
+binds {
+    Mod+Q           hotkey-overlay-title="Close focused app or quit niri" { spawn "~/.local/share/bin/niri-close.sh"; }
+    Mod+Shift+C     hotkey-overlay-title="Clipboard history"              { spawn "walker" "--provider" "clipboard"; }
+    Mod+Alt+L       hotkey-overlay-title="Swap Alt and Win"               { spawn "~/.local/share/bin/niri-alt-win-switch.sh"; }
+    Mod+Shift+Slash hotkey-overlay-title="Show keybindings"               { show-hotkey-overlay; }
+    Mod+Return      hotkey-overlay-title="Open a Terminal: alacritty"     { spawn "alacritty"; }
+    Mod+Space       hotkey-overlay-title="Run an Application: walker"     { spawn "walker"; }
+    Super+Ctrl+Q    hotkey-overlay-title="Lock the Screen: swaylock"      { spawn "swaylock"; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+
+
+    Mod+H { focus-column-left-or-last; }
+    Mod+L { focus-column-right-or-first; }
+    Mod+J { focus-window-or-workspace-down; }
+    Mod+K { focus-window-or-workspace-up; }
+
+    Mod+Left      { focus-column-left-or-last; }
+    Mod+Right     { focus-column-right-or-first; }
+    Mod+Tab       { focus-column-right-or-first; }
+    Mod+Shift+Tab { focus-column-left-or-last; }
+
+    Mod+Shift+H { move-column-left-or-to-monitor-left; }
+    Mod+Shift+L { move-column-right-or-to-monitor-right; }
+    Mod+Shift+J { move-window-down-or-to-workspace-down; }
+    Mod+Shift+K { move-window-up-or-to-workspace-up; }
+
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+
+    Mod+R           { switch-preset-column-width; }
+    Mod+Shift+R     { switch-preset-window-height; }
+    Mod+F           { maximize-column; }
+    Mod+Shift+F     { fullscreen-window; }
+    Mod+Minus       { set-column-width "-10%"; }
+    Mod+Equal       { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    Mod+C { center-column; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    Mod+V { toggle-window-floating; }
+
+    Print     { screenshot-screen; }
+    Mod+Print { screenshot-window; }
+    Alt+Print { screenshot; }
+}
