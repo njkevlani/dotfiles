@@ -5,7 +5,7 @@ font-feature = -calt
 # selection clipboard where selection clipboard is supported (like linux).
 copy-on-select = clipboard
 
-theme = seoulbones_light
+theme = Seoulbones Light
 
 # Disable CSD'ed titlebar on linux. CSD'ed titlebar looks too inconsitent with
 # other apps on Xfce.
