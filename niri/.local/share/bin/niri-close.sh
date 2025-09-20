@@ -12,7 +12,7 @@ else
     action_shutdown="Shutdown"
     action_logout="Logout"
     action_lock="Lock"
-    action=$(printf "%s\n%s\n" $action_shutdown $action_logout $action_lock | walker --dmenu --nosearch)
+    action=$(printf "%s\n%s\n" $action_shutdown $action_logout $action_lock | walker --dmenu --nosearch --maxheight=-1)
 
     if [[ "$action" == "$action_shutdown" ]]; then
         systemctl poweroff
