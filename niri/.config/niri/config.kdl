@@ -85,6 +85,7 @@ binds {
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
     XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
@@ -95,10 +96,12 @@ binds {
     Mod+J { focus-window-or-workspace-down; }
     Mod+K { focus-window-or-workspace-up; }
 
-    Mod+Left      { focus-column-left-or-last; }
-    Mod+Right     { focus-column-right-or-first; }
-    Mod+Tab       { focus-column-right-or-first; }
-    Mod+Shift+Tab { focus-column-left-or-last; }
+    Mod+Left      hotkey-overlay-title="Focus left column" { focus-column-left-or-last; }
+    Mod+Right     hotkey-overlay-title="Focus right column" { focus-column-right-or-first; }
+    Mod+Tab       hotkey-overlay-title="Focus right column" { focus-column-right-or-first; }
+    Mod+Shift+Tab hotkey-overlay-title="Focus left column" { focus-column-left-or-last; }
+
+    Mod+Backslash hotkey-overlay-title="Focus next monitor" { focus-monitor-next; }
 
     Mod+Shift+H { move-column-left-or-to-monitor-left; }
     Mod+Shift+L { move-column-right-or-to-monitor-right; }
