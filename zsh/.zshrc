@@ -47,6 +47,12 @@ setopt prompt_subst
 add-zsh-hook precmd vcs_info
 zstyle ':vcs_info:*' formats '%F{blue}(%b)%f' # (main)
 
+random_string() {
+    length=${1:-7}  # Default length is 7 if not provided
+    tr -dc 'A-Za-z0-9' </dev/urandom | head -c $length
+    echo  # To add a newline after the string
+}
+
 # Prompt like [0]-[dotfiles(main)]-λ
 PROMPT='%F{red}[%f%?%F{red}]%f-%F{red}[%f%1~${vcs_info_msg_0_}%F{red}]%f-λ '
 
