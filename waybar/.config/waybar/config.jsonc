@@ -5,9 +5,9 @@
   ],
   "modules-right": [
     "tray",
-    "power-profiles-daemon",
     "cpu",
     "memory",
+    "power-profiles-daemon",
     "backlight",
     "pulseaudio",
     "battery",
