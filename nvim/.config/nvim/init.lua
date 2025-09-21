@@ -367,7 +367,7 @@ local plugins = {
     -- For formatting
     'stevearc/conform.nvim',
     init = function()
-      ensure_installed({ 'golangci-lint', 'goimports', 'gci', 'gofumpt', 'markdownlint-cli2', 'shellcheck' })
+      ensure_installed({ 'golangci-lint', 'goimports', 'gci', 'gofumpt', 'markdownlint-cli2', 'shellcheck', 'jq' })
     end,
     ---@module 'conform.nvim'
     ---@type conform.setupOpts
