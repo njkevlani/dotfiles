@@ -5,6 +5,9 @@
   ],
   "modules-right": [
     "tray",
+    "power-profiles-daemon",
+    "cpu",
+    "memory",
     "backlight",
     "pulseaudio",
     "battery",
@@ -19,6 +22,23 @@
     "icon-theme": "Papirus",
     "tooltip-format": "{title}",
     "on-click": "activate"
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "cpu": {
+    "format": "{usage}%  "
+  },
+  "memory": {
+    "format": "{}%  "
   },
   "backlight": {
     "format": "{percent}% 󰃠 ",
