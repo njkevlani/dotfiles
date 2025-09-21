@@ -22,8 +22,8 @@
 [commit]
 	gpgsign = true
 
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
+[url "ssh://git@github.com/njkevlani"]
+	insteadOf = https://github.com/njkevlani
 [gpg]
 	format = ssh
 [init]
