@@ -7,3 +7,7 @@ elif [ -f   /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; th
 else
 	echo "did not load zsh-syntax-highlighting"
 fi
+
+# Set ssh auth socket for ssh-agent service.
+# Ref: https://wiki.archlinux.org/title/SSH_keys
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
