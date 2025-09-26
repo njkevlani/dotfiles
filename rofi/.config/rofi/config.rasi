@@ -1,6 +1,5 @@
 configuration {
-	modi: "drun,window,calc,emoji";
-	font: "Monospace 12";
+	modi: "drun";
 	show-icons: true;
 	display-drun: "(";
 }
