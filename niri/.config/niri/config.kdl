@@ -79,7 +79,7 @@ window-rule {
 
 binds {
     Mod+Q           hotkey-overlay-title="Close focused app or quit niri" { spawn "~/.local/share/bin/niri-close.sh"; }
-    Mod+Shift+C     hotkey-overlay-title="Clipboard history"              { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy" ;}
+    Mod+Shift+C     hotkey-overlay-title="Clipboard history"              { spawn-sh "cliphist list | rofi -dmenu -sync | cliphist decode | wl-copy" ;}
     Mod+Alt+L       hotkey-overlay-title="Swap Alt and Win"               { spawn "~/.local/share/bin/niri-alt-win-switch.sh"; }
     Mod+Shift+Slash hotkey-overlay-title="Show keybindings"               { show-hotkey-overlay; }
     Mod+Return      hotkey-overlay-title="Open a Terminal: alacritty"     { spawn "alacritty"; }

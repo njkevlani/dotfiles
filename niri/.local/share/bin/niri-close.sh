@@ -12,7 +12,7 @@ else
     action_shutdown="Shutdown"
     action_logout="Logout"
     action_lock="Lock"
-    action=$(printf "%s\n" $action_shutdown $action_logout $action_lock | rofi -dmenu -l 3 -theme-str 'window {width: 200;}' -theme-str 'inputbar {enabled: false;}')
+    action=$(printf "%s\n" "$action_shutdown" "$action_logout" "$action_lock" | rofi -no-config -dmenu -l 3 -theme-str 'window {width: 200;}' -theme-str 'inputbar {enabled: false;}')
 
     if [[ "$action" == "$action_shutdown" ]]; then
         systemctl poweroff
