@@ -44,6 +44,9 @@ alias doc_go="docker run --name go-play -d golang:1.23"
 # Git in prompt.
 autoload -Uz add-zsh-hook vcs_info
 setopt prompt_subst
+
+# Show hidden files in completion.
+setopt globdots
 add-zsh-hook precmd vcs_info
 zstyle ':vcs_info:*' formats '%F{blue}(%b)%f' # (main)
 
