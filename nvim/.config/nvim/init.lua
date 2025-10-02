@@ -165,18 +165,24 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Create or open scratch buffer
-_G.ScratchBuffer = function(opts)
+-- Open scratch buffer
+vim.keymap.set('n', '<leader>.', function()
   Snacks.picker.select(
-    { 'json', 'markdown', 'shell', 'python', 'go' },
-    { prompt = 'Create or open scratch buffer' },
-    function(selected_ft, _)
-      if selected_ft then
-        Snacks.scratch.open({ ft = selected_ft })
+    {
+      { name = 'json', ft = 'json' },
+      { name = 'markdown', ft = 'md' },
+      { name = 'shell', ft = 'sh' },
+      { name = 'python', ft = 'py' },
+      { name = 'golang', ft = 'go' },
+    },
+    { prompt = 'Create or open scratch buffer', format_item = function(item) return item.name end },
+    function(selected, _)
+      if selected then
+        vim.cmd('edit ' .. vim.fn.stdpath('data') .. '/scratch/scratch.' .. selected.ft)
       end
     end
   )
-end
+end, { desc = 'Select scratch buffers' })
 
 ---@type LazyPluginSpec[]
 local plugins = {
@@ -523,7 +529,6 @@ local plugins = {
         nowait = true,
       },
       { '<leader>ss', function() Snacks.picker.lsp_symbols() end, desc = 'LSP Symbols' },
-      { '<leader>.', function() ScratchBuffer() end, desc = 'Toggle Scratch Buffer' },
       { '<leader>S', function() Snacks.scratch.select() end, desc = 'Select Scratch Buffer' },
       { '<leader>i', function() Snacks.notifier.show_history() end, desc = 'Notification History' },
       { '<leader>gg', function() Snacks.lazygit() end, desc = 'Lazygit' },
