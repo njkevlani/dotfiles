@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Rofi Calculator
+Comment=Launch rofi calculator
+Exec=rofi -modi calc -theme ~/.config/rofi/themes/spotlight-dark-calc.rasi -calc-command "echo -n '{result}' | wl-copy" -cal-command-history -show
+Icon=accessories-calculator
+Terminal=false
+Type=Application
+Categories=System;
