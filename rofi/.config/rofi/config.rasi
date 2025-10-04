@@ -1,6 +1,5 @@
 configuration {
 	modi: "drun";
 	show-icons: true;
-	display-drun: "(";
 }
 @theme "~/.config/rofi/themes/spotlight-dark.rasi"
