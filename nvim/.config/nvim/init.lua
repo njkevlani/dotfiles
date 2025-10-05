@@ -613,6 +613,11 @@ local plugins = {
     -- Merge conflict resolver.
     'sindrets/diffview.nvim',
   },
+  {
+    -- For aligning/format tables in markdown.
+    'nvim-mini/mini.align',
+    config = true,
+  },
 }
 
 require('lazy').setup(plugins)
