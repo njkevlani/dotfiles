@@ -565,27 +565,8 @@ local plugins = {
   },
 
   {
-    'gaoDean/autolist.nvim',
+    'bullets-vim/bullets.vim',
     ft = { 'markdown' },
-    -- https://github.com/gaoDean/autolist.nvim/issues/90
-    opts = {
-      lists = {
-        markdown = {
-          '[-+*] ',
-          '%d+[.)] ',
-        },
-      },
-    },
-    keys = {
-      -- Specifying ft = markdown for <CR> in insert mode because more plugins attempt to register
-      -- that keybinding and that results in conflict.
-      { '<CR>', '<CR><cmd>AutolistNewBullet<cr>', desc = 'Autolist Enter', mode = 'i', ft = { 'markdown' } },
-      { 'o', 'o<cmd>AutolistNewBullet<cr>', desc = 'Autolist o' },
-      { 'O', 'O<cmd>AutolistNewBulletBefore<cr>', desc = 'Auitlist O' },
-      { '>>', '>><cmd>AutolistRecalculate<cr>', desc = 'Autolist increase indent' },
-      { '<<', '<<<cmd>AutolistRecalculate<cr>', desc = 'Autolist decrease indent' },
-      { 'dd', 'dd<cmd>AutolistRecalculate<cr>', desc = 'Autolist dd' },
-    },
   },
 
   {
