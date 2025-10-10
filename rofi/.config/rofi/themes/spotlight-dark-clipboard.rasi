@@ -1,0 +1,9 @@
+@theme "~/.config/rofi/themes/spotlight-dark.rasi"
+
+icon-search {
+    filename: "clipboard";
+}
+
+entry {
+    placeholder: "Search Clipboard";
+}
