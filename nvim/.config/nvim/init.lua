@@ -1,7 +1,6 @@
 vim.g.mapleader = ' '
 
 vim.opt.number = true
-vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits
 vim.opt.mouse = 'a'
