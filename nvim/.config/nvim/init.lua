@@ -183,6 +183,18 @@ vim.keymap.set('n', '<leader>.', function()
   )
 end, { desc = 'Select scratch buffers' })
 
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = ' ',
+      [vim.diagnostic.severity.WARN] = ' ',
+      [vim.diagnostic.severity.INFO] = ' ',
+      [vim.diagnostic.severity.HINT] = ' ',
+    },
+    priority = 2,
+  },
+})
+
 ---@type LazyPluginSpec[]
 local plugins = {
   { 'tpope/vim-sleuth' }, -- Detect tabstop and shiftwidth automatically
@@ -195,6 +207,7 @@ local plugins = {
     opts = {
       view = {
         style = 'sign',
+        priority = 1,
       },
     },
   },
@@ -597,6 +610,29 @@ local plugins = {
     -- For aligning/format tables in markdown.
     'dhruvasagar/vim-table-mode',
     ft = { 'markdown' },
+  },
+  {
+    -- Show diagnostic count at top right corner.
+    'b0o/incline.nvim',
+    config = function()
+      require('incline').setup({
+        render = function(props)
+          local icons = { error = ' ', warn = ' ', info = ' ', hint = ' ' }
+          local label = {}
+
+          for severity, icon in pairs(icons) do
+            local n = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
+            if n > 0 then
+              table.insert(label, { icon .. n .. ' ', group = 'DiagnosticSign' .. severity })
+            end
+          end
+
+          return {
+            { label },
+          }
+        end,
+      })
+    end,
   },
 }
 
