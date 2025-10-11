@@ -595,8 +595,8 @@ local plugins = {
   },
   {
     -- For aligning/format tables in markdown.
-    'nvim-mini/mini.align',
-    config = true,
+    'dhruvasagar/vim-table-mode',
+    ft = { 'markdown' },
   },
 }
 
