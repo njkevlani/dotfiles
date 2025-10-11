@@ -26,6 +26,27 @@ customCommands:
     command: git {{ .Form.PushCmd }} {{ .SelectedRemoteBranch.RemoteName }} {{ .SelectedLocalBranch.Name }}:{{ .SelectedRemoteBranch.Name }}
     output: popup
 
+  - key: i
+    context: files
+    description: "Ignore file from worktree"
+    prompts:
+      - type: 'confirm'
+        title: 'Confirmation'
+        body: 'Do you want to ignore {{ .SelectedFile.Name }} from worktree?'
+    command: git update-index --skip-worktree {{ .SelectedFile.Name }}
+
+  - key: I
+    context: files
+    description: "Reconsider file for worktree"
+    prompts:
+      - type: 'menuFromCommand'
+        title: 'Choose File to reconsider'
+        key: 'FileToReconsider'
+        command: bash -c "git ls-files -v | grep ^S"
+        filter: S (?P<fileToReconsider>.*)
+        valueFormat: '{{ .fileToReconsider }}'
+    command: 'git update-index --no-skip-worktree {{ .Form.FileToReconsider }}'
+
   - key: a
     context: stash
     description: "Apply stash"
