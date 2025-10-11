@@ -28,21 +28,21 @@ customCommands:
 
   - key: i
     context: files
-    description: "Ignore file from worktree"
+    description: 'Ignore file from worktree'
     prompts:
       - type: 'confirm'
-        title: 'Confirmation'
-        body: 'Do you want to ignore {{ .SelectedFile.Name }} from worktree?'
-    command: git update-index --skip-worktree {{ .SelectedFile.Name }}
+        title: 'Ignore file from worktree'
+        body: '{{ if .SelectedFile }}Do you want to ignore {{ .SelectedFile.Name }} from worktree?{{ else }}Ignore file for worktree works only for files and not dirs{{ end }}'
+    command: '{{ with .SelectedFile }}git update-index --skip-worktree {{ .Name }}{{ end }}'
 
   - key: I
     context: files
-    description: "Reconsider file for worktree"
+    description: 'Reconsider file for worktree'
     prompts:
       - type: 'menuFromCommand'
         title: 'Choose File to reconsider'
         key: 'FileToReconsider'
-        command: bash -c "git ls-files -v | grep ^S"
+        command: bash -c "git ls-files -v | grep ^S || true"
         filter: S (?P<fileToReconsider>.*)
         valueFormat: '{{ .fileToReconsider }}'
     command: 'git update-index --no-skip-worktree {{ .Form.FileToReconsider }}'
