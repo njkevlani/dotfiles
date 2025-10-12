@@ -1,0 +1,21 @@
+@theme "~/.config/rofi/themes/spotlight-dark.rasi"
+
+window {
+    width: 320;
+}
+
+inputbar {
+    font: "Montserrat 20";
+    padding: 12px;
+    spacing: 12px;
+    children: [ prompt ];
+}
+
+prompt {
+    font: inherit;
+    placeholder-color: @fg2;
+}
+
+element {
+    children: [ element-text ];
+}

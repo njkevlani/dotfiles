@@ -9,10 +9,17 @@ focused_window=$(niri msg focused-window | grep '(focused)')
 if [[ -n "$focused_window" && "$focused_window" != "null" ]]; then
     niri msg action close-window
 else
+    prompt=$(uptime -p | sed -e 's/up/Uptime:/' \
+        -e 's/ weeks\?/w/' \
+        -e 's/ days\?/d/' \
+        -e 's/ hours\?/h/' \
+        -e ' s/ minutes\?/m/' \
+        -e 's/,//g')
+
     action_shutdown="Shutdown"
     action_logout="Logout"
     action_lock="Lock"
-    action=$(printf "%s\n" "$action_shutdown" "$action_logout" "$action_lock" | rofi -no-config -dmenu -l 3 -theme-str 'window {width: 200;}' -theme-str 'inputbar {enabled: false;}')
+    action=$(printf "%s\n" "$action_shutdown" "$action_logout" "$action_lock" | rofi -dmenu -p "${prompt}" -theme ~/.config/rofi/themes/spotlight-dark-session-menu.rasi)
 
     if [[ "$action" == "$action_shutdown" ]]; then
         systemctl poweroff
