@@ -2,5 +2,6 @@ configuration {
 	modi: "drun";
 	show-icons: true;
 	icon-theme: "Papirus-Dark";
+	drun-display-format: "{name}";
 }
 @theme "~/.config/rofi/themes/spotlight-dark.rasi"
