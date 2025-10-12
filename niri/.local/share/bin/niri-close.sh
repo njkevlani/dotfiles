@@ -21,11 +21,9 @@ else
     action_lock="Lock"
     action=$(printf "%s\n" "$action_shutdown" "$action_logout" "$action_lock" | rofi -dmenu -p "${prompt}" -theme ~/.config/rofi/themes/spotlight-dark-session-menu.rasi)
 
-    if [[ "$action" == "$action_shutdown" ]]; then
-        systemctl poweroff
-    elif [[ "$action" == "$action_logout" ]]; then
-        niri msg action quit -s
-    elif [[ "$action" == "$action_lock" ]]; then
-        swaylock
-    fi
+    case "${action}" in
+    "${action_shutdown}") systemctl poweroff ;;
+    "${action_logout}") niri msg action quit -s ;;
+    "${action_lock}") swaylock ;;
+    esac
 fi
