@@ -398,7 +398,7 @@ local plugins = {
           'gofumpt', -- formatting in general
         },
         markdown = { 'markdownlint-cli2' },
-        sh = { 'shellcheck' },
+        sh = { 'shellcheck', 'shfmt' },
         json = { 'jq' },
       },
       format_on_save = {
