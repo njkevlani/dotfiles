@@ -20,6 +20,13 @@ input {
     }
 }
 
+// Disable the hot corners.
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 output "eDP-1" {
     // Default is 1.25; 1 seems better.
     scale 1
