@@ -26,9 +26,6 @@ else
     "${action_shutdown}") systemctl poweroff ;;
     "${action_logout}") niri msg action quit -s ;;
     "${action_lock}") swaylock ;;
-    "${action_suspend}")
-        swaylock &
-        systemctl suspend
-        ;;
+    "${action_suspend}") systemctl suspend ;;
     esac
 fi

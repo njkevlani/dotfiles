@@ -61,7 +61,7 @@ layout {
 
 spawn-at-startup "waybar"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-spawn-at-startup "swayidle" "-w" "timeout" "301" "niri msg action power-off-monitors" "timeout" "300" "swaylock -f"
+spawn-at-startup "swayidle" "-w" "timeout" "301" "niri msg action power-off-monitors" "timeout" "300" "swaylock -f" "before-sleep" "swaylock -f"
 
 prefer-no-csd
 
