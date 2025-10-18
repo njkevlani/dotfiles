@@ -1,0 +1,25 @@
+/* Slim tab bars. */
+/* Taken from https://github.com/ghostty-org/ghostty/discussions/3297#discussioncomment-11861813 */
+
+tabbar tabbox {
+  margin: 0;
+  padding: 0;
+  min-height: 24px;
+  background-color: #e2e2e2;
+}
+
+tabbar tabbox tab {
+  margin: 0;
+  padding: 0;
+  color: #555555;
+  border-radius: 0;
+}
+
+tabbar tabbox tab:selected {
+  background-color: #cccccc;
+  color: #555555;
+}
+
+windowhandle {
+  background-color: #e2e2e2;
+}

@@ -21,3 +21,6 @@ shell-integration-features = no-cursor
 # it is better to let it run after closing last window as well.
 # https://ghostty.org/docs/linux/systemd#starting-ghostty-at-login
 quit-after-last-window-closed = false
+
+# For slimmer tabbar.
+gtk-custom-css=gtk.css
