@@ -89,7 +89,7 @@ binds {
     Mod+Shift+C     hotkey-overlay-title="Clipboard history"              { spawn-sh "cliphist list | rofi -dmenu -sync -theme ~/.config/rofi/themes/spotlight-dark-clipboard.rasi | cliphist decode | wl-copy" ;}
     Mod+Alt+L       hotkey-overlay-title="Swap Alt and Win"               { spawn "~/.local/share/bin/niri-alt-win-switch.sh"; }
     Mod+Shift+Slash hotkey-overlay-title="Show keybindings"               { show-hotkey-overlay; }
-    Mod+Return      hotkey-overlay-title="Open a Terminal: ghostty"       { spawn "ghostty"; }
+    Mod+Return      hotkey-overlay-title="Open a Terminal: ghostty"       { spawn "ghostty" "+new-window"; }
     Mod+Space       hotkey-overlay-title="Run an Application: rofi"       { spawn "rofi" "-show"; }
     Super+Ctrl+Q    hotkey-overlay-title="Lock the Screen: swaylock"      { spawn "swaylock"; }
 
