@@ -1,0 +1,6 @@
+AVL
+NP
+OS
+Rofi
+mutex
+nCr
