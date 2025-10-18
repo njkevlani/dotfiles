@@ -16,3 +16,8 @@ keybind = super+n=new_tab
 # Shell integration sets cursor to a bar on a prompt by default. This disables
 # that and keeps the cursor as block.
 shell-integration-features = no-cursor
+
+# Default value is true for linux, but when starting ghostty in background,
+# it is better to let it run after closing last window as well.
+# https://ghostty.org/docs/linux/systemd#starting-ghostty-at-login
+quit-after-last-window-closed = false
