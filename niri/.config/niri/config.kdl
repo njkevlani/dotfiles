@@ -15,6 +15,11 @@ input {
     }
 }
 
+cursor {
+    xcursor-theme "capitaine-cursors"
+    xcursor-size 32
+}
+
 // Disable the hot corners.
 gestures {
     hot-corners {
