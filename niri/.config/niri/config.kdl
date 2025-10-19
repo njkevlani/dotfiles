@@ -1,8 +1,3 @@
-environment {
-    // Setting ELECTRON_OZONE_PLATFORM_HINT is needed for running electron on wayland.
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-}
-
 input {
     touchpad {
         natural-scroll
