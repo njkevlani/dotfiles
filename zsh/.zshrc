@@ -87,6 +87,11 @@ autoload -Uz compinit && compinit
 unsetopt AUTO_MENU
 setopt AUTO_CD
 
+# Edit command in $EDITOR.
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
 # MISC
 # allow # comments in shell
 setopt INTERACTIVE_COMMENTS
