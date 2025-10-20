@@ -1,0 +1,21 @@
+# Leetgo configuration file, see more at https://github.com/j178/leetgo
+
+author: Nilesh
+language: en
+code:
+  lang: go
+  go:
+    modifiers:
+      - name: removeUselessComments
+      - name: changeReceiverName
+      - name: addMod
+leetcode:
+  site: https://leetcode.com
+  credentials:
+    from:
+      - browser
+    browsers: [ firefox ]
+editor:
+  use: custom
+  command: "nvim"
+  args: "{{.CodeFile}}"
