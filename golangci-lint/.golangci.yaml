@@ -1,12 +1,18 @@
+version: "2"
 linters:
-  enable-all: true
+  default: all
   disable:
     - tagliatelle # Avoid linting for struct tag casing.
     - depguard    # Avoid limiting list of importable packages.
-linters-settings:
-  # GCI config to sort imports in a specific order.
-  gci:
-    sections:
-      - standard    # std packages first
-      - default     # packages that do not fall into any other group
-      - localmodule # local packages
+formatters:
+  enable:
+    - goimports
+    - gci
+    - gofumpt
+  settings:
+    # GCI config to sort imports in a specific order.
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
