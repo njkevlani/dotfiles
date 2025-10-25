@@ -37,7 +37,7 @@ vim.keymap.set('n', '<leader>l', '<C-w><C-l>', { desc = 'Move focus to the right
 vim.keymap.set('n', '<leader>j', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<leader>k', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- better indenting
+-- Better indenting in visual mode.
 vim.keymap.set('v', '<', '<gv', { desc = 'Stay in visual mode after indenting in visual mode' })
 vim.keymap.set('v', '>', '>gv', { desc = 'Stay in visual mode after indenting in visual mode' })
 
@@ -47,21 +47,22 @@ vim.keymap.set('n', '<leader>/', 'gccj', { remap = true, desc = 'Comment current
 vim.keymap.set('v', '<leader>/', 'gc', { remap = true, desc = 'Comment current selection' })
 
 -- Copy content
-vim.keymap.set('n', '<leader>cc', function() vim.cmd('%y+') end, { desc = 'Copy entire file to clipboard' })
+function CopyFileContent() vim.cmd('%y+') end
+vim.keymap.set('n', '<leader>cc', CopyFileContent, { desc = 'Copy file content to clipboard' })
 
 -- Copy filename
-vim.keymap.set(
-  'n',
-  '<leader>cf',
-  function() vim.fn.setreg('+', vim.fn.expand('%:p')) end,
-  { desc = 'Copy absolute file path' }
-)
+function CopyFilename()
+  local filename = vim.fn.expand('%:p')
+  vim.fn.setreg('+', filename)
+  vim.notify(string.format('Copied file name %s to clipboard.', filename), 'info')
+end
+vim.keymap.set('n', '<leader>cf', CopyFilename, { desc = 'Copy absolute file path' })
 
 -- Highlight when yanking text
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function() vim.highlight.on_yank() end,
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+  callback = function() vim.hl.on_yank() end,
 })
 
 -- Hungry backspace - eat more spaces if there is only spaces when pressing backspace.
@@ -80,20 +81,20 @@ vim.keymap.set('i', '<BS>', function()
     ]])
     return vim.g.exprvalue
   else
-    -- Default to autopairs backspace.
+    -- Default to auto-pairs backspace.
     return require('nvim-autopairs').autopairs_bs()
   end
 end, { expr = true, noremap = true, replace_keycodes = false })
 
-local run_cmds = {
-  python = 'python',
-  sh = 'bash',
-  go = 'go run',
-  rust = 'cargo run',
-}
-
 -- Run file
-vim.keymap.set('n', '<leader>rf', function()
+function RunFile()
+  local run_cmds = {
+    python = 'python',
+    sh = 'bash',
+    go = 'go run',
+    rust = 'cargo run',
+  }
+
   local ft = vim.bo.filetype
   local file = vim.fn.expand('%')
   local cmd = run_cmds[ft]
@@ -108,9 +109,10 @@ vim.keymap.set('n', '<leader>rf', function()
   vim.notify('Running ' .. run_cmd)
 
   vim.cmd('vs | terminal ' .. run_cmd)
-end, { desc = 'Run current file' })
+end
+vim.keymap.set('n', '<leader>rf', RunFile, { desc = 'Run current file' })
 
--- go to last loc when opening a buffer
+-- Go to last location when opening a buffer
 vim.api.nvim_create_autocmd('BufReadPost', {
   group = vim.api.nvim_create_augroup('last_loc', { clear = true }),
   callback = function()
@@ -197,7 +199,7 @@ vim.diagnostic.config({
 
 ---@type LazyPluginSpec[]
 local plugins = {
-  { 'tpope/vim-sleuth' }, -- Detect tabstop and shiftwidth automatically
+  { 'tpope/vim-sleuth' }, -- Detect tab / space automatically
 
   { 'tpope/vim-surround' }, -- Delete/change/add parentheses/quotes/much more with ease
 
@@ -387,7 +389,7 @@ local plugins = {
     init = function()
       ensure_installed({ 'golangci-lint', 'goimports', 'gci', 'gofumpt', 'markdownlint-cli2', 'shellcheck', 'jq' })
     end,
-    ---@module 'conform.nvim'
+    ---@module 'conform'
     ---@type conform.setupOpts
     opts = {
       formatters_by_ft = {
@@ -409,11 +411,11 @@ local plugins = {
           prepend_args = {
             -- Order for sorting imports
             '-s',
-            'standard', -- std packages first
+            'standard', -- Std packages first.
             '-s',
-            'default', -- then packages that do not match any group
+            'default', -- Then packages that do not match any group.
             '-s',
-            'localmodule', -- then local packages
+            'localmodule', -- Then local packages.
           },
         },
       },
