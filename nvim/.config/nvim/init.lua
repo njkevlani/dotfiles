@@ -387,7 +387,17 @@ local plugins = {
     -- For formatting
     'stevearc/conform.nvim',
     init = function()
-      ensure_installed({ 'golangci-lint', 'goimports', 'gci', 'gofumpt', 'markdownlint-cli2', 'shellcheck', 'jq' })
+      ensure_installed({
+        'golangci-lint',
+        'goimports',
+        'gci',
+        'gofumpt',
+        'markdownlint-cli2',
+        'shellcheck',
+        'jq',
+        'dockerfmt',
+        'tombi',
+      })
     end,
     ---@module 'conform'
     ---@type conform.setupOpts
@@ -402,6 +412,8 @@ local plugins = {
         markdown = { 'markdownlint-cli2' },
         sh = { 'shellcheck', 'shfmt' },
         json = { 'jq' },
+        toml = { 'tombi' },
+        dockerfile = { 'dockerfmt' },
       },
       format_on_save = {
         timeout_ms = 5000,
