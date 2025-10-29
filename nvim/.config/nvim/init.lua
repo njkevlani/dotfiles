@@ -320,6 +320,7 @@ local plugins = {
         'pyright-langserver',
         'yaml-language-server',
         'bash-language-server',
+        'protols',
       })
     end,
     config = function()
@@ -330,6 +331,12 @@ local plugins = {
       vim.lsp.enable('pyright')
       vim.lsp.enable('yamlls')
       vim.lsp.enable('bashls')
+      vim.lsp.enable('protols')
+
+      vim.lsp.config('protols', {
+        -- In some projects, we use `proto` directory as root.
+        root_markers = { 'proto' },
+      })
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function()
