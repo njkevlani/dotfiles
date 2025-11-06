@@ -5,8 +5,8 @@ gui:
       - bold
 
 git:
-  paging:
-    pager: delta --paging=never
+  pagers:
+    - pager: delta --paging=never
 
 customCommands:
   - key: P
