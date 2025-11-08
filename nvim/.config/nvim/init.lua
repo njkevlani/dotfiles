@@ -28,6 +28,8 @@ vim.opt.scrolloff = 10
 -- Combines cmd line and status line.
 vim.opt.cmdheight = 0
 
+vim.opt.termguicolors = true
+
 vim.keymap.set('n', '<Esc>', '<CMD>nohlsearch<CR>', { desc = '<ESC> will also clear highlights' })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
@@ -658,6 +660,11 @@ local plugins = {
         end,
       })
     end,
+  },
+  {
+    -- Highlights color codes with their actual color (like black color for #000).
+    'norcalli/nvim-colorizer.lua',
+    config = function() require('colorizer').setup() end,
   },
 }
 
