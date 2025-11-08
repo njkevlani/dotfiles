@@ -644,19 +644,35 @@ local plugins = {
     config = function()
       require('incline').setup({
         render = function(props)
+          local status_elements = {}
+
+          -- Collect diagnostic labels.
           local icons = { error = ' ', warn = ' ', info = ' ', hint = ' ' }
-          local label = {}
+          local diagnostic_label = {}
 
           for severity, icon in pairs(icons) do
             local n = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
             if n > 0 then
-              table.insert(label, { icon .. n .. ' ', group = 'DiagnosticSign' .. severity })
+              table.insert(diagnostic_label, { icon .. n .. ' ', group = 'DiagnosticSign' .. severity })
             end
           end
 
-          return {
-            { label },
-          }
+          if #diagnostic_label > 0 then
+            table.insert(status_elements, diagnostic_label)
+          end
+
+          -- Collect LSP servers attached.
+          local lsp_clients = vim.lsp.get_clients({ bufnr = 0 })
+          local lsp_client_names = {}
+          for _, client in ipairs(lsp_clients) do
+            table.insert(lsp_client_names, client.name)
+          end
+
+          if #lsp_clients > 0 then
+            table.insert(status_elements, { ' ' .. table.concat(lsp_client_names, ', '), group = 'Keyword' })
+          end
+
+          return status_elements
         end,
       })
     end,
