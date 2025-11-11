@@ -315,6 +315,7 @@ local plugins = {
     init = function()
       ensure_installed({
         'gopls',
+        'golangci-lint',
         'golangci-lint-langserver',
         'harper-ls',
         'stylua',
