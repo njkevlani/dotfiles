@@ -1,6 +1,10 @@
 AVL
 NP
+Nilesh
 OS
 Rofi
+cursorHold
+lc
+leetgo
 mutex
 nCr
