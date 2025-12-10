@@ -20,7 +20,7 @@ else
     action_logout="Logout"
     action_lock="Lock"
     action_suspend="Suspend"
-    action=$(printf "%s\n" "$action_shutdown" "$action_logout" "$action_lock" "$action_suspend" | rofi -dmenu -p "${prompt}" -theme ~/.config/rofi/themes/spotlight-dark-session-menu.rasi)
+    action=$(printf "%s\n" "$action_shutdown" "$action_logout" "$action_lock" "$action_suspend" | rofi -sync -dmenu -p "${prompt}" -theme ~/.config/rofi/themes/spotlight-dark-session-menu.rasi)
 
     case "${action}" in
     "${action_shutdown}") systemctl poweroff ;;
