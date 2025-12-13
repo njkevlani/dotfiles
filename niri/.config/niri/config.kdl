@@ -80,6 +80,7 @@ window-rule {
     match app-id="org.pulseaudio.pavucontrol"
     match app-id="com.github.hluk.copyq"
     match app-id="nwg-look"
+    match app-id="nm-connection-editor"
 
     open-floating true
 }
