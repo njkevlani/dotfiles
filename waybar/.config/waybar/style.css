@@ -1,5 +1,9 @@
 @import "/etc/xdg/waybar/style.css";
 
+* {
+    font-family: 'Noto Sans Mono', 'Symbols Nerd Font Mono', 'Font Awesome 6 Brands', monospace;
+}
+
 /* https://github.com/Alexays/Waybar/issues/3334 */
 #taskbar button {
     padding: 0;
