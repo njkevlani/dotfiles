@@ -23,13 +23,13 @@
     "on-click": "activate"
   },
   "cpu": {
-    "format": "{usage}%  "
+    "format": "{usage}% "
   },
   "memory": {
-    "format": "{}%  "
+    "format": "{}% "
   },
   "backlight": {
-    "format": "{percent}% 󰃠 ",
+    "format": "{percent}% 󰃠",
     "on-click": "brightnessctl set 5%-",
     "on-click-right": "brightnessctl set +5%",
     "tooltip-format": "Brightness {percent}%"
@@ -43,7 +43,7 @@
     }
   },
   "pulseaudio": {
-    "format": "{volume}%  ",
+    "format": "{volume}% ",
     "format-bluetooth": "{volume}% ",
     "format-muted": "",
     "scroll-step": 1,
