@@ -35,3 +35,7 @@ WARNING: in simulation mode so not modifying filesystem.
 - [`/misc/awesome`](/misc/awesome) contains some cool things to customize your setup.
 - [`/misc/scripts`](/misc/scripts) contains some cool scripts to ease day to day tasks and some eye candy as well!
 - [`/misc/archlinux`](/misc/archlinux) contains base packages that I use from archlinux official repositories and AUR.
+
+## TODO
+1. Enaure Installed script to make sure dependencies are installed which runs once after boot.
+2. Copy from sway-fedora-config: scripts for brightnessctl and volume control.
