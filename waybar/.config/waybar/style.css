@@ -1,6 +1,7 @@
 @import "/etc/xdg/waybar/style.css";
 
 * {
+    font-size: 18px;
     font-family: 'Noto Sans Mono', 'Symbols Nerd Font Mono', 'Font Awesome 6 Brands', monospace;
 }
 

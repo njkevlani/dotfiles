@@ -1,4 +1,5 @@
 {
+  "height": 42,
   "modules-left": [
     "niri/workspaces",
     "wlr/taskbar"
@@ -17,7 +18,7 @@
   },
   "wlr/taskbar": {
     "format": "{icon}",
-    "icon-size": 16,
+    "icon-size": 24,
     "icon-theme": "Papirus",
     "tooltip-format": "{title}",
     "on-click": "activate"
@@ -70,6 +71,7 @@
     ]
   },
   "tray": {
+    "icon-size": 24,
     "spacing": 12
   }
 }

@@ -10,7 +10,7 @@ input {
             // Swapping Alt and Win key. It is convenient on Thinkpad this way.
             // This option is enabled or disabled by toggling comment with Mod+Alt+L
             // As of now there is no way to set/unset this with niri IPC hance done this way.
-            options "altwin:swap_alt_win"
+            // options "altwin:swap_alt_win"
         }
     }
 }
@@ -27,9 +27,16 @@ gestures {
     }
 }
 
-output "eDP-1" {
+// 1080p ThinkPad display
+output "BOE 0x07C9 Unknown" {
     // Default is 1.25; 1 seems better.
     scale 1
+}
+
+// Hi-DPI Macbook display
+output "Unknown Unknown Unknown" {
+    // Default is 1; 1.33 seems better.
+    scale 1.3333
 }
 
 layout {
