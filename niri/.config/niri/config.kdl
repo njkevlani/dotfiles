@@ -27,16 +27,12 @@ gestures {
     }
 }
 
-// 1080p ThinkPad display
-output "BOE 0x07C9 Unknown" {
-    // Default is 1.25; 1 seems better.
+output "eDP-1" {
+    // For 1080p ThinkPad display default is 1.25; 1 seems better.
     scale 1
-}
 
-// Hi-DPI Macbook display
-output "Unknown Unknown Unknown" {
-    // Default is 1; 1.33 seems better.
-    scale 1.3333
+    // For Hi-DPI Macbook display default is 1.75; 1.33 seems better.
+    // scale 1.3333
 }
 
 layout {
