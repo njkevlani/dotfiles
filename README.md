@@ -1,10 +1,13 @@
 # dotfiles
+
 My dotfiles using [GNU Stow](https://www.gnu.org/software/stow/)
 
 ## Screenshot
+
 ![Screenshot](/misc/images/screenshot.png)
 
 ## How to set this at local machine?
+
 - Clone this repository.
 
 ```bash
@@ -21,6 +24,7 @@ stow -v git
 ```
 
 You can add `-n` option to this command to see what links will be made **without writing them on file system**.
+
 ```bash
 $ stow -nv bash/
 LINK: .bashrc => dotfiles/bash/.bashrc
@@ -37,5 +41,8 @@ WARNING: in simulation mode so not modifying filesystem.
 - [`/misc/archlinux`](/misc/archlinux) contains base packages that I use from archlinux official repositories and AUR.
 
 ## TODO
-1. Enaure Installed script to make sure dependencies are installed which runs once after boot.
+
+1. Ensure Installed script to make sure dependencies are installed which runs once after boot.
+    a. zsh zsh-syntax-highlighting fzf stow git neovim cliphist wl-clipboard libnotify brightnessctl
 2. Copy from sway-fedora-config: scripts for brightnessctl and volume control.
+3. [nvim] In snacks.nvim explorer, show relevant options on right-click menu.
