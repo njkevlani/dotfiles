@@ -14,7 +14,7 @@ leetcode:
   credentials:
     from:
       - browser
-    browsers: [ firefox ]
+    browsers: [ brave ]
 editor:
   use: custom
   command: "nvim"
