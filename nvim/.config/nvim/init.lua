@@ -177,6 +177,7 @@ vim.keymap.set('n', '<leader>.', function()
       { name = 'shell', ft = 'sh' },
       { name = 'python', ft = 'py' },
       { name = 'golang', ft = 'go' },
+      { name = 'yaml', ft = 'yaml' },
     },
     { prompt = 'Create or open scratch buffer', format_item = function(item) return item.name end },
     function(selected, _)
@@ -689,6 +690,11 @@ local plugins = {
     opts = {
       preset = 'helix',
     },
+  },
+  {
+    -- Ensure that yaml-language-server does not kick in when editing helm file.
+    'towolf/vim-helm',
+    ft = 'helm',
   },
 }
 
