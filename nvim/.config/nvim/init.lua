@@ -683,6 +683,13 @@ local plugins = {
     'norcalli/nvim-colorizer.lua',
     config = function() require('colorizer').setup() end,
   },
+  {
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    opts = {
+      preset = 'helix',
+    },
+  },
 }
 
 require('lazy').setup(plugins)
