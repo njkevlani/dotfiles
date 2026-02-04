@@ -696,6 +696,12 @@ local plugins = {
     'towolf/vim-helm',
     ft = 'helm',
   },
+  {
+    'ramilito/kubectl.nvim',
+    version = '2.*',
+    dependencies = 'saghen/blink.download',
+    config = true,
+  },
 }
 
 require('lazy').setup(plugins)

@@ -37,6 +37,7 @@ alias ls="ls --color --group-directories-first -F"
 alias vi="nvim"
 alias lg="lazygit"
 alias kc='kubectl config use-context $(kubectl config get-contexts -o name | fzf)'
+alias kubectlnvim='nvim +"lua require(\"kubectl\").open()"'
 
 # Same as jq, but do not fail on invalid json.
 alias jqsafe='jq -Rr "fromjson? // (\"\u001b[31m!!!un parsed - \u001b[0m\" + .)"'
