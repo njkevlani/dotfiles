@@ -38,6 +38,9 @@ alias vi="nvim"
 alias lg="lazygit"
 alias kc='kubectl config use-context $(kubectl config get-contexts -o name | fzf)'
 
+# Same as jq, but do not fail on invalid json.
+alias jqsafe='jq -Rr "fromjson? // (\"\u001b[31m!!!un parsed - \u001b[0m\" + .)"'
+
 # Docker playground aliases.
 alias doc_go="docker run --name go-play -d golang:1.23"
 
