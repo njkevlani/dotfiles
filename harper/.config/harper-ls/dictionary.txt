@@ -5,7 +5,10 @@ OS
 Rofi
 TODO
 cursorHold
+ghostty
 lc
 leetgo
 mutex
 nCr
+warpstream
+waybar
