@@ -46,3 +46,8 @@ WARNING: in simulation mode so not modifying filesystem.
     a. zsh zsh-syntax-highlighting fzf stow git neovim cliphist wl-clipboard libnotify brightnessctl
 2. Copy from sway-fedora-config: scripts for brightnessctl and volume control.
 3. [nvim] In snacks.nvim explorer, show relevant options on right-click menu.
+4. Idea for external monitor brightness control
+    1. <https://github.com/basecamp/omarchy/issues/2302>
+    2. Something similar to <https://github.com/MonitorControl/MonitorControl> for Linux.
+5. Notification history.
+6. OSD Notifications for volume/brightness control.
