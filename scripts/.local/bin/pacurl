@@ -1,3 +1,8 @@
 #!/bin/bash
 
-xdg-open "$(expac -S %u "$1")";
+if ! url=$(expac -S %u "$1"); then
+    printf "Could not resolve url for %s.\n" "$1"
+    exit 1
+fi
+
+xdg-open "$url";
