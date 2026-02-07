@@ -1,5 +1,0 @@
-if [ ! -d /media/nilesh/DATA ]
-then
-udisksctl mount --block-device /dev/sda2
-fi
-nautilus /media/nilesh/DATA/

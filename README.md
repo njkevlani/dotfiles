@@ -6,7 +6,7 @@ My dotfiles using [GNU Stow](https://www.gnu.org/software/stow/)
 
 ![Screenshot](/misc/images/screenshot.png)
 
-## How to set this at local machine?
+## Usage
 
 - Clone this repository.
 
@@ -15,30 +15,25 @@ git clone https://github.com/njkevlani/dotfiles.git
 cd dotfiles
 ```
 
-Make symlinks for config files of any config-directory(directories in root of this repo) with stow like:
+Use stow to make symlink of the configs from this repo to your `~/.config`
+directory.
 
 ```bash
-stow -v bash
+stow -v zsh
 stow -v git
 # and so on...
 ```
 
-You can add `-n` option to this command to see what links will be made **without writing them on file system**.
+You can add `-n` option to this command to see what symlink will be created
+**without writing them on filesystem**.
 
 ```bash
-$ stow -nv bash/
-LINK: .bashrc => dotfiles/bash/.bashrc
-LINK: .bash_profile => dotfiles/bash/.bash_profile
-LINK: .bashrc_linux => dotfiles/bash/.bashrc_linux
-LINK: .bashrc_mac => dotfiles/bash/.bashrc_mac
+[0]-[dotfiles(main)]-λ stow -nv zsh
+LINK: .cache/zsh => ../dotfiles/zsh/.cache/zsh
+LINK: .config/zsh => ../dotfiles/zsh/.config/zsh
+LINK: .zshrc => dotfiles/zsh/.zshrc
 WARNING: in simulation mode so not modifying filesystem.
 ```
-
-## What else does this repository contain?
-
-- [`/misc/awesome`](/misc/awesome) contains some cool things to customize your setup.
-- [`/misc/scripts`](/misc/scripts) contains some cool scripts to ease day to day tasks and some eye candy as well!
-- [`/misc/archlinux`](/misc/archlinux) contains base packages that I use from archlinux official repositories and AUR.
 
 ## TODO
 
@@ -51,3 +46,4 @@ WARNING: in simulation mode so not modifying filesystem.
     2. Something similar to <https://github.com/MonitorControl/MonitorControl> for Linux.
 5. Notification history.
 6. OSD Notifications for volume/brightness control.
+7. Bind logitech mx master mouse gestures workspace commands in niri.
