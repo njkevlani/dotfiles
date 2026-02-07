@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # Most part taken from https://sharats.me/posts/shell-script-best-practices/
 
@@ -25,6 +25,10 @@ run_main() {
             ;;
         "new")
             shift
+            # `shellcheck` suggests to enquote argument given to `run_new`, but enquoting arguemnt will result in
+            # multiple artuments being converted single string argument with spaces, which we do not want. Hence
+            # disabling this check here.
+            # shellcheck disable=SC2068
             run_new $@
             ;;
         *)
