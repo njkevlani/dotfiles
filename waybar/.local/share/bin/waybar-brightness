@@ -1,0 +1,164 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+STEP="5"
+
+usage() {
+  printf "Usage: %s <internal|external|keyboard> [print|up|down]\n" "$0" >&2
+}
+
+get_brightnessctl_device() {
+  local class="$1"
+  local match_regex="${2:-}"
+
+  brightnessctl -l 2>/dev/null | awk -v class="$class" -v match_re="$match_regex" '
+    /^Device/ {
+      device=$2
+      gsub(/\x27/, "", device)
+      if ($0 ~ "class \x27" class "\x27") {
+        if (match_re == "" || device ~ match_re) {
+          print device
+          exit
+        }
+      }
+    }
+  '
+}
+
+get_brightnessctl_percent() {
+  local device="$1"
+  local info
+
+  info=$(brightnessctl -m -d "$device" 2>/dev/null || true)
+  if [[ -z "$info" ]]; then
+    return 1
+  fi
+
+  IFS=',' read -r _ _ _ percent _ <<< "$info"
+  percent="${percent%%%}"
+  printf "%s" "$percent"
+}
+
+get_ddc_display_id() {
+  if [[ -n "${WAYBAR_BRIGHTNESS_DDC_DISPLAY:-}" ]]; then
+    printf "%s" "$WAYBAR_BRIGHTNESS_DDC_DISPLAY"
+    return 0
+  fi
+
+  ddcutil detect --brief 2>/dev/null | awk '/^Display/ {print $2; exit}'
+}
+
+get_ddc_brightness() {
+  local display_id="$1"
+  local line
+
+  line=$(ddcutil getvcp 10 --brief --display "$display_id" 2>/dev/null || true)
+  if [[ -z "$line" ]]; then
+    return 1
+  fi
+
+  if [[ $line =~ current\ value\ =\ ([0-9]+),\ max\ value\ =\ ([0-9]+) ]]; then
+    printf "%s %s\n" "${BASH_REMATCH[1]}" "${BASH_REMATCH[2]}"
+    return 0
+  fi
+
+  read -r _ _ _ current max <<< "$line"
+  if [[ -n "${current:-}" && -n "${max:-}" ]]; then
+    printf "%s %s\n" "$current" "$max"
+    return 0
+  fi
+
+  return 1
+}
+
+if [[ $# -lt 1 ]]; then
+  usage
+  exit 1
+fi
+
+target="$1"
+action="${2:-print}"
+
+case "$target" in
+  keyboard)
+    device=$(get_brightnessctl_device "leds" "kbd|keyboard|kbd_backlight|kbd::|asus::kbd")
+
+    if [[ -z "$device" ]]; then
+      if [[ "$action" == "present" ]]; then
+        exit 1
+      fi
+      exit 0
+    fi
+
+    if [[ "$action" == "present" ]]; then
+      exit 0
+    fi
+
+    if [[ "$action" == "up" ]]; then
+      brightnessctl -d "$device" set "+${STEP}%" >/dev/null
+      exit 0
+    fi
+    if [[ "$action" == "down" ]]; then
+      brightnessctl -d "$device" set "${STEP}%-" >/dev/null
+      exit 0
+    fi
+
+    percent=$(get_brightnessctl_percent "$device" || true)
+    if [[ -z "$percent" ]]; then
+      exit 0
+    fi
+
+    printf '%s\n' "$(get_brightnessctl_percent "$device" || true)"
+    ;;
+  external)
+    display_id=$(get_ddc_display_id)
+
+    if [[ -z "$display_id" ]]; then
+      if [[ "$action" == "present" ]]; then
+        exit 1
+      fi
+      exit 0
+    fi
+
+    if [[ "$action" == "present" ]]; then
+      if get_ddc_brightness "$display_id" >/dev/null; then
+        exit 0
+      fi
+      exit 1
+    fi
+
+    if [[ "$action" == "up" || "$action" == "down" ]]; then
+      read -r current max < <(get_ddc_brightness "$display_id" || true)
+      if [[ -z "${current:-}" || -z "${max:-}" ]]; then
+        exit 0
+      fi
+
+      if [[ "$action" == "up" ]]; then
+        new=$((current + STEP))
+      else
+        new=$((current - STEP))
+      fi
+
+      if (( new < 0 )); then
+        new=0
+      fi
+      if (( new > max )); then
+        new=$max
+      fi
+
+      ddcutil setvcp 10 "$new" --display "$display_id" >/dev/null
+      exit 0
+    fi
+
+    read -r current max < <(get_ddc_brightness "$display_id" || true)
+    if [[ -z "${current:-}" || -z "${max:-}" ]]; then
+      exit 0
+    fi
+
+    printf '%s\n' "$((current * 100 / max))"
+    ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac
