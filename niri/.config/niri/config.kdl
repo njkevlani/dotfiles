@@ -84,6 +84,7 @@ window-rule {
     match app-id="com.github.hluk.copyq"
     match app-id="nwg-look"
     match app-id="nm-connection-editor"
+    match app-id="xarchiver"
 
     open-floating true
 }
