@@ -10,6 +10,8 @@
     "cpu",
     "memory",
     "backlight",
+    "custom/backlight-external",
+    "custom/backlight-keyboard",
     "pulseaudio",
     "battery",
     "clock"
@@ -44,6 +46,28 @@
     "on-click": "brightnessctl set 5%-",
     "on-click-right": "brightnessctl set +5%",
     "tooltip-format": "Brightness {percent}%"
+  },
+  "custom/backlight-external": {
+    "exec-if": "waybar-brightness external present",
+    "exec": "waybar-brightness external",
+    "format": "{}% 󰍹",
+    "interval": 2,
+    "on-click": "waybar-brightness external down",
+    "on-click-right": "waybar-brightness external up",
+    "on-scroll-up": "waybar-brightness external up",
+    "on-scroll-down": "waybar-brightness external down",
+    "tooltip-format": "External Monitor Brightness {text}%"
+  },
+  "custom/backlight-keyboard": {
+    "exec-if": "waybar-brightness keyboard present",
+    "exec": "waybar-brightness keyboard",
+    "format": "{}% ",
+    "interval": 2,
+    "on-click": "waybar-brightness keyboard down",
+    "on-click-right": "waybar-brightness keyboard up",
+    "on-scroll-up": "waybar-brightness keyboard up",
+    "on-scroll-down": "waybar-brightness keyboard down",
+    "tooltip-format": "Keyboard Monitor Brightness {text}%"
   },
   "clock": {
     "tooltip-format": "<tt>{calendar}</tt>",
