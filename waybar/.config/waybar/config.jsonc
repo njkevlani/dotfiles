@@ -6,6 +6,7 @@
   ],
   "modules-right": [
     "tray",
+    "bluetooth",
     "cpu",
     "memory",
     "backlight",
@@ -22,6 +23,15 @@
     "icon-theme": "Papirus",
     "tooltip-format": "{title}",
     "on-click": "activate"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "",
+    "tooltip-format": "Devices connected: {num_connections}\n---\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
+    "on-click": "bzmenu -l rofi"
   },
   "cpu": {
     "format": "{usage}% "
