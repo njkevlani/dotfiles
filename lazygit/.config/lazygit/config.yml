@@ -5,6 +5,8 @@ gui:
       - bold
 
 git:
+  overrideGpg: true
+
   pagers:
     - pager: delta --paging=never
 
