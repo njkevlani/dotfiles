@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+
+# Most part taken from https://sharats.me/posts/shell-script-best-practices/
+# For ddcuil commands, taken from https://github.com/basecamp/omarchy/issues/2302
+
+# Made from https://github.com/njkevlani/dotfiles/tree/main/scripts/.local/share/bin/template.sh
+
+# Exit when a command fails.
+set -o errexit
+
+# Fail the script when some unset variable is used.
+set -o nounset
+
+# Fail the script when a command in pipe fails.
+set -o pipefail
+
+# To enable script execution with traces, use TRACE=1 ./script.sh
+if [[ "${TRACE-0}" == "1" ]]; then
+    set -o xtrace
+fi
+
+# State Variables
+STATE_FILE="/tmp/waybar_brightness.tmp"
+
+run_main() {
+    cmd="${1-}"
+    case $cmd in
+    "" | "-h" | "--help")
+        run_help
+        exit
+        ;;
+    "print")
+        shift
+        # shellcheck disable=SC2068
+        run_print $@
+        ;;
+    "up")
+        shift
+        # shellcheck disable=SC2068
+        run_up $@
+        ;;
+    "down")
+        shift
+        # shellcheck disable=SC2068
+        run_down $@
+        ;;
+    *)
+        echo "Unknown command."
+        run_help
+        exit 1
+        ;;
+    esac
+}
+
+run_help() {
+    echo "Usage:"
+    echo "  $0 up <step>"
+    echo "  $0 down <step>"
+    echo "  $0 print"
+}
+
+_set_file_if_needed() {
+    if [ ! -f "$STATE_FILE" ]; then
+        initial_brightness=$(ddcutil getvcp 10 -t | cut -d ' ' -f 4)
+        echo "$initial_brightness" >"$STATE_FILE"
+    fi
+}
+
+_set_brightness_in_background() {
+    pkill -f "ddcutil.*setvcp 10" || true
+    (ddcutil setvcp 10 "$1") &
+}
+
+run_print() {
+    _set_file_if_needed
+    cat "$STATE_FILE"
+}
+
+run_up() {
+    current=$(cat "$STATE_FILE")
+    STEP=$1
+    new_brightness=$((current + STEP > 100 ? 100 : current + STEP))
+    if [ "$current" -ne "$new_brightness" ]; then
+        echo "$new_brightness" >"$STATE_FILE"
+        _set_brightness_in_background "$new_brightness"
+    fi
+    pkill -RTMIN+8 waybar # Can add whatever RTMIN+n you please, as long as it's an integer. Make sure the signals match between the config and script.
+}
+
+run_down() {
+    current=$(cat "$STATE_FILE")
+    STEP=$1
+    new_brightness=$((current - STEP < 0 ? 0 : current - STEP))
+    if [ "$current" -ne "$new_brightness" ]; then
+        echo "$new_brightness" >"$STATE_FILE"
+        _set_brightness_in_background "$new_brightness"
+    fi
+    pkill -RTMIN+8 waybar
+}
+
+run_main "$@"

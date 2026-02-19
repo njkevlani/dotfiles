@@ -10,6 +10,7 @@
     "cpu",
     "memory",
     "backlight",
+    "custom/backlight-external",
     "pulseaudio",
     "battery",
     "clock"
@@ -44,6 +45,16 @@
     "on-click": "brightnessctl set 5%-",
     "on-click-right": "brightnessctl set +5%",
     "tooltip-format": "Brightness {percent}%"
+  },
+  "custom/backlight-external": {
+    "exec": "~/.local/share/bin/waybar-ddcutil-helper print",
+    "format": "{}% 󰍹",
+    "interval": 2,
+    "on-click": "~/.local/share/bin/waybar-ddcutil-helper down 5",
+    "on-click-right": "~/.local/share/bin/waybar-ddcutil-helper up 5",
+    "on-scroll-up": "~/.local/share/bin/waybar-ddcutil-helper up 3",
+    "on-scroll-down": "~/.local/share/bin/waybar-ddcutil-helper down 3",
+    "tooltip-format": "External Monitor Brightness {text}%"
   },
   "clock": {
     "tooltip-format": "<tt>{calendar}</tt>",
