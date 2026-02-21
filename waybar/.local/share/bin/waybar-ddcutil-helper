@@ -66,14 +66,20 @@ _set_file_if_needed() {
     fi
 }
 
+_ddcutil_compatible_monitor_present() {
+    ddcutil getvcp 10 -t >/dev/null 2>&1
+}
+
 _set_brightness_in_background() {
     pkill -f "ddcutil.*setvcp 10" || true
     (ddcutil setvcp 10 "$1") &
 }
 
 run_print() {
-    _set_file_if_needed
-    cat "$STATE_FILE"
+    if _ddcutil_compatible_monitor_present; then
+        _set_file_if_needed
+        cat "$STATE_FILE"
+    fi
 }
 
 run_up() {
