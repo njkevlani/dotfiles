@@ -17,13 +17,15 @@ else
         -e 's/,//g')
 
     action_shutdown="Shutdown"
+    action_reboot="Reboot"
     action_logout="Logout"
     action_lock="Lock"
     action_suspend="Suspend"
-    action=$(printf "%s\n" "$action_shutdown" "$action_logout" "$action_lock" "$action_suspend" | rofi -sync -dmenu -p "${prompt}" -theme ~/.config/rofi/themes/spotlight-dark-session-menu.rasi)
+    action=$(printf "%s\n" "$action_shutdown" "$action_reboot" "$action_logout" "$action_lock" "$action_suspend" | rofi -sync -dmenu -p "${prompt}" -theme ~/.config/rofi/themes/spotlight-dark-session-menu.rasi)
 
     case "${action}" in
     "${action_shutdown}") systemctl poweroff ;;
+    "${action_reboot}") systemctl reboot ;;
     "${action_logout}") niri msg action quit -s ;;
     "${action_lock}") swaylock ;;
     "${action_suspend}") systemctl suspend ;;
