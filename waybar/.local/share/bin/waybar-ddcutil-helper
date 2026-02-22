@@ -34,6 +34,16 @@ run_main() {
         # shellcheck disable=SC2068
         run_print $@
         ;;
+    "sync")
+        shift
+        # shellcheck disable=SC2068
+        run_sync $@
+        ;;
+    "monitor")
+        shift
+        # shellcheck disable=SC2068
+        run_monitor $@
+        ;;
     "up")
         shift
         # shellcheck disable=SC2068
@@ -57,6 +67,8 @@ run_help() {
     echo "  $0 up <step>"
     echo "  $0 down <step>"
     echo "  $0 print"
+    echo "  $0 sync"
+    echo "  $0 monitor"
 }
 
 _set_file_if_needed() {
@@ -76,10 +88,25 @@ _set_brightness_in_background() {
 }
 
 run_print() {
-    if _ddcutil_compatible_monitor_present; then
-        _set_file_if_needed
+    if [ -f "$STATE_FILE" ]; then
         cat "$STATE_FILE"
     fi
+}
+
+run_sync() {
+    if _ddcutil_compatible_monitor_present; then
+        rm -f "$STATE_FILE"
+        _set_file_if_needed
+    else
+        rm -f "$STATE_FILE"
+    fi
+}
+
+run_monitor() {
+    run_sync
+    udevadm monitor --udev --subsystem-match=drm | while IFS= read -r _; do
+        run_sync || true
+    done
 }
 
 run_up() {
