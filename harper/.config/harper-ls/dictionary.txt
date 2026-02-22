@@ -3,6 +3,7 @@ FE
 NP
 Nilesh
 OS
+QMK
 Rofi
 TODO
 cursorHold
