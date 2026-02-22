@@ -21,7 +21,7 @@
     box-shadow: inset 0 -3px #ffffff;
 }
 
-#custom-backlight-external, #custom-backlight-keyboard {
+#custom-backlight-external, #custom-backlight-via-keyboard {
     padding: 0 10px;
     color: #ffffff;
     background-color: #90b1b1;
