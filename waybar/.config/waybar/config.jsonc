@@ -58,13 +58,13 @@
     "tooltip-format": "External Monitor Brightness {text}%"
   },
   "custom/backlight-via-keyboard": {
-    "exec": "~/.local/share/py3-venv/bin/python ~/.local/share/bin/waybar-via-helper.py print",
+    "exec": "qmk-light --first-device --get-brightness --quiet",
     "format": "{}%  ",
     "interval": 2,
-    "on-click": "~/.local/share/py3-venv/bin/python ~/.local/share/bin/waybar-via-helper.py down 5",
-    "on-click-right": "~/.local/share/py3-venv/bin/python ~/.local/share/bin/waybar-via-helper.py up 5",
-    "on-scroll-up": "~/.local/share/py3-venv/bin/python ~/.local/share/bin/waybar-via-helper.py up 3",
-    "on-scroll-down": "~/.local/share/py3-venv/bin/python ~/.local/share/bin/waybar-via-helper.py down 3",
+    "on-click": "qmk-light --first-device --set-brightness -5",
+    "on-click-right": "qmk-light --first-device --set-brightness +5",
+    "on-scroll-up": "qmk-light --first-device --set-brightness +3",
+    "on-scroll-down": "qmk-light --first-device --set-brightness -3",
     "tooltip-format": "Via keyboard Brightness {text}%"
   },
   "clock": {
