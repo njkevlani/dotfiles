@@ -85,6 +85,7 @@ window-rule {
     match app-id="nwg-look"
     match app-id="nm-connection-editor"
     match app-id="xarchiver"
+    match app-id="thunar" title="Rename"
 
     open-floating true
 }
