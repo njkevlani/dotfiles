@@ -1,0 +1,32 @@
+{
+  "buffer_font_size": 16.0,
+  "git": {
+    "inline_blame": {
+      "enabled": false,
+    },
+  },
+  "buffer_font_weight": 300.0,
+  "base_keymap": "SublimeText",
+  "ui_font_family": ".SystemUIFont",
+  "vim_mode": true,
+  "ui_font_size": 16.0,
+  "buffer_font_family": "JetBrains Mono NL",
+  "theme": "One Light",
+  "autosave": "on_window_change",
+  "restore_on_startup": "launchpad",
+  "vim": {
+    "use_smartcase_find": true,
+  },
+  "title_bar": {
+    "show_onboarding_banner": false,
+    "show_branch_icon": true,
+    "show_sign_in": false,
+  },
+  "preview_tabs": {
+    "enabled": false,
+  },
+  "buffer_font_features": {
+    // disable ligature.
+    "calt": false,
+  },
+}

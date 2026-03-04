@@ -1,0 +1,29 @@
+[
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space h": "workspace::ActivatePaneLeft",
+      "space l": "workspace::ActivatePaneRight",
+      "space j": "workspace::ActivatePaneDown",
+      "space k": "workspace::ActivatePaneUp",
+      "space q": "pane::CloseActiveItem",
+      "space /": [
+        "editor::ToggleComments",
+        {
+          "advance_downwards": true,
+        },
+      ],
+      "space n": "workspace::NewSearch",
+      "space N": "file_finder::Toggle",
+      "space 1": "project_panel::Toggle",
+    },
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "space /": "editor::ToggleComments",
+      "v": "editor::SelectLargerSyntaxNode",
+      "V": "editor::SelectSmallerSyntaxNode",
+    },
+  },
+]
