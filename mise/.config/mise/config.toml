@@ -1,0 +1,8 @@
+[tools]
+codex = "latest"
+gemini-cli = "latest"
+node = "latest"
+pipx = "latest"
+python = "latest"
+typos = "latest"
+yamllint = "latest"

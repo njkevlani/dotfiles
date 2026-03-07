@@ -99,3 +99,5 @@ bindkey '^x^e' edit-command-line
 # MISC
 # allow # comments in shell
 setopt INTERACTIVE_COMMENTS
+
+eval "$(mise activate zsh)"
