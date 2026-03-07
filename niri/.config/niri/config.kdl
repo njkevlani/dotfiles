@@ -86,6 +86,7 @@ window-rule {
     match app-id="nm-connection-editor"
     match app-id="xarchiver"
     match app-id="thunar" title="Rename"
+    match app-id="dev.zed.Zed" title="Zed — Settings"
 
     open-floating true
 }
