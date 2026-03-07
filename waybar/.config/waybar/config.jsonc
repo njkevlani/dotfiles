@@ -33,7 +33,7 @@
     "tooltip-format": "Devices connected: {num_connections}\n---\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
-    "on-click": "bzmenu -l rofi"
+    "on-click": "mise exec github:e-tho/bzmenu -- bzmenu -l rofi"
   },
   "cpu": {
     "format": "{usage}% "
