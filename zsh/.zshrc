@@ -66,6 +66,8 @@ PROMPT='%F{red}[%f%?%F{red}]%f-%F{red}[%f%1~${vcs_info_msg_0_}%F{red}]%f-λ '
 # Show 󰜺 when output does not end with new line.
 PROMPT_EOL_MARK=$'\U000f073a'
 
+eval "$(mise activate zsh)"
+
 # Enable fzf shell integration for things like history search.
 source <(fzf --zsh)
 
@@ -99,5 +101,3 @@ bindkey '^x^e' edit-command-line
 # MISC
 # allow # comments in shell
 setopt INTERACTIVE_COMMENTS
-
-eval "$(mise activate zsh)"
