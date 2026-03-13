@@ -42,6 +42,9 @@ alias kubectlnvim='nvim +"lua require(\"kubectl\").open()"'
 # Same as jq, but do not fail on invalid json.
 alias jqsafe='jq -Rr "fromjson? // (\"\u001b[31m!!!un parsed - \u001b[0m\" + .)"'
 
+# Convert json list to csv
+alias jqcsv="jq -r '(.[0] | keys) as \$k | \$k, map([.[ \$k[] ]])[] | @csv'"
+
 # Docker playground aliases.
 alias doc_go="docker run --name go-play -d golang:1.23"
 
