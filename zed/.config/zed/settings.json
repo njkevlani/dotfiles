@@ -29,4 +29,18 @@
     // disable ligature.
     "calt": false,
   },
+  "project_panel": {
+    "auto_fold_dirs": false,
+  },
+  "file_finder": {
+    "modal_max_width": "large",
+  },
+  "gutter": {
+    "min_line_number_digits": 0,
+    "folds": false,
+  },
+  "drag_and_drop_selection": {
+    "enabled": false,
+  },
+  "hover_popover_delay": 1000,
 }
