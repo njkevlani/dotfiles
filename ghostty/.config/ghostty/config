@@ -12,6 +12,7 @@ theme = Seoulbones Light
 gtk-titlebar = false
 
 keybind = super+n=new_tab
+keybind = super+shift+n=new_window
 
 # Shell integration sets cursor to a bar on a prompt by default. This disables
 # that and keeps the cursor as block.
