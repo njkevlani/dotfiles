@@ -17,3 +17,8 @@ nCr
 warpstream
 waybar
 yyyy
+sql
+DB
+HDFC
+SBI
+Bhavnagar
