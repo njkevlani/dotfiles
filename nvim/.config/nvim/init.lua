@@ -49,16 +49,22 @@ vim.keymap.set('n', '<leader>/', 'gccj', { remap = true, desc = 'Comment current
 vim.keymap.set('v', '<leader>/', 'gc', { remap = true, desc = 'Comment current selection' })
 
 -- Copy content
-function CopyFileContent() vim.cmd('%y+') end
-vim.keymap.set('n', '<leader>cc', CopyFileContent, { desc = 'Copy file content to clipboard' })
+vim.api.nvim_create_user_command(
+  'CopyFileContent',
+  function() vim.cmd('%y+') end,
+  { desc = 'Copy file content to clipboard' }
+)
+
+vim.keymap.set('n', '<leader>cc', '<CMD>CopyFileContent<CR>', { desc = 'Copy file content to clipboard' })
 
 -- Copy filename
-function CopyFilename()
+vim.api.nvim_create_user_command('CopyFilename', function()
   local filename = vim.fn.expand('%:p')
   vim.fn.setreg('+', filename)
   vim.notify(string.format('Copied file name %s to clipboard.', filename), 'info')
-end
-vim.keymap.set('n', '<leader>cf', CopyFilename, { desc = 'Copy absolute file path' })
+end, { desc = 'Copy absolute file path' })
+
+vim.keymap.set('n', '<leader>cf', '<CMD>CopyFilename<CR>', { desc = 'Copy absolute file path' })
 
 -- Highlight when yanking text
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -89,7 +95,7 @@ vim.keymap.set('i', '<BS>', function()
 end, { expr = true, noremap = true, replace_keycodes = false })
 
 -- Run file
-function RunFile()
+vim.api.nvim_create_user_command('RunFile', function()
   local run_cmds = {
     python = 'python',
     sh = 'bash',
@@ -111,8 +117,9 @@ function RunFile()
   vim.notify('Running ' .. run_cmd)
 
   vim.cmd('vs | terminal ' .. run_cmd)
-end
-vim.keymap.set('n', '<leader>rf', RunFile, { desc = 'Run current file' })
+end, { desc = 'Run current file' })
+
+vim.keymap.set('n', '<leader>rf', '<CMD>RunFile<CR>', { desc = 'Run current file' })
 
 -- Go to last location when opening a buffer
 vim.api.nvim_create_autocmd('BufReadPost', {
