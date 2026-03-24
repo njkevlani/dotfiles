@@ -48,6 +48,9 @@ vim.keymap.set('n', '<leader>q', '<CMD>bd<CR>', { desc = 'Buffer delete' })
 vim.keymap.set('n', '<leader>/', 'gccj', { remap = true, desc = 'Comment current line and move down' })
 vim.keymap.set('v', '<leader>/', 'gc', { remap = true, desc = 'Comment current selection' })
 
+-- Disable annoying/unused keymappings.
+vim.keymap.set('n', 'q:', '<Nop>')
+
 -- Copy content
 vim.api.nvim_create_user_command(
   'CopyFileContent',
@@ -562,7 +565,7 @@ local plugins = {
       { '<leader>N', function() Snacks.picker.files() end, desc = 'Find Files' },
       { '<leader>d', function() Snacks.picker.diagnostics_buffer() end, desc = 'Buffer Diagnostics' },
       { '<leader>sh', function() Snacks.picker.help() end, desc = 'Help Pages' },
-      { '<leader>?', function() Snacks.picker.keymaps() end, desc = 'Keymaps' },
+      { '<leader>??', function() Snacks.picker.keymaps() end, desc = 'Keymaps' },
       { '<leader>sq', function() Snacks.picker.qflist() end, desc = 'Quickfix List' },
       { 'gd', function() Snacks.picker.lsp_definitions() end, desc = 'Goto Definition' },
       { 'gD', function() Snacks.picker.lsp_declarations() end, desc = 'Goto Declaration' },
@@ -580,6 +583,7 @@ local plugins = {
       { '<leader>gI', function() Snacks.picker.gh_issue({ state = 'all' }) end, desc = 'GitHub Issues (all)' },
       { '<leader>gp', function() Snacks.picker.gh_pr() end, desc = 'GitHub Pull Requests (open)' },
       { '<leader>gP', function() Snacks.picker.gh_pr({ state = 'all' }) end, desc = 'GitHub Pull Requests (all)' },
+      { '<leader>:', function() Snacks.picker.commands({ layout = { preview = false } }) end, desc = 'Commands' },
     },
     init = function()
       vim.api.nvim_create_autocmd('User', {
@@ -693,6 +697,26 @@ local plugins = {
     event = 'VeryLazy',
     opts = {
       preset = 'helix',
+      filter = function(mapping)
+        -- Mapping whihc I do not want to see.
+        local hidden = {
+          ['<leader>h'] = true,
+          ['<leader>l'] = true,
+          ['<leader>j'] = true,
+          ['<leader>k'] = true,
+          ['b'] = true,
+          ['B'] = true,
+          ['h'] = true,
+          ['j'] = true,
+          ['l'] = true,
+          ['k'] = true,
+        }
+        return not hidden[mapping.lhs]
+      end,
+    },
+    keys = {
+      { '<leader>?', function() require('which-key').show() end, desc = 'Which Key' },
+      { '<C-/>', function() require('which-key').show() end, mode = 'i', desc = 'Which Key' },
     },
   },
   {
