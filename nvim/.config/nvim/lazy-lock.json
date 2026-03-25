@@ -9,7 +9,7 @@
   "incline.nvim": { "branch": "main", "commit": "0fd2d5a27504dba7fdc507a53275f22c081fe640" },
   "kubectl.nvim": { "branch": "main", "commit": "5609d5db8d89f43b02dda9d7f5f6cbf66da611f2" },
   "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
-  "lazydev.nvim": { "branch": "main", "commit": "01bc2aacd51cf9021eb19d048e70ce3dd09f7f93" },
+  "lazydev.nvim": { "branch": "main", "commit": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d" },
   "live-preview.nvim": { "branch": "main", "commit": "4bbcbe79948b2726f00b5217277abd1e2651e699" },
   "lush.nvim": { "branch": "main", "commit": "9c60ec2279d62487d942ce095e49006af28eed6e" },
   "mini.diff": { "branch": "main", "commit": "98fc732d5835eb7b6539f43534399b07b17f4e28" },
