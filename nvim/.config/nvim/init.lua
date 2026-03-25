@@ -714,10 +714,13 @@ local plugins = {
         return not hidden[mapping.lhs]
       end,
     },
-    keys = {
-      { '<leader>?', function() require('which-key').show() end, desc = 'Which Key' },
-      { '<C-/>', function() require('which-key').show() end, mode = 'i', desc = 'Which Key' },
-    },
+    keys = function()
+      local wk = require('which-key')
+      return {
+        { '<leader>?', function() wk.show() end, desc = 'Which Key' },
+        { '<C-/>', function() wk.show() end, mode = 'i', desc = 'Which Key' },
+      }
+    end,
   },
   {
     -- Ensure that yaml-language-server does not kick in when editing helm file.
