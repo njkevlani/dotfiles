@@ -6,16 +6,6 @@
       "space l": "workspace::ActivatePaneRight",
       "space j": "workspace::ActivatePaneDown",
       "space k": "workspace::ActivatePaneUp",
-      "space q": "pane::CloseActiveItem",
-      "space /": [
-        "editor::ToggleComments",
-        {
-          "advance_downwards": true,
-        },
-      ],
-      "space n": "workspace::NewSearch",
-      "space N": "file_finder::Toggle",
-      "space 1": "project_panel::Toggle",
       "space c a": "editor::ToggleCodeActions",
       "space g r": "editor::FindAllReferences",
     },
@@ -23,7 +13,6 @@
   {
     "context": "vim_mode == visual",
     "bindings": {
-      "space /": "editor::ToggleComments",
       "v": "editor::SelectLargerSyntaxNode",
       "V": "editor::SelectSmallerSyntaxNode",
     },
@@ -32,6 +21,17 @@
     "context": "Terminal",
     "bindings": {
       "escape escape": "terminal_panel::ToggleFocus",
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-/": [
+        "editor::ToggleComments",
+        {
+          "advance_downwards": true,
+        },
+      ],
     },
   },
 ]
