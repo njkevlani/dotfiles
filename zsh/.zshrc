@@ -48,6 +48,9 @@ alias jqcsv="jq -r '(.[0] | keys) as \$k | \$k, map([.[ \$k[] ]])[] | @csv'"
 # Docker playground aliases.
 alias doc_go="docker run --name go-play -d golang:1.23"
 
+# Worktree helpers.
+alias wt-pick='cd $(wt --list | fzf --prompt="Worktrees > " | cut -f1)'
+
 # Git in prompt.
 autoload -Uz add-zsh-hook vcs_info
 setopt prompt_subst
