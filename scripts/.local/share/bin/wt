@@ -1,0 +1,391 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+die() {
+  echo "❌ $*" >&2
+  exit 1
+}
+
+info() {
+  echo "ℹ️ $*"
+}
+
+success() {
+  echo "✅ $*"
+}
+
+require_repo() {
+  git rev-parse --show-toplevel >/dev/null 2>&1 || die "Not inside a git repo"
+}
+
+repo_root() {
+  git rev-parse --show-toplevel
+}
+
+main_worktree_root() {
+  local common
+  common=$(git rev-parse --git-common-dir)
+
+  git --git-dir="$common" --work-tree="${common%/.git}" rev-parse --show-toplevel
+}
+
+main_worktree_name() {
+  basename "$(main_worktree_root)"
+}
+
+wt_base() {
+  echo "$HOME/.local/share/git/$(main_worktree_name)"
+}
+
+default_base() {
+  git -C "$(main_worktree_root)" rev-parse --abbrev-ref HEAD
+}
+
+print_help() {
+  cat <<'EOF'
+wt - git worktree helper
+
+USAGE
+  wt --list
+  wt --create --branch <name> [--base <name>]
+  wt --merge [--base <name>]
+  wt --update [--base <name>]
+  wt --pr [--remote <name>] [--base <name>]
+  wt --rm --branch <name>
+  wt -h | --help
+
+EXAMPLES
+  wt --list
+  wt --create --branch feature-auth
+  wt --create --branch feature-x --base develop
+
+  wt --update
+  wt --merge
+  wt --pr
+  wt --pr
+  wt --pr --remote origin
+  wt --pr --remote origin --base develop
+  wt --rm --branch feature-auth
+
+  # Change dir to the worktree chosen from fzf picker
+  wt_cd() {
+    local list target
+    list="$(wt --list)" || return
+    target="$(printf '%s\n' "$list" | fzf --prompt='Worktrees > ' | cut -f2)"
+    [[ -n "$target" ]] && cd -- "$target"
+  }
+
+  # Remove worktree chosen from fzf picker
+  wt_rm() {
+    local list target
+    list="$(wt --list)" || return
+    target="$(printf '%s\n' "$list" | fzf --prompt='Remove worktree > ' | cut -f1)"
+    [[ -n "$target" ]] && wt --rm --branch $target
+  }
+
+NOTES
+  - Worktrees are stored in:
+      ~/.local/share/git/<repo>/<branch>
+
+  - Default base branch is inferred from git init.defaultBranch
+EOF
+}
+
+# -------------------------------
+# helpers
+# -------------------------------
+
+ensure_clean() {
+  local path="$1"
+
+  git -C "$path" diff --quiet || die "Uncommitted changes in $path"
+  git -C "$path" diff --cached --quiet || die "Uncommitted changes in $path"
+}
+
+worktree_list() {
+  git worktree list --porcelain | awk 'BEGIN { RS=""; FS="\n" }
+    {
+      path=""; branch=""
+      for (i = 1; i <= NF; i++) {
+        if ($i ~ /^worktree /) { path = substr($i, 10) }
+        else if ($i ~ /^branch /) {
+          b = substr($i, 8)
+          sub(/^refs\/heads\//, "", b)
+          branch = b
+        }
+        else if ($i ~ /^detached /) { branch = "HEAD" }
+      }
+      if (branch == "") { branch = "HEAD" }
+      if (path != "") { printf "%s\t%s\n", branch, path }
+    }'
+}
+
+worktree_path_for_branch() {
+  local branch="$1"
+
+  worktree_list | awk -v b="$branch" -F '\t' '$1 == b { print $2 }'
+}
+
+current_branch() {
+  git rev-parse --abbrev-ref HEAD
+}
+
+# -------------------------------
+# create
+# -------------------------------
+
+create() {
+  local branch="$1"
+  local base="$2"
+
+  local root
+  root=$(repo_root)
+
+  local dir
+  dir="$(wt_base)/$branch"
+
+  mkdir -p "$(wt_base)"
+
+  [ -d "$dir" ] && die "Worktree exists: $dir"
+
+  if git -C "$root" show-ref --verify --quiet "refs/heads/$branch"; then
+    git -C "$root" worktree add "$dir" "$branch"
+  else
+    git -C "$root" worktree add -b "$branch" "$dir" "$base"
+  fi
+
+  success "Created $branch at $dir"
+}
+
+# -------------------------------
+# list
+# -------------------------------
+
+list() {
+  worktree_list
+}
+
+# -------------------------------
+# merge (squash)
+# -------------------------------
+
+merge() {
+  local base="$1"
+  local branch
+  branch=$(current_branch)
+
+  [ "$branch" = "$base" ] && die "Already on base branch"
+
+  ensure_clean "$(repo_root)"
+
+  # Find base worktree path
+  local base_path
+  base_path=$(worktree_path_for_branch "$base")
+
+  [ -z "$base_path" ] && die "Base branch '$base' is not checked out in any worktree"
+
+  info "Using base worktree: $base_path"
+
+  ensure_clean "$base_path"
+
+  # count commits
+  local count
+  count=$(git rev-list --count "$base..$branch")
+
+  local msg
+
+  if [ "$count" -eq 1 ]; then
+    # preserve original commit message exactly
+    msg=$(git log -1 --pretty=%B "$branch")
+  else
+    # build combined message
+    local body
+    body=$(git log --reverse --format='- %s' "$base..$branch")
+
+    msg="feat($branch): squash merge into $base
+
+$body"
+  fi
+
+  git -C "$base_path" merge --squash "$branch"
+  git -C "$base_path" commit -m "$msg"
+
+  success "Squashed $branch → $base"
+}
+
+# -------------------------------
+# update (rebase)
+# -------------------------------
+
+update() {
+  local base="$1"
+
+  ensure_clean "$(repo_root)"
+
+  git rebase "$base"
+
+  info "Rebased onto $base"
+}
+
+# -------------------------------
+# PR
+# -------------------------------
+
+pr() {
+  local base="${1:-}"
+  local remote="${2:-origin}"
+  local branch
+  branch=$(current_branch)
+
+  git push -u "$remote" "$branch"
+
+  if command -v gh >/dev/null 2>&1; then
+    if [ -n "$base" ]; then
+      gh pr create --fill --base "$base"
+    else
+      gh pr create --fill
+    fi
+  else
+    echo "⚠️ Install GitHub CLI (gh) for PR creation"
+  fi
+}
+
+remove_worktree() {
+  local branch="$1"
+
+  local dir
+  dir=$(worktree_path_for_branch "$branch")
+
+  [ -z "$dir" ] && die "Branch '$branch' is not checked out in any worktree"
+
+  local main_root
+  main_root=$(main_worktree_root)
+
+  if [ "$dir" = "$main_root" ]; then
+    die "Refusing to remove the main worktree: $dir"
+  fi
+
+  echo "⚠️ Removing worktree: $branch"
+  echo "📁 $dir"
+
+  # Optional confirmation (recommended)
+  read -r -p "Continue? [y/N] " confirm
+  [[ "$confirm" != "y" && "$confirm" != "Y" ]] && return
+
+  git worktree remove "$dir"
+  git branch -d "$branch" || echo "⚠️ Branch not deleted"
+
+  success "Removed $branch"
+}
+
+# -------------------------------
+# main
+# -------------------------------
+
+action=""
+branch=""
+base=""
+remote=""
+
+set_action() {
+  local next="$1"
+  if [ -n "$action" ]; then
+    die "Multiple actions specified"
+  fi
+  action="$next"
+}
+
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+  --list)
+    set_action "list"
+    shift
+    ;;
+  --create)
+    set_action "create"
+    shift
+    ;;
+  --merge)
+    set_action "merge"
+    shift
+    ;;
+  --update)
+    set_action "update"
+    shift
+    ;;
+  --pr)
+    set_action "pr"
+    shift
+    ;;
+  --rm)
+    set_action "rm"
+    shift
+    ;;
+  --branch)
+    [ -n "${2:-}" ] || die "--branch requires a value"
+    branch="$2"
+    shift 2
+    ;;
+  --base)
+    [ -n "${2:-}" ] || die "--base requires a value"
+    base="$2"
+    shift 2
+    ;;
+  --remote)
+    [ -n "${2:-}" ] || die "--remote requires a value"
+    remote="$2"
+    shift 2
+    ;;
+  -h | --help)
+    set_action "help"
+    shift
+    ;;
+  --)
+    shift
+    break
+    ;;
+  *)
+    die "Unknown option: $1"
+    ;;
+  esac
+done
+
+case "$action" in
+"")
+  print_help
+  exit 1
+  ;;
+help)
+  print_help
+  ;;
+list)
+  require_repo
+  list
+  ;;
+create)
+  require_repo
+  [ -n "$branch" ] || die "--create requires --branch"
+  create "$branch" "${base:-$(default_base)}"
+  ;;
+merge)
+  require_repo
+  merge "${base:-$(default_base)}"
+  ;;
+update)
+  require_repo
+  update "${base:-$(default_base)}"
+  ;;
+pr)
+  require_repo
+  pr "${base:-}" "${remote:-}"
+  ;;
+rm)
+  require_repo
+  [ -n "$branch" ] || die "--rm requires --branch"
+  remove_worktree "$branch"
+  ;;
+*)
+  die "Unknown action"
+  ;;
+esac

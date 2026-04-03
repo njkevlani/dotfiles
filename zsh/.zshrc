@@ -48,6 +48,9 @@ alias jqcsv="jq -r '(.[0] | keys) as \$k | \$k, map([.[ \$k[] ]])[] | @csv'"
 # Docker playground aliases.
 alias doc_go="docker run --name go-play -d golang:1.23"
 
+# Worktree helpers.
+alias wt-pick='wt --list && cd "$(wt --list | fzf --prompt="Worktrees > " | cut -f2)"'
+
 # Git in prompt.
 autoload -Uz add-zsh-hook vcs_info
 setopt prompt_subst
@@ -61,6 +64,22 @@ random_string() {
     length=${1:-7}  # Default length is 7 if not provided
     tr -dc 'A-Za-z0-9' </dev/urandom | head -c $length
     echo  # To add a newline after the string
+}
+
+# Change dir to the worktree chosen from fzf picker
+wt_cd() {
+    local list target
+    list="$(wt --list)" || return
+    target="$(printf '%s\n' "$list" | fzf --prompt='Worktrees > ' | cut -f2)"
+    [[ -n "$target" ]] && cd -- "$target"
+}
+
+# Remove worktree chosen from fzf picker
+wt_rm() {
+    local list target
+    list="$(wt --list)" || return
+    target="$(printf '%s\n' "$list" | fzf --prompt='Remove worktree > ' | cut -f1)"
+    [[ -n "$target" ]] && wt --rm --branch $target
 }
 
 # Prompt like [0]-[dotfiles(main)]-λ
