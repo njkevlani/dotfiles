@@ -131,7 +131,7 @@ create() {
   if git -C "$root" show-ref --verify --quiet "refs/heads/$branch"; then
     git -C "$root" worktree add "$dir" "$branch"
   else
-    git -C "$root" worktree add -b "$branch" "$dir" "$(base_ref "$base")"
+    git -C "$root" worktree add -b "$branch" "$dir" "$base"
   fi
 
   success "Created $branch at $dir"
