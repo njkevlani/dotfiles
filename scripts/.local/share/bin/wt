@@ -67,7 +67,7 @@ NOTES
   - Worktrees are stored in:
       ~/.local/share/git/<repo>/<branch>
 
-  - Default base branch is inferred from origin/HEAD
+  - Default base branch is inferred from git init.defaultBranch
 EOF
 }
 
