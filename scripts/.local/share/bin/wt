@@ -268,10 +268,12 @@ remove_worktree() {
 
   [ -z "$dir" ] && die "Branch '$branch' is not checked out in any worktree"
 
-  local root
-  root=$(repo_root)
+  local primary_root
+  local common
+  common=$(git rev-parse --git-common-dir)
+  primary_root=$(git --git-dir="$common" --work-tree="${common%/.git}" rev-parse --show-toplevel)
 
-  if [ "$dir" = "$root" ]; then
+  if [ "$dir" = "$primary_root" ]; then
     die "Refusing to remove the main worktree: $dir"
   fi
 
