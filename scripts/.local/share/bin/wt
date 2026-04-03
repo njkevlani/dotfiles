@@ -39,7 +39,7 @@ wt_base() {
 }
 
 default_base() {
-  git config --get init.defaultBranch 2>/dev/null || echo "main"
+  git -C "$(primary_worktree_root)" rev-parse --abbrev-ref HEAD
 }
 
 print_help() {
