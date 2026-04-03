@@ -44,7 +44,7 @@ USAGE
   wt --create --branch <name> [--base <name>]
   wt --merge [--base <name>]
   wt --update [--base <name>]
-  wt --pr [--base <name>]
+  wt --pr --remote <name> [--base <name>]
   wt --rm --branch <name>
   wt -h | --help
 
@@ -56,7 +56,8 @@ EXAMPLES
   wt --update
   wt --merge
   wt --pr
-  wt --pr --base develop
+  wt --pr --remote origin
+  wt --pr --remote origin --base develop
   wt --rm --branch feature-auth
 
   # Use a picker (optional)
@@ -79,26 +80,6 @@ ensure_clean() {
 
   git -C "$path" diff --quiet || die "Uncommitted changes in $path"
   git -C "$path" diff --cached --quiet || die "Uncommitted changes in $path"
-}
-
-origin_exists() {
-  git remote get-url origin >/dev/null 2>&1
-}
-
-base_ref() {
-  local base="$1"
-
-  if origin_exists && git show-ref --verify --quiet "refs/remotes/origin/$base"; then
-    echo "origin/$base"
-    return
-  fi
-
-  if git show-ref --verify --quiet "refs/heads/$base"; then
-    echo "$base"
-    return
-  fi
-
-  die "Base branch '$base' not found"
 }
 
 worktree_list() {
@@ -145,8 +126,6 @@ create() {
 
   mkdir -p "$(wt_base)"
 
-  origin_exists && git -C "$root" fetch origin
-
   [ -d "$dir" ] && die "Worktree exists: $dir"
 
   if git -C "$root" show-ref --verify --quiet "refs/heads/$branch"; then
@@ -177,7 +156,6 @@ merge() {
 
   [ "$branch" = "$base" ] && die "Already on base branch"
 
-  origin_exists && git fetch origin
   ensure_clean "$(repo_root)"
 
   # Find base worktree path
@@ -209,9 +187,6 @@ merge() {
 $body"
   fi
 
-  if origin_exists; then
-    git -C "$base_path" pull --ff-only origin "$base"
-  fi
   git -C "$base_path" merge --squash "$branch"
   git -C "$base_path" commit -m "$msg"
 
@@ -227,11 +202,7 @@ update() {
 
   ensure_clean "$(repo_root)"
 
-  if origin_exists; then
-    git fetch origin
-  fi
-
-  git rebase "$(base_ref "$base")"
+  git rebase "$base"
 
   info "Rebased onto $base"
 }
@@ -242,12 +213,13 @@ update() {
 
 pr() {
   local base="${1:-}"
+  local remote="${2:-}"
   local branch
   branch=$(current_branch)
 
-  origin_exists || die "Remote 'origin' not configured"
+  [ -n "$remote" ] || die "--pr requires --remote. Valid remotes for current repo are: ($(git remote | paste -sd ' ' -))"
 
-  git push -u origin "$branch"
+  git push -u "$remote" "$branch"
 
   if command -v gh >/dev/null 2>&1; then
     if [ -n "$base" ]; then
@@ -297,6 +269,7 @@ remove_worktree() {
 action=""
 branch=""
 base=""
+remote=""
 
 set_action() {
   local next="$1"
@@ -342,6 +315,11 @@ while [ "$#" -gt 0 ]; do
     base="$2"
     shift 2
     ;;
+  --remote)
+    [ -n "${2:-}" ] || die "--remote requires a value"
+    remote="$2"
+    shift 2
+    ;;
   -h | --help)
     set_action "help"
     shift
@@ -383,7 +361,7 @@ update)
   ;;
 pr)
   require_repo
-  pr "${base:-}"
+  pr "${base:-}" "${remote:-}"
   ;;
 rm)
   require_repo
