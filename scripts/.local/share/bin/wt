@@ -245,6 +245,8 @@ pr() {
   local branch
   branch=$(current_branch)
 
+  origin_exists || die "Remote 'origin' not configured"
+
   git push -u origin "$branch"
 
   if command -v gh >/dev/null 2>&1; then
