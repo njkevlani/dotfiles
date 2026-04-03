@@ -24,10 +24,16 @@ repo_root() {
 }
 
 main_worktree_root() {
-  local common
-  common=$(git rev-parse --git-common-dir)
+  local common_git_dir
+  common_git_dir=$(git rev-parse --git-common-dir)
+  common_git_dir=$(cd "$common_git_dir" && pwd -P) || die "Failed to resolve git common dir"
 
-  git --git-dir="$common" --work-tree="${common%/.git}" rev-parse --show-toplevel
+  if [[ "$common_git_dir" == */.git ]]; then
+    echo "${common_git_dir%/.git}"
+    return
+  fi
+
+  die "Unsupported git common dir: $common_git_dir"
 }
 
 main_worktree_name() {
