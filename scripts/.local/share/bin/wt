@@ -96,14 +96,14 @@ worktree_list() {
         else if ($i ~ /^detached /) { branch = "HEAD" }
       }
       if (branch == "") { branch = "HEAD" }
-      if (path != "") { print path "\t" branch }
+      if (path != "") { printf "%s\t%s\n", branch, path }
     }'
 }
 
 worktree_path_for_branch() {
   local branch="$1"
 
-  worktree_list | awk -v b="$branch" -F '\t' '$2 == b { print $1 }'
+  worktree_list | awk -v b="$branch" -F '\t' '$1 == b { print $2 }'
 }
 
 current_branch() {
