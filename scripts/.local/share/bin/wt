@@ -60,8 +60,11 @@ EXAMPLES
   wt --pr --remote origin --base develop
   wt --rm --branch feature-auth
 
-  # Use a picker (optional)
-  wt --list | fzf --prompt="Worktrees > " | cut -f1
+  # Change dir to the worktree chosen from fzf picker
+  wt --list && cd "$(wt --list | fzf --prompt="Worktrees > " | cut -f2)"
+
+  # Remove worktree chosen from fzf picker
+  wt --rm --branch "$(wt --list | fzf --prompt="Remove worktree > " | cut -f1)"
 
 NOTES
   - Worktrees are stored in:
