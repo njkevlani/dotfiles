@@ -66,6 +66,22 @@ random_string() {
     echo  # To add a newline after the string
 }
 
+# Change dir to the worktree chosen from fzf picker
+wt_cd() {
+    local list target
+    list="$(wt --list)" || return
+    target="$(printf '%s\n' "$list" | fzf --prompt='Worktrees > ' | cut -f2)"
+    [[ -n "$target" ]] && cd -- "$target"
+}
+
+# Remove worktree chosen from fzf picker
+wt_rm() {
+    local list target
+    list="$(wt --list)" || return
+    target="$(printf '%s\n' "$list" | fzf --prompt='Remove worktree > ' | cut -f1)"
+    [[ -n "$target" ]] && wt --rm --branch $target
+}
+
 # Prompt like [0]-[dotfiles(main)]-λ
 PROMPT='%F{red}[%f%?%F{red}]%f-%F{red}[%f%1~${vcs_info_msg_0_}%F{red}]%f-λ '
 

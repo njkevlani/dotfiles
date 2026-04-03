@@ -69,10 +69,20 @@ EXAMPLES
   wt --rm --branch feature-auth
 
   # Change dir to the worktree chosen from fzf picker
-  wt --list && cd "$(wt --list | fzf --prompt="Worktrees > " | cut -f2)"
+  wt_cd() {
+    local list target
+    list="$(wt --list)" || return
+    target="$(printf '%s\n' "$list" | fzf --prompt='Worktrees > ' | cut -f2)"
+    [[ -n "$target" ]] && cd -- "$target"
+  }
 
   # Remove worktree chosen from fzf picker
-  wt --rm --branch "$(wt --list | fzf --prompt="Remove worktree > " | cut -f1)"
+  wt_rm() {
+    local list target
+    list="$(wt --list)" || return
+    target="$(printf '%s\n' "$list" | fzf --prompt='Remove worktree > ' | cut -f1)"
+    [[ -n "$target" ]] && wt --rm --branch $target
+  }
 
 NOTES
   - Worktrees are stored in:
