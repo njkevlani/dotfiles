@@ -49,7 +49,7 @@ alias jqcsv="jq -r '(.[0] | keys) as \$k | \$k, map([.[ \$k[] ]])[] | @csv'"
 alias doc_go="docker run --name go-play -d golang:1.23"
 
 # Worktree helpers.
-alias wt-pick='cd $(wt --list | fzf --prompt="Worktrees > " | cut -f1)'
+alias wt-pick='wt --list && cd "$(wt --list | fzf --prompt="Worktrees > " | cut -f2)"'
 
 # Git in prompt.
 autoload -Uz add-zsh-hook vcs_info
