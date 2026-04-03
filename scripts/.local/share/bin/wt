@@ -304,85 +304,85 @@ set_action() {
 
 while [ "$#" -gt 0 ]; do
   case "$1" in
-    --list)
-      set_action "list"
-      shift
-      ;;
-    --create)
-      set_action "create"
-      shift
-      ;;
-    --merge)
-      set_action "merge"
-      shift
-      ;;
-    --update)
-      set_action "update"
-      shift
-      ;;
-    --pr)
-      set_action "pr"
-      shift
-      ;;
-    --rm)
-      set_action "rm"
-      shift
-      ;;
-    --branch)
-      [ -n "${2:-}" ] || die "--branch requires a value"
-      branch="$2"
-      shift 2
-      ;;
-    --base)
-      [ -n "${2:-}" ] || die "--base requires a value"
-      base="$2"
-      shift 2
-      ;;
-    -h | --help)
-      set_action "help"
-      shift
-      ;;
-    --)
-      shift
-      break
-      ;;
-    *)
-      die "Unknown option: $1"
-      ;;
+  --list)
+    set_action "list"
+    shift
+    ;;
+  --create)
+    set_action "create"
+    shift
+    ;;
+  --merge)
+    set_action "merge"
+    shift
+    ;;
+  --update)
+    set_action "update"
+    shift
+    ;;
+  --pr)
+    set_action "pr"
+    shift
+    ;;
+  --rm)
+    set_action "rm"
+    shift
+    ;;
+  --branch)
+    [ -n "${2:-}" ] || die "--branch requires a value"
+    branch="$2"
+    shift 2
+    ;;
+  --base)
+    [ -n "${2:-}" ] || die "--base requires a value"
+    base="$2"
+    shift 2
+    ;;
+  -h | --help)
+    set_action "help"
+    shift
+    ;;
+  --)
+    shift
+    break
+    ;;
+  *)
+    die "Unknown option: $1"
+    ;;
   esac
 done
 
 require_repo
 
 case "$action" in
-  "")
-    print_help
-    exit 1
-    ;;
-  help)
-    print_help
-    ;;
-  list)
-    list
-    ;;
-  create)
-    [ -n "$branch" ] || die "--create requires --branch"
-    create "$branch" "${base:-$(default_base)}"
-    ;;
-  merge)
-    merge "${base:-$(default_base)}"
-    ;;
-  update)
-    update "${base:-$(default_base)}"
-    ;;
-  pr)
-    pr "${base:-}"
-    ;;
-  rm)
-    [ -n "$branch" ] || die "--rm requires --branch"
-    remove_worktree "$branch"
-    ;;
-  *)
-    die "Unknown action"
-    ;;
+"")
+  print_help
+  exit 1
+  ;;
+help)
+  print_help
+  ;;
+list)
+  list
+  ;;
+create)
+  [ -n "$branch" ] || die "--create requires --branch"
+  create "$branch" "${base:-$(default_base)}"
+  ;;
+merge)
+  merge "${base:-$(default_base)}"
+  ;;
+update)
+  update "${base:-$(default_base)}"
+  ;;
+pr)
+  pr "${base:-}"
+  ;;
+rm)
+  [ -n "$branch" ] || die "--rm requires --branch"
+  remove_worktree "$branch"
+  ;;
+*)
+  die "Unknown action"
+  ;;
 esac
