@@ -32,7 +32,7 @@ wt_base() {
 }
 
 default_base() {
-  git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | sed 's@^origin/@@' || echo "main"
+  git config --get init.defaultBranch 2>/dev/null || echo "main"
 }
 
 print_help() {
