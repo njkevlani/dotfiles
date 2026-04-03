@@ -23,12 +23,19 @@ repo_root() {
   git rev-parse --show-toplevel
 }
 
-repo_name() {
-  basename "$(repo_root)"
+primary_worktree_root() {
+  local common
+  common=$(git rev-parse --git-common-dir)
+
+  git --git-dir="$common" --work-tree="${common%/.git}" rev-parse --show-toplevel
+}
+
+primary_worktree_name() {
+  basename "$(primary_worktree_root)"
 }
 
 wt_base() {
-  echo "$HOME/.local/share/git/$(repo_name)"
+  echo "$HOME/.local/share/git/$(primary_worktree_name)"
 }
 
 default_base() {
@@ -244,9 +251,7 @@ remove_worktree() {
   [ -z "$dir" ] && die "Branch '$branch' is not checked out in any worktree"
 
   local primary_root
-  local common
-  common=$(git rev-parse --git-common-dir)
-  primary_root=$(git --git-dir="$common" --work-tree="${common%/.git}" rev-parse --show-toplevel)
+  primary_root=$(primary_worktree_root)
 
   if [ "$dir" = "$primary_root" ]; then
     die "Refusing to remove the main worktree: $dir"
