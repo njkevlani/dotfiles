@@ -21,23 +21,23 @@ fi
 run_main() {
     cmd="${1-}"
     case $cmd in
-        "" | "-h" | "--help")
-            run_help
-            exit
-            ;;
-        "new")
-            shift
-            # `shellcheck` suggests to enquote argument given to `run_new`, but enquoting arguemnt will result in
-            # multiple artuments being converted single string argument with spaces, which we do not want. Hence
-            # disabling this check here.
-            # shellcheck disable=SC2068
-            run_new $@
-            ;;
-        *)
-            echo "Unknown command."
-            run_help
-            exit 1
-            ;;
+    "" | "-h" | "--help")
+        run_help
+        exit
+        ;;
+    "new")
+        shift
+        # `shellcheck` suggests to enquote argument given to `run_new`, but enquoting arguemnt will result in
+        # multiple artuments being converted single string argument with spaces, which we do not want. Hence
+        # disabling this check here.
+        # shellcheck disable=SC2068
+        run_new $@
+        ;;
+    *)
+        echo "Unknown command."
+        run_help
+        exit 1
+        ;;
     esac
 }
 

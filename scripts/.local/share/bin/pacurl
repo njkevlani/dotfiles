@@ -5,4 +5,4 @@ if ! url=$(expac -S %u "$1"); then
     exit 1
 fi
 
-xdg-open "$url";
+xdg-open "$url"
