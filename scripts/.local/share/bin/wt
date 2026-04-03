@@ -356,8 +356,6 @@ while [ "$#" -gt 0 ]; do
   esac
 done
 
-require_repo
-
 case "$action" in
 "")
   print_help
@@ -367,22 +365,28 @@ help)
   print_help
   ;;
 list)
+  require_repo
   list
   ;;
 create)
+  require_repo
   [ -n "$branch" ] || die "--create requires --branch"
   create "$branch" "${base:-$(default_base)}"
   ;;
 merge)
+  require_repo
   merge "${base:-$(default_base)}"
   ;;
 update)
+  require_repo
   update "${base:-$(default_base)}"
   ;;
 pr)
+  require_repo
   pr "${base:-}"
   ;;
 rm)
+  require_repo
   [ -n "$branch" ] || die "--rm requires --branch"
   remove_worktree "$branch"
   ;;
