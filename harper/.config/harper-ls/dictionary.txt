@@ -14,6 +14,8 @@ QMK
 Rofi
 SBI
 TODO
+cmdline
+cmp
 cursorHold
 env
 ghostty
@@ -22,7 +24,10 @@ lc
 leetgo
 mutex
 nCr
+nvim
+popupmenu
 sql
 warpstream
 waybar
+yaml
 yyyy
