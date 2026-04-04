@@ -372,7 +372,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Settings up following rules for markdown files.
+-- Settings up following rules for Markdown files.
 -- - New line after 80 chars in current line.
 -- - Show column line at col 80.
 vim.api.nvim_create_autocmd('FileType', {
@@ -601,6 +601,7 @@ local plugins = {
           'lua',
           'html',
           'css',
+          'vimdoc',
         },
         sync_install = false,
         highlight = { enable = true },
@@ -788,7 +789,7 @@ local plugins = {
       { '<leader>gI', function() Snacks.picker.gh_issue({ state = 'all' }) end, desc = 'GitHub Issues (all)' },
       { '<leader>gp', function() Snacks.picker.gh_pr() end, desc = 'GitHub Pull Requests (open)' },
       { '<leader>gP', function() Snacks.picker.gh_pr({ state = 'all' }) end, desc = 'GitHub Pull Requests (all)' },
-      { '<leader>:', function() Snacks.picker.commands({ layout = { preview = false } }) end, desc = 'Commands' },
+      { '<leader>:', function() Snacks.picker.commands({ layout = { preview = nil } }) end, desc = 'Commands' },
     },
     init = function()
       vim.api.nvim_create_autocmd('User', {
@@ -828,7 +829,7 @@ local plugins = {
     event = 'VeryLazy',
     opts = {
       lsp = {
-        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        -- Override Markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
           ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
           ['vim.lsp.util.stylize_markdown'] = true,
@@ -838,7 +839,6 @@ local plugins = {
           enabled = true,
           silent = false, -- set to true to not show a message if hover is not available
           view = nil, -- when nil, use defaults from documentation
-          ---@type NoiceViewOptions
           opts = {}, -- merged with defaults from documentation
         },
         signature = {
@@ -847,20 +847,19 @@ local plugins = {
             enabled = true,
             trigger = true, -- Automatically show signature help when typing a trigger character from the LSP
             luasnip = true, -- Will open signature help when jumping to Luasnip insert nodes
-            throttle = 50, -- Debounce lsp signature help request by 50ms
+            throttle = 50, -- Debounce LSP signature help request by 50 milliseconds
           },
           view = nil, -- when nil, use defaults from documentation
-          ---@type NoiceViewOptions
           opts = {}, -- merged with defaults from documentation
         },
       },
-      -- you can enable a preset for easier configuration
+      -- You can enable a preset for easier configuration
       presets = {
-        bottom_search = true, -- use a classic bottom cmdline for search
-        command_palette = true, -- position the cmdline and popupmenu together
+        bottom_search = true, -- Use a classic bottom cmdline for search
+        command_palette = true, -- Position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = false, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = false, -- add a border to hover docs and signature help
+        inc_rename = false, -- Enables an input dialog for inc-rename.nvim
+        lsp_doc_border = false, -- Add a border to hover docs and signature help
       },
       views = {
         cmdline_popup = {
@@ -884,7 +883,7 @@ local plugins = {
     'sindrets/diffview.nvim',
   },
   {
-    -- For aligning/format tables in markdown.
+    -- For aligning/format tables in Markdown.
     'dhruvasagar/vim-table-mode',
     ft = { 'markdown' },
   },
@@ -938,7 +937,7 @@ local plugins = {
     opts = {
       preset = 'helix',
       filter = function(mapping)
-        -- Mapping whihc I do not want to see.
+        -- Mapping which I do not want to see.
         local hidden = {
           ['<leader>h'] = true,
           ['<leader>l'] = true,
