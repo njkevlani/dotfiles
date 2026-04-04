@@ -973,6 +973,39 @@ local plugins = {
     dependencies = 'saghen/blink.download',
     config = true,
   },
+  {
+    'mfussenegger/nvim-dap',
+    dependencies = {
+      {
+        'leoluz/nvim-dap-go',
+        opts = {},
+      },
+      {
+        'igorlfs/nvim-dap-view',
+        lazy = false,
+        version = '1.*',
+        ---@module 'dap-view'
+        ---@type dapview.Config
+        opts = {
+          winbar = {
+            show = true,
+            controls = {
+              enabled = true,
+              buttons = { 'play', 'step_over', 'step_into', 'run_last', 'terminate' },
+            },
+          },
+        },
+      },
+    },
+    keys = {
+      { '<leader>b', function() require('dap').toggle_breakpoint() end, desc = 'Toogle breakpoint' },
+    },
+    config = function()
+      vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DiagnosticError' })
+      vim.fn.sign_define('DapBreakpointRejected', { text = '', texthl = 'DiagnosticWarn' })
+      vim.fn.sign_define('DapStopped', { text = '', texthl = 'DiagnosticError', linehl = 'DapStoppedLine' })
+    end,
+  },
 }
 
 require('lazy').setup(plugins)
