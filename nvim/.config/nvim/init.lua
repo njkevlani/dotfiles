@@ -128,6 +128,7 @@ vim.api.nvim_create_autocmd('CursorHold', {
       border = 'rounded',
       source = true,
       scope = 'cursor',
+      focus = false,
     })
   end,
 })
