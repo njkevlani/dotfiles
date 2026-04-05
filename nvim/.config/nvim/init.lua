@@ -48,6 +48,10 @@ vim.keymap.set('n', '<leader>q', '<CMD>bd<CR>', { desc = 'Buffer delete' })
 vim.keymap.set('n', '<leader>/', 'gccj', { remap = true, desc = 'Comment current line and move down' })
 vim.keymap.set('v', '<leader>/', 'gc', { remap = true, desc = 'Comment current selection' })
 
+-- Select outward/inward.
+vim.keymap.set('v', 'v', 'an', { remap = true, desc = 'Select outward' })
+vim.keymap.set('v', 'V', 'in', { remap = true, desc = 'Select inward' })
+
 -- surround
 vim.keymap.set('v', '(', 'c(<ESC>pa)<ESC>')
 vim.keymap.set('v', "'", "c'<ESC>pa'<ESC>")
@@ -318,49 +322,6 @@ local plugins = {
           vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = '[LSP] Rename' })
           vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[LSP] Code Actions' })
         end,
-      })
-    end,
-  },
-
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    config = function()
-      local configs = require('nvim-treesitter.configs')
-
-      ---@diagnostic disable-next-line: missing-fields
-      configs.setup({
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = '<leader>w',
-            node_incremental = 'w',
-            scope_incremental = false,
-            node_decremental = 'W',
-          },
-        },
-
-        ensure_installed = {
-          'go',
-          'bash',
-          'python',
-          'diff',
-          'dockerfile',
-          'jsonnet',
-          'just',
-          'markdown',
-          'markdown_inline',
-          'scala',
-          'sql',
-          'yaml',
-          'lua',
-          'html',
-          'css',
-          'vimdoc',
-        },
-        sync_install = false,
-        highlight = { enable = true },
-        indent = { enable = true },
       })
     end,
   },
