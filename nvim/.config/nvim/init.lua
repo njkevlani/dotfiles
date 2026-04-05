@@ -523,6 +523,18 @@ local plugins = {
           window = { border = 'rounded' },
         },
       },
+      cmdline = {
+        completion = {
+          list = {
+            selection = {
+              -- With preselect = true, selecting first entry is not straightforward.
+              -- On pressing Tab, the 2nd entry is selected.
+              -- On pressing enter, currently typed input is sent as command.
+              preselect = false,
+            },
+          },
+        },
+      },
     },
   },
 
