@@ -30,6 +30,9 @@ vim.opt.cmdheight = 0
 
 vim.opt.termguicolors = true
 
+-- Show hex-char@column-number in ruler in statusline.
+vim.opt.rulerformat = '0x%B@%c'
+
 vim.keymap.set('n', '<Esc>', '<CMD>nohlsearch<CR>', { desc = '<ESC> will also clear highlights' })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
