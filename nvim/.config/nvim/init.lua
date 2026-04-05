@@ -445,6 +445,7 @@ local plugins = {
   {
     'folke/snacks.nvim',
     lazy = false,
+    dependencies = 'nvim-tree/nvim-web-devicons',
     -----@module 'snacks'
     ---@type snacks.Config
     opts = {
@@ -454,6 +455,7 @@ local plugins = {
       notifier = { enabled = true },
       picker = {
         enabled = true,
+        layout = 'select',
         win = {
           input = {
             keys = {
@@ -485,7 +487,7 @@ local plugins = {
       { '<leader>1', function() Snacks.explorer() end, desc = 'File Explorer' },
       { '<leader>rp', function() Snacks.picker.resume() end, desc = 'Resume last picker' },
       { '<leader>p', function() Snacks.picker() end, desc = 'Snacks pickers' },
-      { '<leader>n', function() Snacks.picker.grep() end, desc = 'Grep' },
+      { '<leader>n', function() Snacks.picker.grep({ layout = 'vertical' }) end, desc = 'Grep' },
       { '<leader>N', function() Snacks.picker.files() end, desc = 'Find Files' },
       { '<leader>d', function() Snacks.picker.diagnostics_buffer() end, desc = 'Buffer Diagnostics' },
       { 'gd', function() Snacks.picker.lsp_definitions() end, desc = 'Goto Definition' },
