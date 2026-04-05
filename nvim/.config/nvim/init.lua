@@ -393,6 +393,7 @@ local plugins = {
         },
         markdown = { 'markdownlint-cli2' },
         sh = { 'shellcheck', 'shfmt' },
+        zsh = { 'shfmt' },
         json = { 'jq' },
         toml = { 'tombi' },
         dockerfile = { 'dockerfmt' },
