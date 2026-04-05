@@ -186,6 +186,14 @@ vim.diagnostic.config({
     },
     priority = 2,
   },
+  status = {
+    format = {
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '',
+    },
+  },
 })
 
 -- Install `lazy.nvim` plugin manager
@@ -538,27 +546,12 @@ local plugins = {
   },
 
   {
-    -- Show diagnostic count at top right corner.
+    -- Show connected LSP clients at top right corner.
     'b0o/incline.nvim',
     config = function()
       require('incline').setup({
-        render = function(props)
+        render = function()
           local status_elements = {}
-
-          -- Collect diagnostic labels.
-          local icons = { error = ' ', warn = ' ', info = ' ', hint = ' ' }
-          local diagnostic_label = {}
-
-          for severity, icon in pairs(icons) do
-            local n = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
-            if n > 0 then
-              table.insert(diagnostic_label, { icon .. n .. ' ', group = 'DiagnosticSign' .. severity })
-            end
-          end
-
-          if #diagnostic_label > 0 then
-            table.insert(status_elements, diagnostic_label)
-          end
 
           -- Collect LSP servers attached.
           local lsp_clients = vim.lsp.get_clients({ bufnr = 0 })
