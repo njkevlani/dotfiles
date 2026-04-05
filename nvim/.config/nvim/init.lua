@@ -215,12 +215,6 @@ local plugins = {
   { 'tpope/vim-sleuth' }, -- Detect tab / space automatically
 
   {
-    -- Delete/change/add parentheses/quotes/much more with ease
-    'tpope/vim-surround',
-    enabled = false,
-  },
-
-  {
     -- For git signs
     'echasnovski/mini.diff',
     opts = {
