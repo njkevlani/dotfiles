@@ -18,6 +18,7 @@ cmdline
 cmp
 cursorHold
 env
+flink
 ghostty
 grub
 lc
@@ -31,3 +32,4 @@ warpstream
 waybar
 yaml
 yyyy
+statusline
