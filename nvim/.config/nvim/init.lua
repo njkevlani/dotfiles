@@ -650,74 +650,34 @@ local plugins = {
       vim.fn.sign_define('DapStopped', { text = '', texthl = 'DiagnosticError', linehl = 'DapStoppedLine' })
     end,
   },
+
+  {
+    'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
+    lazy = false,
+    build = ':TSUpdate',
+    config = function()
+      require('nvim-treesitter').install({
+        'go',
+        'bash',
+        'python',
+        'diff',
+        'dockerfile',
+        'jsonnet',
+        'just',
+        'markdown',
+        'markdown_inline',
+        'scala',
+        'sql',
+        'yaml',
+        'lua',
+        'html',
+        'css',
+        'vimdoc',
+        'json',
+      })
+    end,
+  },
 }
 
 require('lazy').setup(plugins)
-
----@param parsers { ft: string, repo: string, src_subdir?: string, rev?: string }[]
-local function ts_sync(parsers)
-  local tmp = vim.fn.stdpath('cache') .. '/ts_sync'
-  local out_dir = vim.fn.stdpath('data') .. '/site/parser'
-  vim.fn.mkdir(tmp, 'p')
-  vim.fn.mkdir(out_dir, 'p')
-
-  for _, p in ipairs(parsers) do
-    local dir = tmp .. '/' .. p.ft
-    local sub = p.src_subdir and ('/' .. p.src_subdir) or ''
-    local out = out_dir .. '/' .. p.ft .. '.so'
-
-    local parts = {}
-
-    -- stop on first failure
-    table.insert(parts, 'set -e')
-    table.insert(parts, 'rm -rf ' .. dir)
-    table.insert(parts, 'git clone --depth=1 ' .. p.repo .. ' ' .. dir)
-    if p.rev then
-      table.insert(parts, 'cd ' .. dir .. ' && git checkout ' .. p.rev)
-    end
-    table.insert(parts, 'cd ' .. dir .. sub)
-    table.insert(parts, 'tree-sitter generate')
-    table.insert(parts, 'tree-sitter build -o ' .. out)
-
-    local script = table.concat(parts, ' && ')
-
-    vim.notify('Installing ' .. p.ft)
-
-    vim.system({ 'sh', '-c', script }, { text = true }, function(res)
-      if res.code == 0 then
-        vim.notify('Done: ' .. p.ft)
-      else
-        vim.notify('Failed: ' .. p.ft .. '\n' .. (res.stderr or ''), vim.log.levels.ERROR)
-      end
-    end)
-  end
-end
-
-vim.api.nvim_create_user_command(
-  'TSSync',
-  function()
-    ts_sync({
-      { ft = 'go', repo = 'https://github.com/tree-sitter/tree-sitter-go' },
-      { ft = 'bash', repo = 'https://github.com/tree-sitter/tree-sitter-bash' },
-      { ft = 'python', repo = 'https://github.com/tree-sitter/tree-sitter-python' },
-      { ft = 'diff', repo = 'https://github.com/tree-sitter-grammars/tree-sitter-diff' },
-      { ft = 'just', repo = 'https://github.com/casey/tree-sitter-just' },
-      { ft = 'sql', repo = 'https://github.com/derekstride/tree-sitter-sql' },
-      { ft = 'yaml', repo = 'https://github.com/tree-sitter-grammars/tree-sitter-yaml' },
-      { ft = 'html', repo = 'https://github.com/tree-sitter/tree-sitter-html' },
-      { ft = 'css', repo = 'https://github.com/tree-sitter/tree-sitter-css' },
-      { ft = 'json', repo = 'https://github.com/tree-sitter/tree-sitter-json' },
-      {
-        ft = 'markdown',
-        repo = 'https://github.com/tree-sitter-grammars/tree-sitter-markdown',
-        src_subdir = 'tree-sitter-markdown',
-      },
-      {
-        ft = 'markdown_inline',
-        repo = 'https://github.com/tree-sitter-grammars/tree-sitter-markdown',
-        src_subdir = 'tree-sitter-markdown-inline',
-      },
-    })
-  end,
-  { desc = 'Compile and install tree-sitter parsers from source' }
-)
