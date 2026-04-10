@@ -56,6 +56,7 @@ vim.keymap.set('v', 'v', 'an', { remap = true, desc = 'Select outward' })
 vim.keymap.set('v', 'V', 'in', { remap = true, desc = 'Select inward' })
 
 -- surround
+vim.keymap.set('v', '`', 'c`<ESC>pa`<ESC>')
 vim.keymap.set('v', '(', 'c(<ESC>pa)<ESC>')
 vim.keymap.set('v', "'", "c'<ESC>pa'<ESC>")
 vim.keymap.set('v', '"', 'c"<ESC>pa"<ESC>')
