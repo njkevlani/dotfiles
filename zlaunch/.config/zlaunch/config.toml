@@ -1,0 +1,20 @@
+enable_transparency = false
+
+default_modes = [
+  "combined",
+  "emojis",
+  "clipboard",
+]
+
+combined_modules = [
+  "applications",
+  "calculator",
+  "windows",
+  "actions",
+  "search",
+]
+
+[[search_providers]]
+name = "Google"
+trigger = "!g"
+url = "https://google.com?q={query}"
