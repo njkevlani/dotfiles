@@ -374,6 +374,7 @@ local plugins = {
           sh = { 'shellcheck', 'shfmt' },
           zsh = { 'shfmt' },
           json = { 'jq' },
+          jsonc = { 'jq' },
           toml = { 'tombi' },
           dockerfile = { 'dockerfmt' },
           yaml = { 'yamlfmt' },
@@ -566,10 +567,23 @@ local plugins = {
   {
     -- Show connected LSP clients at top right corner.
     'b0o/incline.nvim',
+    dependencies = 'stevearc/conform.nvim',
     config = function()
       require('incline').setup({
         render = function()
           local status_elements = {}
+
+          -- Collect formatters from conform.nvim
+          local conform = require('conform')
+          local formatters = conform.list_formatters(0)
+          if #formatters > 0 then
+            local formatter_names = {}
+            for _, formatter in ipairs(formatters) do
+              table.insert(formatter_names, formatter.name)
+            end
+
+            table.insert(status_elements, { ' ' .. table.concat(formatter_names, ', '), group = 'Keyword' })
+          end
 
           -- Collect LSP servers attached.
           local lsp_clients = vim.lsp.get_clients({ bufnr = 0 })
@@ -579,6 +593,10 @@ local plugins = {
           end
 
           if #lsp_clients > 0 then
+            if #status_elements > 0 then
+              table.insert(status_elements, { ' | ' })
+            end
+
             table.insert(status_elements, { ' ' .. table.concat(lsp_client_names, ', '), group = 'Keyword' })
           end
 
