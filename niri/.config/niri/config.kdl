@@ -63,7 +63,7 @@ layout {
 }
 
 spawn-at-startup "waybar"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+spawn-at-startup "zlaunch"
 spawn-at-startup "swayidle" "-w" "timeout" "301" "niri msg action power-off-monitors" "timeout" "300" "swaylock -f" "before-sleep" "swaylock -f"
 
 prefer-no-csd
@@ -93,11 +93,11 @@ window-rule {
 
 binds {
     Mod+Q           hotkey-overlay-title="Close focused app or quit niri" { spawn "~/.local/share/bin/niri-close.sh"; }
-    Mod+Shift+C     hotkey-overlay-title="Clipboard history"              { spawn-sh "cliphist list | rofi -dmenu -sync -theme ~/.config/rofi/themes/spotlight-dark-clipboard.rasi | cliphist decode | wl-copy" ;}
+    Mod+Shift+C     hotkey-overlay-title="Clipboard history"              { spawn "zlaunch" "show" "-m" "clipboard" ;}
     Mod+Alt+L       hotkey-overlay-title="Swap Alt and Win"               { spawn "~/.local/share/bin/niri-alt-win-switch.sh"; }
     Mod+Shift+Slash hotkey-overlay-title="Show keybindings"               { show-hotkey-overlay; }
     Mod+Return      hotkey-overlay-title="Open a Terminal: ghostty"       { spawn "ghostty" "+new-window"; }
-    Mod+Space       hotkey-overlay-title="Run an Application: rofi"       { spawn "rofi" "-show"; }
+    Mod+Space       hotkey-overlay-title="Run an Application: zlaunch"    { spawn "zlaunch" "show"; }
     Super+Ctrl+Q    hotkey-overlay-title="Lock the Screen: swaylock"      { spawn "swaylock"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
