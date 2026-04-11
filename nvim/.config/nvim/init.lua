@@ -335,6 +335,7 @@ local plugins = {
   {
     -- For formatting
     'stevearc/conform.nvim',
+    dependencies = 'folke/snacks.nvim',
     init = function()
       ensure_installed({
         'golangci-lint',
@@ -348,40 +349,58 @@ local plugins = {
         'tombi',
       })
     end,
-    ---@module 'conform'
-    ---@type conform.setupOpts
-    opts = {
-      formatters_by_ft = {
-        lua = { 'stylua' },
-        go = {
-          'goimports', -- removal of unused imports
-          'gci', -- better ordering of imports
-          'gofumpt', -- formatting in general
+    config = function()
+      Snacks.toggle
+        .new({
+          id = 'format_on_save',
+          name = 'Format on Save',
+          get = function() return not vim.g.disable_autoformat end,
+          set = function(state) vim.g.disable_autoformat = not state end,
+        })
+        :map('<leader>uf')
+
+      ---@module 'conform'
+      ---@type conform.setupOpts
+      local opts = {
+        formatters_by_ft = {
+          lua = { 'stylua' },
+          go = {
+            'goimports', -- removal of unused imports
+            'gci', -- better ordering of imports
+            'gofumpt', -- formatting in general
+          },
+          markdown = { 'markdownlint-cli2' },
+          sh = { 'shellcheck', 'shfmt' },
+          zsh = { 'shfmt' },
+          json = { 'jq' },
+          toml = { 'tombi' },
+          dockerfile = { 'dockerfmt' },
+          yaml = { 'yamlfmt' },
         },
-        markdown = { 'markdownlint-cli2' },
-        sh = { 'shellcheck', 'shfmt' },
-        zsh = { 'shfmt' },
-        json = { 'jq' },
-        toml = { 'tombi' },
-        dockerfile = { 'dockerfmt' },
-      },
-      format_on_save = {
-        timeout_ms = 5000,
-      },
-      formatters = {
-        gci = {
-          prepend_args = {
-            -- Order for sorting imports
-            '-s',
-            'standard', -- Std packages first.
-            '-s',
-            'default', -- Then packages that do not match any group.
-            '-s',
-            'localmodule', -- Then local packages.
+        format_on_save = function()
+          -- Disable with a global or buffer-local variable
+          if vim.g.disable_autoformat then
+            return
+          end
+          return { timeout_ms = 5000, lsp_format = 'fallback' }
+        end,
+        formatters = {
+          gci = {
+            prepend_args = {
+              -- Order for sorting imports
+              '-s',
+              'standard', -- Std packages first.
+              '-s',
+              'default', -- Then packages that do not match any group.
+              '-s',
+              'localmodule', -- Then local packages.
+            },
           },
         },
-      },
-    },
+      }
+
+      require('conform').setup(opts)
+    end,
   },
 
   {
@@ -466,7 +485,7 @@ local plugins = {
         nowait = true,
       },
       { '<leader>i', function() Snacks.notifier.show_history() end, desc = 'Notification History' },
-      { '<leader>uw', function() Snacks.toggle.option('wrap', { name = 'Wrap' }) end, desc = 'Toogle Wrap' },
+      { '<leader>uw', function() Snacks.toggle.option('wrap', { name = 'Wrap' }) end, desc = 'Toggle Wrap' },
     },
   },
 
@@ -643,7 +662,7 @@ local plugins = {
       },
     },
     keys = {
-      { '<leader>b', function() require('dap').toggle_breakpoint() end, desc = 'Toogle breakpoint' },
+      { '<leader>b', function() require('dap').toggle_breakpoint() end, desc = 'Toggle breakpoint' },
     },
     config = function()
       vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DiagnosticError' })
