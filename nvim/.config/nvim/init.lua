@@ -347,6 +347,7 @@ local plugins = {
         'jq',
         'dockerfmt',
         'tombi',
+        'yamlfmt',
       })
     end,
     config = function()
