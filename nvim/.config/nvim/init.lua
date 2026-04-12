@@ -682,6 +682,7 @@ local plugins = {
       vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DiagnosticError' })
       vim.fn.sign_define('DapBreakpointRejected', { text = '', texthl = 'DiagnosticWarn' })
       vim.fn.sign_define('DapStopped', { text = '', texthl = 'DiagnosticError', linehl = 'DapStoppedLine' })
+      vim.api.nvim_set_hl(0, 'DapStoppedLine', { bg = '#FADAD1' })
     end,
   },
 
