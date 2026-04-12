@@ -326,7 +326,6 @@ local plugins = {
         callback = function()
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = '[LSP] Go to definition' })
           vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = '[LSP] Rename' })
-          vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[LSP] Code Actions' })
         end,
       })
     end,
@@ -716,6 +715,20 @@ local plugins = {
         'json',
       })
     end,
+  },
+
+  {
+    'rachartier/tiny-code-action.nvim',
+    dependencies = 'folke/snacks.nvim',
+    event = 'LspAttach',
+    config = function()
+      require('tiny-code-action').setup({
+        backend = 'delta',
+      })
+    end,
+    keys = {
+      { '<leader>ca', function() require('tiny-code-action').code_action({}) end, { desc = '[LSP] Code Actions' } },
+    },
   },
 }
 
