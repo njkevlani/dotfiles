@@ -1,4 +1,5 @@
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 vim.opt.number = true
 
@@ -498,11 +499,6 @@ local plugins = {
   },
 
   {
-    'bullets-vim/bullets.vim',
-    ft = { 'markdown' },
-  },
-
-  {
     'folke/noice.nvim',
     event = 'VeryLazy',
     opts = {
@@ -729,6 +725,12 @@ local plugins = {
     keys = {
       { '<leader>ca', function() require('tiny-code-action').code_action({}) end, { desc = '[LSP] Code Actions' } },
     },
+  },
+
+  {
+    'yousefhadder/markdown-plus.nvim',
+    ft = 'markdown',
+    opts = {},
   },
 }
 
