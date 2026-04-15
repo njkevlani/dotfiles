@@ -92,9 +92,9 @@ window-rule {
 }
 
 binds {
-    Mod+Q           hotkey-overlay-title="Close focused app or quit niri" { spawn "~/.local/share/bin/niri-close.sh"; }
+    Mod+Q           hotkey-overlay-title="Close focused app or quit niri" { spawn "~/.local/bin/niri-close.sh"; }
     Mod+Shift+C     hotkey-overlay-title="Clipboard history"              { spawn "zlaunch" "show" "-m" "clipboard" ;}
-    Mod+Alt+L       hotkey-overlay-title="Swap Alt and Win"               { spawn "~/.local/share/bin/niri-alt-win-switch.sh"; }
+    Mod+Alt+L       hotkey-overlay-title="Swap Alt and Win"               { spawn "~/.local/bin/niri-alt-win-switch.sh"; }
     Mod+Shift+Slash hotkey-overlay-title="Show keybindings"               { show-hotkey-overlay; }
     Mod+Return      hotkey-overlay-title="Open a Terminal: ghostty"       { spawn "ghostty" "+new-window"; }
     Mod+Space       hotkey-overlay-title="Run an Application: zlaunch"    { spawn "zlaunch" "show"; }

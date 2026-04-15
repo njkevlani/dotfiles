@@ -19,8 +19,6 @@ export MANPAGER='nvim +Man!'
 # This helps in seprating words by given chars when performing actions like backward-word.
 WORDCHARS=${WORDCHARS//[.\/]/}
 
-PATH=$PATH:$HOME/.local/share/bin
-
 # gopath setup
 export GOPATH="$HOME/.local/share/go"
 export PATH="$PATH:$GOPATH/bin"

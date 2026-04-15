@@ -2,7 +2,7 @@
 
 # Most part taken from https://sharats.me/posts/shell-script-best-practices/
 
-# Made from https://github.com/njkevlani/dotfiles/tree/main/scripts/.local/share/bin/template.sh
+# Made from https://github.com/njkevlani/dotfiles/tree/main/scripts/.local/bin/template.sh
 
 # Exit when a command fails.
 set -o errexit
