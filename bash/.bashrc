@@ -1,3 +1,4 @@
+alias vi='nvim'
 alias ls="ls --color --group-directories-first -F"
 alias grep='grep --color=auto'
 alias kc='kubectl config use-context $(kubectl config get-contexts -o name | fzf)'
