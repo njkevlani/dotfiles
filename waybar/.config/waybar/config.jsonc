@@ -14,7 +14,8 @@
     "custom/backlight-via-keyboard",
     "pulseaudio",
     "battery",
-    "clock"
+    "clock",
+    "custom/notification"
   ],
   "niri/workspaces": {
     "format": "{index}"
@@ -113,5 +114,22 @@
   "tray": {
     "icon-size": 24,
     "spacing": 12
+  },
+  "custom/notification": {
+    "tooltip": true,
+    "format": "<span size='16pt'>{icon}</span>",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw"
   }
 }

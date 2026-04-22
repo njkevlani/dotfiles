@@ -1,0 +1,29 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "control-center-margin-top": 10,
+  "control-center-margin-bottom": 10,
+  "notification-grouping": false,
+  "widgets": [
+    "title",
+    "inhibitors",
+    "notifications",
+    "buttons-grid"
+  ],
+  "widget-config": {
+    "buttons-grid": {
+      "buttons-per-row": 2,
+      "actions": [
+        {
+          "label": "",
+          "command": "swaync-client --close-panel && niri msg pick-color | grep -o '#[0-9a-fA-F]\\{6\\}' | wl-copy && notify-send -i color-picker 'Color copied!'"
+        },
+        {
+          "label": "",
+          "type": "toggle",
+          "update-command": "swaync-client --get-dnd",
+          "command": "swaync-client --toggle-dnd"
+        }
+      ]
+    }
+  }
+}

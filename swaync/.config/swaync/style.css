@@ -1,0 +1,167 @@
+/* style-light-flat.css - Neobrutalism, Flat, Bold Light Seoulbones */
+
+@define-color bg #e2e2e2;
+@define-color bg-alt #d4d4d4;
+@define-color fg #4b4b4b;
+@define-color fg-muted #333333;
+@define-color danger #d65c40;
+@define-color danger-hover #c05138;
+@define-color positive #779762;
+@define-color border #4b4b4b;
+
+* {
+    font-family: sans-serif;
+    border-radius: 0;
+}
+
+.control-center {
+    background-color: @bg;
+    color: @fg;
+    border: 2px solid @border;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+/* Title, Inhibitors */
+.widget-title, .widget-inhibitors {
+    padding: 24px 20px 12px;
+    background-color: transparent;
+}
+
+.widget-title > label, .widget-inhibitors > label {
+    color: @fg;
+    font-size: 1.3rem;
+    font-weight: 900;
+}
+
+.widget-title > button, .widget-inhibitors > button {
+    background-color: @danger;
+    color: #fff;
+    border: 2px solid @border;
+    box-shadow: 2px 2px 0 @border;
+}
+
+.widget-title > button:hover, .widget-inhibitors > button:hover {
+    background-color: @danger-hover;
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 @border;
+}
+
+/* Notifications */
+.notification {
+    background-color: #fff;
+}
+
+.notification-group:focus, .notification-row:focus {
+  background: none;
+}
+
+.notification-group:hover, .notification-row:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 @border;
+}
+
+.control-center .notification-row {
+    margin: 12px 20px;
+}
+
+.control-center .notification {
+    border: 2px solid @border;
+    box-shadow: 4px 4px 0 @border;
+    margin: 0;
+}
+
+.floating-notifications .notification {
+    border: 2px solid @border;
+    box-shadow: 4px 4px 0 @border;
+    margin: 8px;
+}
+
+.notification-content {
+    padding: 16px 20px;
+}
+
+.notification-default-action {
+    background-color: transparent;
+}
+
+.notification-default-action:hover {
+    background-color: #f9f9f9;
+}
+
+.summary {
+    color: @fg;
+    font-size: 1.1rem;
+    font-weight: 900;
+    margin-bottom: 6px;
+}
+
+.time {
+    color: @accent;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.body {
+    color: @fg-muted;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.close-button {
+    background-color: @bg-alt;
+    color: @fg;
+    min-width: 24px;
+    min-height: 24px;
+    margin-top: 12px;
+    margin-right: 12px;
+    padding: 0;
+    border: 2px solid @border;
+    box-shadow: 2px 2px 0 @border;
+}
+
+.close-button:hover {
+    background-color: @danger-hover;
+    color: #fff;
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 @border;
+}
+
+/* Buttons Grid */
+.widget-buttons-grid {
+    padding: 12px 16px 24px;
+    background-color: transparent;
+    border: none;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background-color: #fff;
+    color: @fg;
+    border: 2px solid @border;
+    padding: 12px;
+    margin: 4px;
+    font-size: 1.4rem;
+    font-weight: 900;
+    min-height: 48px;
+    box-shadow: 3px 3px 0 @border;
+    transition: none;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background-color: #f0f0f0;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 @border;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+    background-color: @positive;
+    color: #fff;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked:hover {
+    background-color: #628050;
+}

@@ -26,3 +26,9 @@
     color: #ffffff;
     background-color: #90b1b1;
 }
+
+#custom-notification {
+    padding: 0 10px;
+    background-color: #2980b9;
+}
+
