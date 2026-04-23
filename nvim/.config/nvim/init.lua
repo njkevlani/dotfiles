@@ -605,8 +605,14 @@ local plugins = {
 
   {
     -- Highlights color codes with their actual color (like black color for #000).
-    'norcalli/nvim-colorizer.lua',
-    config = function() require('colorizer').setup() end,
+    'catgoose/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup({
+        options = {
+          parsers = { css = true },
+        },
+      })
+    end,
   },
 
   {
