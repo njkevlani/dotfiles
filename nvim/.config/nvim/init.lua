@@ -306,6 +306,7 @@ local plugins = {
         'yaml-language-server',
         'bash-language-server',
         'protols',
+        'vscode-json-language-server',
       })
     end,
     config = function()
@@ -317,6 +318,7 @@ local plugins = {
       vim.lsp.enable('yamlls')
       vim.lsp.enable('bashls')
       vim.lsp.enable('protols')
+      vim.lsp.enable('jsonls')
 
       vim.lsp.config('protols', {
         -- In some projects, we use `proto` directory as root.
