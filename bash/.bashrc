@@ -13,6 +13,7 @@ alias jqcsv="jq -r '(.[0] | keys) as \$k | \$k, map([.[ \$k[] ]])[] | @csv'"
 export PATH=$HOME/.local/bin/:$PATH
 
 export EDITOR=nvim
+export MANPAGER='nvim +Man!'
 
 # Never delete history
 export HISTSIZE=
