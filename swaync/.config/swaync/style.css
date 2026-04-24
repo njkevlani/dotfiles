@@ -1,5 +1,3 @@
-/* style-light-flat.css - Neobrutalism, Flat, Bold Light Seoulbones */
-
 @define-color bg #e2e2e2;
 @define-color bg-alt #d4d4d4;
 @define-color fg #4b4b4b;
@@ -11,25 +9,24 @@
 
 * {
     font-family: sans-serif;
-    border-radius: 0;
+    border-radius: 10px;
 }
 
 .control-center {
     background-color: @bg;
     color: @fg;
     border: 2px solid @border;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-radius: 10px 0 0 10px;
 }
 
 /* Title, Inhibitors */
 .widget-title, .widget-inhibitors {
     padding: 24px 20px 12px;
-    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 2px dashed;
 }
 
 .widget-title > label, .widget-inhibitors > label {
-    color: @fg;
     font-size: 1.3rem;
     font-weight: 900;
 }
@@ -50,43 +47,27 @@
 /* Notifications */
 .notification {
     background-color: #fff;
+    border: 2px solid @border;
+    box-shadow: 4px 4px 0 @border;
 }
 
 .notification-group:focus, .notification-row:focus {
-  background: none;
+    background: none;
 }
 
-.notification-group:hover, .notification-row:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 0 0 0 @border;
-}
 
-.control-center .notification-row {
-    margin: 12px 20px;
-}
-
-.control-center .notification {
-    border: 2px solid @border;
-    box-shadow: 4px 4px 0 @border;
-    margin: 0;
-}
-
+/* Extra margin for close button to adjust against margin given to floating notifications. */
 .floating-notifications .notification {
-    border: 2px solid @border;
-    box-shadow: 4px 4px 0 @border;
-    margin: 8px;
+    margin-top: 8px;
+    margin-right: 8px;
 }
 
-.notification-content {
-    padding: 16px 20px;
+.notification-content, .notification-alt-actions {
+    padding: 8px 20px;
 }
 
-.notification-default-action {
-    background-color: transparent;
-}
-
-.notification-default-action:hover {
-    background-color: #f9f9f9;
+.image {
+    margin-left: -12px;
 }
 
 .summary {
@@ -97,7 +78,7 @@
 }
 
 .time {
-    color: @accent;
+    color: @danger;
     font-size: 0.85rem;
     font-weight: bold;
 }
@@ -114,11 +95,14 @@
     color: @fg;
     min-width: 24px;
     min-height: 24px;
-    margin-top: 12px;
-    margin-right: 12px;
     padding: 0;
     border: 2px solid @border;
     box-shadow: 2px 2px 0 @border;
+}
+
+.floating-notifications .close-button {
+    margin-top: 16px;
+    margin-right: 16px;
 }
 
 .close-button:hover {
@@ -128,11 +112,31 @@
     box-shadow: 0 0 0 @border;
 }
 
+/* Notification Action Buttons */
+.notification-action {
+    margin: 0;
+}
+
+.notification-action > button {
+    background-color: #fff;
+    color: @fg;
+    border: 2px solid @border;
+    font-size: 1.1rem;
+    font-weight: 900;
+    padding: 8px 16px;
+    margin: 4px;
+    box-shadow: 3px 3px 0 @border;
+}
+
+
+.notification-default-action:hover, .notification-action:hover, .notification-default-action > button:hover, .notification-action > button:hover {
+    background-color: #f0f0f0;
+}
+
 /* Buttons Grid */
 .widget-buttons-grid {
-    padding: 12px 16px 24px;
-    background-color: transparent;
-    border: none;
+    border-radius: 0;
+    border-top: 2px dashed;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
