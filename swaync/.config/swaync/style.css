@@ -6,6 +6,9 @@
 @define-color danger-hover #c05138;
 @define-color positive #779762;
 @define-color border #4b4b4b;
+@define-color base-light #fff;
+@define-color hover-light #f0f0f0;
+@define-color hover-active #628050;
 
 * {
     font-family: sans-serif;
@@ -33,7 +36,7 @@
 
 .widget-title > button, .widget-inhibitors > button {
     background-color: @danger;
-    color: #fff;
+    color: @base-light;
     border: 2px solid @border;
     box-shadow: 2px 2px 0 @border;
 }
@@ -46,7 +49,7 @@
 
 /* Notifications */
 .notification {
-    background-color: #fff;
+    background-color: @base-light;
     border: 2px solid @border;
     box-shadow: 4px 4px 0 @border;
 }
@@ -107,7 +110,7 @@
 
 .close-button:hover {
     background-color: @danger-hover;
-    color: #fff;
+    color: @base-light;
     transform: translate(2px, 2px);
     box-shadow: 0 0 0 @border;
 }
@@ -118,7 +121,7 @@
 }
 
 .notification-action > button {
-    background-color: #fff;
+    background-color: @base-light;
     color: @fg;
     border: 2px solid @border;
     font-size: 1.1rem;
@@ -130,7 +133,7 @@
 
 
 .notification-default-action:hover, .notification-action:hover, .notification-default-action > button:hover, .notification-action > button:hover {
-    background-color: #f0f0f0;
+    background-color: @hover-light;
 }
 
 /* Buttons Grid */
@@ -140,7 +143,7 @@
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
-    background-color: #fff;
+    background-color: @base-light;
     color: @fg;
     border: 2px solid @border;
     padding: 12px;
@@ -153,7 +156,7 @@
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-    background-color: #f0f0f0;
+    background-color: @hover-light;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:active {
@@ -163,9 +166,9 @@
 
 .widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
     background-color: @positive;
-    color: #fff;
+    color: @base-light;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked:hover {
-    background-color: #628050;
+    background-color: @hover-active;
 }
