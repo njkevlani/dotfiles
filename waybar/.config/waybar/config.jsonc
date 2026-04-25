@@ -60,7 +60,7 @@
   },
   "custom/backlight-via-keyboard": {
     "exec": "qmk-light --first-device --get-brightness --quiet",
-    "format": "{}%  ",
+    "format": "{}% ",
     "interval": 2,
     "on-click": "qmk-light --first-device --set-brightness -5",
     "on-click-right": "qmk-light --first-device --set-brightness +5",
