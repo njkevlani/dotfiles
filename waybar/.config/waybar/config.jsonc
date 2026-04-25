@@ -1,5 +1,5 @@
 {
-  "height": 42,
+  "height": 36,
   "modules-left": [
     "niri/workspaces",
     "wlr/taskbar"

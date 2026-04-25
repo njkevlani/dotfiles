@@ -1,34 +1,83 @@
-@import "/etc/xdg/waybar/style.css";
-
 * {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
     font-size: 18px;
     font-family: 'Noto Sans Mono', 'Symbols Nerd Font Mono', 'Font Awesome 6 Brands', monospace;
 }
 
+window#waybar {
+    background-color: #212121;
+    color: #fff;
+    border-bottom: 1px solid #424242;
+}
+
+#workspaces button, #taskbar button {
+    padding: 0 6px;
+    background-color: transparent;
+    color: #BDBDBD;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.active, #taskbar button.active {
+    color: #FEFEFE;
+    border-bottom: 3px solid #2196F3;
+}
+
+#workspaces button:hover, #taskbar button:hover {
+    box-shadow: none;
+    background: rgba(210, 210, 210, 0.2);
+}
+
+#clock, #battery, #cpu, #memory, #backlight, #custom-backlight-external, #custom-backlight-via-keyboard, #pulseaudio, #tray, #bluetooth, #custom-notification {
+    padding: 0 10px;
+    margin: 0 4px;
+    background-color: transparent;
+    border-bottom: 3px solid transparent;
+}
+
+#clock {
+    border-bottom-color: #9C27B0;
+}
+
+#battery {
+    border-bottom-color: #4CAF50;
+}
+
+#battery.warning {
+    border-bottom-color: #FFEB3B;
+}
+
+#battery.critical {
+    border-bottom-color: #F44336;
+    color: #F44336;
+}
+
+#cpu {
+    border-bottom-color: #FF9800;
+}
+
+#memory {
+    border-bottom-color: #00BCD4;
+}
+
+#backlight, #custom-backlight-external, #custom-backlight-via-keyboard {
+    border-bottom-color: #FFC107;
+}
+
+#pulseaudio {
+    border-bottom-color: #E91E63;
+}
+
 #bluetooth {
-    padding: 0 10px;
-    background-color: #2980b9;
+    border-bottom-color: #3F51B5;
 }
 
-/* https://github.com/Alexays/Waybar/issues/3334 */
-#taskbar button {
-    padding: 0;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-#taskbar button.active {
-    box-shadow: inset 0 -3px #ffffff;
-}
-
-#custom-backlight-external, #custom-backlight-via-keyboard {
-    padding: 0 10px;
-    color: #ffffff;
-    background-color: #90b1b1;
+#tray {
+    border-bottom-color: #9E9E9E;
 }
 
 #custom-notification {
-    padding: 0 10px;
-    background-color: #2980b9;
+    border-bottom-color: #009688;
 }
-
