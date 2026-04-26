@@ -71,6 +71,7 @@
 
 .image {
     margin-left: -12px;
+    color: @fg;
 }
 
 .summary {
