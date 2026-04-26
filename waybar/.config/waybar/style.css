@@ -30,7 +30,7 @@ window#waybar {
     background: rgba(210, 210, 210, 0.2);
 }
 
-#clock, #battery, #cpu, #memory, #backlight, #custom-backlight-external, #custom-backlight-via-keyboard, #pulseaudio, #tray, #bluetooth, #custom-notification {
+#clock, #battery, #cpu, #memory, #backlight, #custom-backlight-external, #custom-backlight-via-keyboard, #pulseaudio, #tray, #bluetooth, #network, #custom-notification {
     padding: 0 10px;
     margin: 0 4px;
     background-color: transparent;
@@ -70,7 +70,7 @@ window#waybar {
     border-bottom-color: #E91E63;
 }
 
-#bluetooth {
+#bluetooth, #network {
     border-bottom-color: #3F51B5;
 }
 
