@@ -1,0 +1,4 @@
+[format]
+  [format.rules]
+    indent-sub-tables = true
+    indent-table-key-value-pairs = true
