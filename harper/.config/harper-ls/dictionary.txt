@@ -2,8 +2,10 @@ AVL
 Bhavnagar
 CloudFlare
 DB
+DSA
 FE
 HDFC
+HLD
 Lazygit
 NP
 Nilesh
@@ -28,8 +30,8 @@ nCr
 nvim
 popupmenu
 sql
+statusline
 warpstream
 waybar
 yaml
 yyyy
-statusline
