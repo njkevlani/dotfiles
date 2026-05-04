@@ -440,7 +440,11 @@ local plugins = {
     ---@type snacks.Config
     opts = {
       explorer = { enabled = true },
-      indent = { enabled = true },
+      indent = {
+        enabled = true,
+        -- Disable indent line for Markdown filetype
+        filter = function(buf) return vim.bo[buf].filetype ~= 'markdown' end,
+      },
       input = { enabled = true },
       notifier = { enabled = true },
       picker = {
