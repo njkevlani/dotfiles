@@ -36,8 +36,6 @@ vim.opt.rulerformat = '0x%B@%c'
 
 vim.keymap.set('n', '<Esc>', '<CMD>nohlsearch<CR>', { desc = '<ESC> will also clear highlights' })
 
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
 vim.keymap.set('n', '<leader>h', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<leader>l', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<leader>j', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
@@ -112,7 +110,13 @@ vim.api.nvim_create_user_command('RunFile', function()
 
   vim.notify('Running ' .. run_cmd)
 
-  vim.cmd('vs | terminal ' .. run_cmd)
+  Snacks.terminal(run_cmd, {
+    interactive = false,
+    auto_close = false,
+    win = {
+      position = 'right',
+    },
+  })
 end, { desc = 'Run current file' })
 
 vim.keymap.set('n', '<leader>rf', '<CMD>RunFile<CR>', { desc = 'Run current file' })
@@ -496,6 +500,54 @@ local plugins = {
         nowait = true,
       },
       { '<leader>i', function() Snacks.notifier.show_history() end, desc = 'Notification History' },
+      { '<leader>tt', '<CMD>hide<CR>', desc = 'Terminal toggle', ft = 'snacks_terminal' },
+      {
+        '<leader>tn',
+        function()
+          local max_count = 0
+          local terminals = Snacks.terminal.list()
+          for _, terminal in ipairs(terminals) do
+            if terminal.id > max_count then
+              max_count = terminal.id
+            end
+          end
+          Snacks.terminal.open(nil, { count = max_count + 1 })
+        end,
+        desc = 'New terminal',
+      },
+      {
+        '<leader>tp',
+        function()
+          local terminals = Snacks.terminal.list()
+          local items = {}
+
+          for _, term in ipairs(terminals) do
+            local term_id = vim.b[term.buf].snacks_terminal and vim.b[term.buf].snacks_terminal.id
+            local title = vim.b[term.buf].term_title
+            local label = string.format('Terminal %s: %s', term_id, title)
+            table.insert(items, {
+              term = term,
+              label = label,
+            })
+          end
+
+          Snacks.picker.select(items, {
+            prompt = 'Terminals pick',
+            format_item = function(item) return item.label end,
+          }, function(selected)
+            if not selected then
+              return
+            end
+
+            if selected.term:valid() then
+              vim.api.nvim_set_current_win(selected.term.win)
+            else
+              selected.term:show()
+            end
+          end)
+        end,
+        desc = 'Manage terminals',
+      },
     },
   },
 
