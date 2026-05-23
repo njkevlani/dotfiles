@@ -362,6 +362,8 @@ local plugins = {
         })
         :map('<leader>uf')
 
+      Snacks.toggle.option('wrap', { name = 'wrap' }):map('<leader>uw')
+
       ---@module 'conform'
       ---@type conform.setupOpts
       local opts = {
@@ -494,7 +496,6 @@ local plugins = {
         nowait = true,
       },
       { '<leader>i', function() Snacks.notifier.show_history() end, desc = 'Notification History' },
-      { '<leader>uw', function() Snacks.toggle.option('wrap', { name = 'Wrap' }) end, desc = 'Toggle Wrap' },
     },
   },
 
