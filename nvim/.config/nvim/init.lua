@@ -482,6 +482,12 @@ local plugins = {
           count = false,
         },
       },
+      lazygit = {
+        win = {
+          width = 0,
+          height = 0,
+        },
+      },
     },
     keys = {
       { '<leader>pe', function() Snacks.explorer() end, desc = 'File Explorer' },
@@ -493,6 +499,7 @@ local plugins = {
       { '<leader>pb', function() Snacks.picker.buffers() end, desc = 'Buffers picker' },
       { 'gd', function() Snacks.picker.lsp_definitions() end, desc = 'Goto Definition' },
       { 'gD', function() Snacks.picker.lsp_declarations() end, desc = 'Goto Declaration' },
+      { '<leader>gl', function() Snacks.lazygit() end, desc = 'Lazygit' },
       {
         'gr',
         function() Snacks.picker.lsp_references() end,
