@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Rofi Emoji
+Comment=Launch rofi emoji picker
+Exec=rofi -modi emoji -no-show-icons -show emoji -emoji-format '<big>{emoji}</big> <span weight="bold">{name}</span>[ <span size="small">({keywords})</span>]'
+Icon=preferences-desktop-emoticons
+Terminal=false
+Type=Application
+Categories=System;
