@@ -1,3 +1,4 @@
+AUR
 AVL
 Bhavnagar
 CloudFlare
@@ -10,15 +11,19 @@ Lazygit
 NP
 Nilesh
 Niri
+OOTB
 OS
 OpenCode
+PKGBUILD
 QMK
 Rofi
 SBI
 TODO
+blueman
 cmdline
 cmp
 cursorHold
+dnf
 env
 flink
 ghostty
