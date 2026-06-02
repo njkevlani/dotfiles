@@ -30,7 +30,7 @@ window#waybar {
     background: rgba(210, 210, 210, 0.2);
 }
 
-#clock, #battery, #cpu, #memory, #backlight, #custom-backlight-external, #custom-backlight-via-keyboard, #pulseaudio, #tray, #bluetooth, #network, #custom-notification {
+#clock, #battery, #cpu, #memory, #backlight, #custom-backlight-external, #custom-backlight-via-keyboard, #pulseaudio, #tray widget, #bluetooth, #network, #custom-notification {
     padding: 0 10px;
     margin: 0 4px;
     background-color: transparent;
@@ -70,12 +70,12 @@ window#waybar {
     border-bottom-color: #E91E63;
 }
 
-#bluetooth, #network {
-    border-bottom-color: #3F51B5;
+#tray {
+    margin: 0 6px;
 }
 
-#tray {
-    border-bottom-color: #9E9E9E;
+#tray widget {
+    border-bottom-color: #3F51B5;
 }
 
 #custom-notification {

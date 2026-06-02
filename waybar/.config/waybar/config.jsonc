@@ -6,8 +6,6 @@
   ],
   "modules-right": [
     "tray",
-    "network",
-    "bluetooth",
     "cpu",
     "memory",
     "backlight",
@@ -27,32 +25,6 @@
     "icon-theme": "Papirus",
     "tooltip-format": "{title}",
     "on-click": "activate"
-  },
-  "network": {
-    "format-wifi": "{icon}",
-    "format-disconnected": "󰤮",
-    "format-disabled": "󱚼",
-    "format-linked": "󰤫",
-    "format-icons": [
-      "󰤟",
-      "󰤢",
-      "󰤥",
-      "󰤨"
-    ],
-    "on-click": "iwmenu -l rofi",
-    "tooltip-format-wifi": "{essid} ({ipaddr})",
-    "tooltip-format-disconnected": "Disconnected",
-    "tooltip-format-disabled": "Disabled",
-    "tooltip-format-linked": "{essid} (No IP)"
-  },
-  "bluetooth": {
-    "format": "",
-    "format-disabled": "󰂲",
-    "format-connected": "󰂱 ",
-    "tooltip-format": "Devices connected: {num_connections}\n---\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
-    "on-click": "bzmenu -l rofi"
   },
   "cpu": {
     "format": "{usage}% "
