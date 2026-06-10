@@ -78,7 +78,7 @@ wt_rm() {
 }
 
 # Prompt like [0]-[dotfiles(main)]-λ
-PROMPT='%F{red}[%f%?%F{red}]%f-%F{red}[%f%1~${vcs_info_msg_0_}%F{red}]%f-λ '
+PROMPT='%B%F{10}[%F{9}%?%F{10}]-[%F{9}%1~${vcs_info_msg_0_}%F{10}]-λ%b%f '
 
 # Show 󰜺 when output does not end with new line.
 PROMPT_EOL_MARK=$'\U000f073a'
