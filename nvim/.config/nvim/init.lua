@@ -111,7 +111,7 @@ vim.api.nvim_create_user_command('RunFile', function()
   vim.notify('Running ' .. run_cmd)
 
   Snacks.terminal(run_cmd, {
-    interactive = false,
+    interactive = true,
     auto_close = false,
     win = {
       position = 'right',
