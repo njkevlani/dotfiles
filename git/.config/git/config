@@ -14,9 +14,9 @@
 	clean = "sed '/#gitignore$/'d"
 	smudge = cat
 [merge]
-	tool = nvim
-[mergetool "nvim"]
-	cmd = nvim -c "DiffviewOpen"
+	tool = git-jump
+[mergetool "git-jump"]
+	cmd = git jump merge
 [gc]
 	writeCommitGraph = true
 [commit]

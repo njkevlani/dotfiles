@@ -626,11 +626,6 @@ local plugins = {
   },
 
   {
-    -- Merge conflict resolver.
-    'sindrets/diffview.nvim',
-  },
-
-  {
     -- Show connected LSP clients at top right corner.
     'b0o/incline.nvim',
     dependencies = 'stevearc/conform.nvim',
