@@ -195,14 +195,6 @@ vim.diagnostic.config({
     },
     priority = 2,
   },
-  status = {
-    format = {
-      [vim.diagnostic.severity.ERROR] = '',
-      [vim.diagnostic.severity.WARN] = '',
-      [vim.diagnostic.severity.INFO] = '',
-      [vim.diagnostic.severity.HINT] = '',
-    },
-  },
 })
 
 -- Install `lazy.nvim` plugin manager
