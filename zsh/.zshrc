@@ -33,7 +33,7 @@ alias py3="source $HOME/.local/share/py3-venv/bin/activate"
 # Aliases
 alias ls="ls --color --group-directories-first -F"
 alias vi="nvim"
-alias lg="lazygit"
+alias lg='nvim +"lua Snacks.lazygit()"'
 alias kc='kubectl config use-context $(kubectl config get-contexts -o name | fzf)'
 alias kubectlnvim='nvim +"lua require(\"kubectl\").open()"'
 
