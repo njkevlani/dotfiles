@@ -626,6 +626,13 @@ local plugins = {
         render = function()
           local status_elements = {}
 
+          -- Show macro recording status
+          local recording = vim.fn.reg_recording()
+          if recording ~= '' then
+            table.insert(status_elements, { '  Recording @' .. recording .. ' ', group = 'DiagnosticWarn' })
+            table.insert(status_elements, { ' | ' })
+          end
+
           -- Collect formatters from conform.nvim
           local conform = require('conform')
           local formatters = conform.list_formatters(0)
