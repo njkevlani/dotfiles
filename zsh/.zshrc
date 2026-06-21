@@ -1,9 +1,3 @@
-uname_out="$(uname -s)"
-case "${uname_out}" in
-Linux*) source ~/.config/zsh/linux.zsh ;;
-Darwin*) source ~/.config/zsh/mac.zsh ;;
-esac
-
 source ~/.config/zsh/keybindings.zsh
 
 # Uncomitted changes.
@@ -120,3 +114,9 @@ bindkey '^x^e' edit-command-line
 setopt INTERACTIVE_COMMENTS
 
 export PATH="$PATH:$HOME/.local/bin"
+
+uname_out="$(uname -s)"
+case "${uname_out}" in
+Linux*) source ~/.config/zsh/linux.zsh ;;
+Darwin*) source ~/.config/zsh/mac.zsh ;;
+esac
