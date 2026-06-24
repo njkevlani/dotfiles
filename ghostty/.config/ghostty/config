@@ -1,5 +1,6 @@
 # Disable font ligatures.
 font-feature = -calt
+font-family = Ioskeley Mono Term
 
 # Copy to system clipboard always. Using `true` as value will only copy to
 # selection clipboard where selection clipboard is supported (like linux).
