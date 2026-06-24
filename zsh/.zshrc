@@ -1,3 +1,9 @@
+uname_out="$(uname -s)"
+case "${uname_out}" in
+Linux*) source ~/.config/zsh/linux.zsh ;;
+Darwin*) source ~/.config/zsh/mac.zsh ;;
+esac
+
 source ~/.config/zsh/keybindings.zsh
 
 # Uncomitted changes.
@@ -115,8 +121,14 @@ setopt INTERACTIVE_COMMENTS
 
 export PATH="$PATH:$HOME/.local/bin"
 
-uname_out="$(uname -s)"
-case "${uname_out}" in
-Linux*) source ~/.config/zsh/linux.zsh ;;
-Darwin*) source ~/.config/zsh/mac.zsh ;;
-esac
+if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    # Location of zsh-syntax-highlighting plgin on arch linux.
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+elif [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    # Location for zsh-syntax-highlighting  plgin on fedora.
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+elif [ -f $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+    echo "did not load zsh-syntax-highlighting"
+fi
