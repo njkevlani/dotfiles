@@ -220,6 +220,10 @@ local plugins = {
         style = 'sign',
         priority = 1,
       },
+      mappings = {
+        -- Map reset hunks to <leader>gh instead of gH
+        reset = '<leader>gh',
+      },
     },
   },
 
