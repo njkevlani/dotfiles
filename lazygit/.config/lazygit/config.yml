@@ -4,6 +4,12 @@ gui:
       - reverse
       - bold
 
+  sidePanels:
+    - [files]
+    - [branches, remotes, worktrees]
+    - [commits, tags]
+    - [stash]
+
 git:
   overrideGpg: true
 
