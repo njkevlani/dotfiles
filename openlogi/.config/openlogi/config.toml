@@ -1,0 +1,47 @@
+schema_version = 3
+
+[app_settings]
+  launch_at_login = false
+  check_for_updates = false
+  update_prompt_seen = true
+  show_in_menu_bar = true
+  auto_download_assets = true
+  thumbwheel_sensitivity = 14
+
+[devices."receiver:c2679552:slot:1".identity]
+  display_name = "MX Master 3"
+  kind = "mouse"
+
+  [devices."receiver:c2679552:slot:1".identity.model_info]
+    entity_count = 3
+    unit_id = [
+      0,
+      0,
+      0,
+      0,
+    ]
+    model_ids = [
+      45091,
+      16514,
+      0,
+    ]
+    extended_model_id = 0
+
+    [devices."receiver:c2679552:slot:1".identity.model_info.transports]
+      usb = false
+      equad = true
+      btle = true
+      bluetooth = false
+
+  [devices."receiver:c2679552:slot:1".identity.capabilities]
+    buttons = true
+    pointer = true
+    lighting = false
+    scroll_inversion = true
+
+[devices."receiver:c2679552:slot:1".bindings.GestureButton]
+  Up = "MissionControl"
+  Down = "ShowDesktop"
+  Left = "PrevTab"
+  Right = "NextTab"
+  Click = { CustomShortcut = { modifiers = 12, key_code = 0x1F, display = "Ctrl+Alt+O" } }

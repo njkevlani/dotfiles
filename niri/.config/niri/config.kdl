@@ -167,6 +167,8 @@ binds {
     Print     { screenshot-screen; }
     Mod+Print { screenshot-window; }
     Alt+Print { screenshot; }
+
+    Ctrl+Alt+O { toggle-overview; }
 }
 
 recent-windows {
