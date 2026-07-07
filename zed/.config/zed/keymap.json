@@ -34,4 +34,16 @@
       ],
     },
   },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-f": "text_finder::Toggle",
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-shift-f": "text_finder::Toggle",
+    },
+  },
 ]

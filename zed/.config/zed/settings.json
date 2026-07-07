@@ -21,6 +21,7 @@
     "calt": false,
   },
   "project_panel": {
+    "dock": "left",
     "auto_fold_dirs": false,
   },
   "gutter": {
@@ -40,8 +41,8 @@
     },
   },
   "title_bar": {
+    "show_branch_status_icon": true,
     "show_onboarding_banner": false,
-    "show_branch_icon": true,
     "show_sign_in": false,
   },
   "outline_panel": {
