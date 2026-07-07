@@ -1,6 +1,0 @@
-keymap:
-  - name: Paste in terminal with super+v
-    remap:
-      Super-v: Ctrl-Shift-v
-    application:
-      only: [ Alacritty, Xfce4-terminal ]

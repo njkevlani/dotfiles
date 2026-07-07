@@ -307,7 +307,6 @@ local plugins = {
         'bash-language-server',
         'protols',
         'vscode-json-language-server',
-        'fish-lsp',
       })
     end,
     config = function()
@@ -320,7 +319,6 @@ local plugins = {
       vim.lsp.enable('bashls')
       vim.lsp.enable('protols')
       vim.lsp.enable('jsonls')
-      vim.lsp.enable('fish_lsp')
 
       vim.lsp.config('protols', {
         -- In some projects, we use `proto` directory as root.
@@ -352,7 +350,6 @@ local plugins = {
         'dockerfmt',
         'tombi',
         'yamlfmt',
-        'fish_indent',
       })
     end,
     config = function()
@@ -385,7 +382,6 @@ local plugins = {
           toml = { 'tombi' },
           dockerfile = { 'dockerfmt' },
           yaml = { 'yamlfmt' },
-          fish = { 'fish_indent' },
         },
         format_on_save = function()
           -- Disable with a global or buffer-local variable
