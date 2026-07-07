@@ -88,6 +88,7 @@ window-rule {
     match app-id="xarchiver"
     match app-id="org.gnome.FileRoller"
     match app-id="thunar" title="Rename"
+    match app-id="thunar" title="File Operation Progress"
     match app-id="dev.zed.Zed" title="Zed — Settings"
 
     open-floating true
