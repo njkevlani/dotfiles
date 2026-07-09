@@ -39,13 +39,13 @@
     "tooltip-format": "Brightness {percent}%"
   },
   "custom/backlight-external": {
-    "exec": "~/.local/bin/waybar-ddcutil-helper print",
+    "exec": "waybar-ddcutil-helper print",
     "format": "{}% 󰍹",
     "interval": 2,
-    "on-click": "~/.local/bin/waybar-ddcutil-helper down 5",
-    "on-click-right": "~/.local/bin/waybar-ddcutil-helper up 5",
-    "on-scroll-up": "~/.local/bin/waybar-ddcutil-helper up 3",
-    "on-scroll-down": "~/.local/bin/waybar-ddcutil-helper down 3",
+    "on-click": "waybar-ddcutil-helper down 5",
+    "on-click-right": "waybar-ddcutil-helper up 5",
+    "on-scroll-up": "waybar-ddcutil-helper up 3",
+    "on-scroll-down": "waybar-ddcutil-helper down 3",
     "tooltip-format": "External Monitor Brightness {text}%"
   },
   "custom/backlight-via-keyboard": {

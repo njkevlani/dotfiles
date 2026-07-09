@@ -94,9 +94,9 @@ window-rule {
 }
 
 binds {
-    Mod+Q           hotkey-overlay-title="Close focused app or quit niri" { spawn "~/.local/bin/niri-close.sh"; }
+    Mod+Q           hotkey-overlay-title="Close focused app or quit niri" { spawn "niri-close.sh"; }
     Mod+Shift+C     hotkey-overlay-title="Clipboard history"              { spawn-sh "cliphist list | rofi -dmenu -sync -theme ~/.config/rofi/themes/spotlight-dark-clipboard.rasi | cliphist decode | wl-copy" ;}
-    Mod+Alt+L       hotkey-overlay-title="Swap Alt and Win"               { spawn "~/.local/bin/niri-alt-win-switch.sh"; }
+    Mod+Alt+L       hotkey-overlay-title="Swap Alt and Win"               { spawn "niri-alt-win-switch.sh"; }
     Mod+Shift+Slash hotkey-overlay-title="Show keybindings"               { show-hotkey-overlay; }
     Mod+Return      hotkey-overlay-title="Open a Terminal: ghostty"       { spawn "ghostty" "+new-window"; }
     Mod+Space       hotkey-overlay-title="Run an Application: rofi"       { spawn "rofi" "-show"; }

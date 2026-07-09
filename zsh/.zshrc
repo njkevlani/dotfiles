@@ -19,13 +19,7 @@ export MANPAGER='nvim +Man!'
 # This helps in seprating words by given chars when performing actions like backward-word.
 WORDCHARS=${WORDCHARS//[.\/]/}
 
-# gopath setup
-export GOPATH="$HOME/.local/share/go"
-export PATH="$PATH:$GOPATH/bin"
 
-# ruest setup
-export CARGO_HOME=$HOME/.local/share/cargo
-PATH=$PATH:$CARGO_HOME/bin
 
 # python virtual env
 alias py3="source $HOME/.local/share/py3-venv/bin/activate"
@@ -118,8 +112,6 @@ bindkey '^x^e' edit-command-line
 # MISC
 # allow # comments in shell
 setopt INTERACTIVE_COMMENTS
-
-export PATH="$PATH:$HOME/.local/bin"
 
 if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     # Location of zsh-syntax-highlighting plgin on arch linux.

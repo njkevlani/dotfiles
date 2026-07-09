@@ -4,8 +4,7 @@ Version=0.9.4
 Type=Application
 Name=waybar-ddcutil-helper monitor
 Comment=Start waybar ddcutil monitor
-# TODO: figure out how we can use ~ or $HOME here instead of hardcoded path.
-Exec=/home/njkevlani/.local/bin/waybar-ddcutil-helper monitor
+Exec=waybar-ddcutil-helper monitor
 RunHook=0
 StartupNotify=false
 Terminal=false
