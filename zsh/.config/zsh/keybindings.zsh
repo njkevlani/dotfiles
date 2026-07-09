@@ -1,3 +1,6 @@
+# Force emacs keybindings mode
+bindkey -e
+
 # Taken from https://wiki.archlinux.org/title/Zsh
 
 # create a zkbd compatible hash;
