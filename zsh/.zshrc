@@ -11,9 +11,6 @@ if [ -f ~/.config/zsh/misc.zsh ]; then
     source ~/.config/zsh/misc.zsh
 fi
 
-export EDITOR="nvim"
-export MANPAGER='nvim +Man!'
-
 # Consider / as wordchar.
 # Add period (`.`) and slash (`/`) into WORDCHARS.
 # This helps in seprating words by given chars when performing actions like backward-word.
