@@ -10,6 +10,7 @@ entry {
 
 configuration {
     calc {
+	hint-welcome: "C-Space => insert · C-Return => copy";
 	calc-command: "echo -n '{result}' | wl-copy";
     }
 }
