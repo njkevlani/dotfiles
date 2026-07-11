@@ -7,3 +7,9 @@ icon-search {
 entry {
     placeholder: "Math Expression";
 }
+
+configuration {
+    calc {
+	calc-command: "echo -n '{result}' | wl-copy";
+    }
+}
