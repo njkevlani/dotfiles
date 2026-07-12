@@ -146,14 +146,6 @@ vim.api.nvim_create_autocmd('CursorHold', {
   end,
 })
 
-local function ensure_installed(binaries_required)
-  for _, cmd in ipairs(binaries_required) do
-    if vim.fn.executable(cmd) == 0 then
-      require('snacks').notify.warn('Command not found: ' .. cmd)
-    end
-  end
-end
-
 -- Settings up following rules for Markdown files.
 -- - New line after 80 chars in current line.
 -- - Show column line at col 80.
@@ -294,21 +286,6 @@ local plugins = {
 
   {
     'neovim/nvim-lspconfig',
-    init = function()
-      ensure_installed({
-        'gopls',
-        'golangci-lint',
-        'golangci-lint-langserver',
-        'harper-ls',
-        'stylua',
-        'lua-language-server',
-        'pyright-langserver',
-        'yaml-language-server',
-        'bash-language-server',
-        'protols',
-        'vscode-json-language-server',
-      })
-    end,
     config = function()
       vim.lsp.enable('gopls')
       vim.lsp.enable('golangci_lint_ls')
@@ -338,20 +315,6 @@ local plugins = {
     -- For formatting
     'stevearc/conform.nvim',
     dependencies = 'folke/snacks.nvim',
-    init = function()
-      ensure_installed({
-        'golangci-lint',
-        'goimports',
-        'gci',
-        'gofumpt',
-        'markdownlint-cli2',
-        'shellcheck',
-        'jq',
-        'dockerfmt',
-        'tombi',
-        'yamlfmt',
-      })
-    end,
     config = function()
       Snacks.toggle
         .new({
@@ -803,6 +766,35 @@ local plugins = {
     'yousefhadder/markdown-plus.nvim',
     ft = 'markdown',
     opts = {},
+  },
+
+  {
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    dependencies = { { 'mason-org/mason.nvim', opts = {} } },
+    opts = {
+      ensure_installed = {
+        'gopls',
+        'golangci-lint',
+        'golangci-lint-langserver',
+        'harper-ls',
+        'stylua',
+        'lua-language-server',
+        'pyright',
+        'yaml-language-server',
+        'bash-language-server',
+        'protols',
+        'json-lsp',
+        'goimports',
+        'gci',
+        'gofumpt',
+        'markdownlint-cli2',
+        'shellcheck',
+        'jq',
+        'dockerfmt',
+        'tombi',
+        'yamlfmt',
+      },
+    },
   },
 }
 
