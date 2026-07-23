@@ -3,6 +3,7 @@ schema_version = 3
 [app_settings]
   launch_at_login = false
   check_for_updates = false
+  auto_install_updates = false
   update_prompt_seen = true
   show_in_menu_bar = true
   auto_download_assets = true
