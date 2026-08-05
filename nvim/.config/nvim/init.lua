@@ -793,6 +793,7 @@ local plugins = {
         'dockerfmt',
         'tombi',
         'yamlfmt',
+        'delve',
       },
     },
   },
