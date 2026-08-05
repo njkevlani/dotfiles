@@ -72,6 +72,15 @@ window-rule {
     open-maximized true
 }
 
+// Open these windows maximised to edge by default.
+window-rule {
+    match app-id="Thunar" title="Thunar"
+    match app-id="ghostty"
+    match app-id="brave-browser"
+
+    open-maximized-to-edges true
+}
+
 // Open these windows in floating mode.
 window-rule {
     match app-id="blueman-manager"
