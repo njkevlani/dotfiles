@@ -121,3 +121,6 @@ elif [ -f $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting
 else
     echo "did not load zsh-syntax-highlighting"
 fi
+
+# Disable syntax highlighting for commands longer than 300 characters.
+ZSH_HIGHLIGHT_MAXLENGTH=300
