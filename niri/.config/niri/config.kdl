@@ -173,7 +173,8 @@ binds {
     Mod+Print { screenshot-window; }
     Alt+Print { screenshot; }
 
-    Ctrl+Alt+O { toggle-overview; }
+    MouseBack { toggle-overview; }
+    MouseForward { toggle-overview; }
 }
 
 recent-windows {
