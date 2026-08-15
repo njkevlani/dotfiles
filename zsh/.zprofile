@@ -3,14 +3,14 @@ typeset -U path PATH
 
 # Go setup
 export GOPATH="$HOME/.local/share/go"
-export PATH="$PATH:$GOPATH/bin"
+export PATH="$GOPATH/bin:$PATH"
 
 # Rust setup
 export CARGO_HOME="$HOME/.local/share/cargo"
-export PATH="$PATH:$CARGO_HOME/bin"
+export PATH="$CARGO_HOME/bin:$PATH"
 
 # Local bin
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
 
 export EDITOR="nvim"
 export MANPAGER='nvim +Man!'
