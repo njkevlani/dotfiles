@@ -121,17 +121,14 @@ bindkey '^x^e' edit-command-line
 # allow # comments in shell
 setopt INTERACTIVE_COMMENTS
 
-if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    # Location of zsh-syntax-highlighting plgin on arch linux.
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-elif [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    # Location for zsh-syntax-highlighting  plgin on fedora.
-    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-elif [ -f $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-else
-    echo "did not load zsh-syntax-highlighting"
-fi
+plugin_load() {
+    local dir="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins/${1:t}"
+    [[ -d "$dir" ]] || git clone --depth=1 -q "https://github.com/$1.git" "$dir"
+    source "$dir/${1:t}.plugin.zsh" 2>/dev/null || source "$dir/${1:t}.zsh" 2>/dev/null
+}
+
+plugin_load romkatv/zsh-defer
+zsh-defer plugin_load zsh-users/zsh-syntax-highlighting
 
 # Disable syntax highlighting for commands longer than 300 characters.
 ZSH_HIGHLIGHT_MAXLENGTH=300
