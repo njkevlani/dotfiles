@@ -69,6 +69,16 @@ wt_rm() {
     [[ -n "$target" ]] && wt --rm --branch "$target"
 }
 
+port() {
+    [[ -z "$1" ]] && { echo "Usage: port <port> [kill]"; return 1; }
+    if [[ "$2" == "kill" ]]; then
+        local pids=$(lsof -ti :"$1")
+        [[ -n "$pids" ]] && echo "$pids" | xargs kill -9 && echo "Killed port $1" || echo "No process on port $1"
+    else
+        lsof -i :"$1"
+    fi
+}
+
 # Prompt like [0]-[dotfiles(main)]-λ
 PROMPT='%B%F{10}[%F{9}%?%F{10}]-[%F{9}%1~${vcs_info_msg_0_}%F{10}]-λ%b%f '
 
