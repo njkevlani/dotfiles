@@ -26,3 +26,7 @@ quit-after-last-window-closed = false
 
 # For slimmer tabbar.
 gtk-custom-css=gtk.css
+
+# Default scroll multiplier for discrete devices (like mouse with scroll wheel)
+# is set to 3, Which is too fast.
+mouse-scroll-multiplier = discrete:1
