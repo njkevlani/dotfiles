@@ -1,3 +1,11 @@
+plugin_load() {
+    local dir="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins/${1:t}"
+    [[ -d "$dir" ]] || git clone --depth=1 -q "https://github.com/$1.git" "$dir"
+    source "$dir/${1:t}.plugin.zsh" 2>/dev/null || source "$dir/${1:t}.zsh" 2>/dev/null
+}
+
+plugin_load romkatv/zsh-defer
+
 uname_out="$(uname -s)"
 case "${uname_out}" in
 Linux*) source ~/.config/zsh/linux.zsh ;;
@@ -119,13 +127,6 @@ bindkey '^x^e' edit-command-line
 # allow # comments in shell
 setopt INTERACTIVE_COMMENTS
 
-plugin_load() {
-    local dir="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins/${1:t}"
-    [[ -d "$dir" ]] || git clone --depth=1 -q "https://github.com/$1.git" "$dir"
-    source "$dir/${1:t}.plugin.zsh" 2>/dev/null || source "$dir/${1:t}.zsh" 2>/dev/null
-}
-
-plugin_load romkatv/zsh-defer
 zsh-defer plugin_load zsh-users/zsh-syntax-highlighting
 
 # Disable syntax highlighting for commands longer than 300 characters.
