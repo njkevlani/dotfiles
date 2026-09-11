@@ -94,7 +94,7 @@ PROMPT='%B%F{10}[%F{9}%?%F{10}]-[%F{9}%1~${vcs_info_msg_0_}%F{10}]-λ%b%f '
 PROMPT_EOL_MARK=$'\U000f073a'
 
 # Enable fzf shell integration for things like history search.
-source <(fzf --zsh)
+zsh-defer eval 'source <(fzf --zsh)'
 
 # History settings
 HISTFILE=~/.cache/zsh/history.txt
