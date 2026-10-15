@@ -302,6 +302,14 @@ local plugins = {
         root_markers = { 'proto' },
       })
 
+      vim.lsp.config('harper_ls', {
+        settings = {
+          ['harper-ls'] = {
+            userDictPath = vim.fn.expand('~/dotfiles/harper/.config/harper-ls/dictionary.txt'),
+          },
+        },
+      })
+
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function()
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = '[LSP] Go to definition' })

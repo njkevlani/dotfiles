@@ -4,6 +4,7 @@ Bhavnagar
 CloudFlare
 DB
 DSA
+ERD
 FE
 HDFC
 HLD
@@ -38,6 +39,7 @@ nvim
 popupmenu
 sql
 statusline
+url
 warpstream
 waybar
 yaml
