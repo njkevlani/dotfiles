@@ -821,6 +821,7 @@ local plugins = {
         'gofumpt',
         'markdownlint-cli2',
         'shellcheck',
+        'shfmt',
         'jq',
         'dockerfmt',
         'tombi',
