@@ -9,6 +9,14 @@ export PATH="$GOPATH/bin:$PATH"
 export CARGO_HOME="$HOME/.local/share/cargo"
 export PATH="$CARGO_HOME/bin:$PATH"
 
+# Node setup
+export PATH="$HOME/.local/share/node/bin:$PATH"
+export NODE_PATH="$HOME/.local/share/node/lib/node_modules:$NODE_PATH"
+
+# Python setup
+export PYTHONUSERBASE="$HOME/.local/share/python"
+export PATH="$PYTHONUSERBASE/bin:$PATH"
+
 # Local bin
 export PATH="$HOME/.local/bin:$PATH"
 
