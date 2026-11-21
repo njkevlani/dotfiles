@@ -4,7 +4,7 @@ For adding blur and lock icon to the wallpaper:
 magick wallpaper.png -blur 0x15 wallpaper-blur.png
 
 magick wallpaper.png -blur 0x15 \
-  lock.png -gravity northeast -geometry +180+180 -composite \
+  lock.png -gravity northeast -geometry +240+180 -composite \
   wallpaper-lock.png
 ```
 
